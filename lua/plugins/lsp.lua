@@ -110,7 +110,7 @@ return {
                 callSnippet = "Replace",
               },
               diagnostics = {
-                globals = { "vim", "MiniIndentscope" },
+                globals = { "vim" },
               },
             },
           },

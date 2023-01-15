@@ -98,12 +98,12 @@ return {
     "echasnovski/mini.indentscope",
     event = "VeryLazy",
     opts = function()
-      require("mini.indentscope").setup()
+      local indentscope = require("mini.indentscope")
 
       return {
         draw = {
           delay = 0,
-          animation = MiniIndentscope.gen_animation.none(),
+          animation = indentscope.gen_animation.none(),
         },
         symbol = "│",
       }
