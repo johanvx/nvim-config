@@ -15,6 +15,7 @@
   "mini.indentscope": { "branch": "main", "commit": "59c73c6965f9fa74cd2c1351339a58778e68e589" },
   "mini.jump": { "branch": "main", "commit": "0c7af40be57abc879a3a6bc0a59e026fa74ae36d" },
   "mini.jump2d": { "branch": "main", "commit": "6f999c908306b281252f1304bb7411e8ffd0ff75" },
+  "mini.move": { "branch": "main", "commit": "5d8040b67a0cfb788a9e3672d4d1b1ff6d82f430" },
   "mini.pairs": { "branch": "main", "commit": "01ff683bf13839f5a56b765e89591f418ffe1e2c" },
   "mini.starter": { "branch": "main", "commit": "038a243a9ced06fd499e1635711d4dd2494af21c" },
   "mini.statusline": { "branch": "main", "commit": "8b4498e6962fffd3e0afe3d6be025a5217404948" },

@@ -24,14 +24,6 @@ vim.keymap.set("!", "<C-l>", "<Right>")
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
 
--- Move lines
-vim.keymap.set("n", "<M-j>", "<Cmd>move .+1<CR>==")
-vim.keymap.set("v", "<M-j>", ":move '>+1<CR>gv=gv")
-vim.keymap.set("i", "<M-j>", "<Esc>:move .+1<CR>==gi")
-vim.keymap.set("n", "<M-k>", "<Cmd>move .-2<CR>==")
-vim.keymap.set("v", "<M-k>", ":move '<-2<CR>gv=gv")
-vim.keymap.set("i", "<M-k>", "<Esc>:move .-2<CR>==gi")
-
 -- Select All
 vim.keymap.set("n", "<C-a>", "ggVG")
 
