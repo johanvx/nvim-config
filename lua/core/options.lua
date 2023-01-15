@@ -1,3 +1,12 @@
+User.opt = {
+  toggle_spell = function()
+    vim.wo.spell = not vim.wo.spell
+  end,
+  toggle_wrap = function()
+    vim.wo.wrap = not vim.wo.wrap
+  end,
+}
+
 -- UI
 vim.opt.background = "dark"
 vim.opt.cmdheight = 1

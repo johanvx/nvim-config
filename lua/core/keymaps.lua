@@ -31,6 +31,20 @@ vim.keymap.set("n", "<C-a>", "ggVG")
 vim.keymap.set("x", "<", "<gv")
 vim.keymap.set("x", ">", ">gv")
 
+-- Toggle options
+vim.keymap.set(
+  "n",
+  "<Leader>os",
+  "<Cmd>lua User.opt.toggle_spell()<CR>",
+  { desc = "Toggle spell" }
+)
+vim.keymap.set(
+  "n",
+  "<Leader>ow",
+  "<Cmd>lua User.opt.toggle_wrap()<CR>",
+  { desc = "Toggle wrap" }
+)
+
 -- Quit
 vim.keymap.set(
   "n",

@@ -29,6 +29,7 @@ return {
         b = { name = "+Buffer" },
         f = { name = "+Telescope", g = { name = "+Git" } },
         l = { name = "+LSP" },
+        o = { name = "+Options" },
         w = { name = "+Window" },
       },
       ["g"] = {
