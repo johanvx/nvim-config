@@ -144,6 +144,14 @@ return {
         return { name = name, action = action, section = section }
       end
 
+      -- Neovim version
+      local v = vim.version()
+      local version = (" v%d.%d.%d"):format(v.major, v.minor, v.patch)
+      -- Current date and time
+      local datetime = os.date(" %Y-%m-%d %H:%M:%S")
+      -- Padding
+      local padding = string.rep(" ", 13)
+
       return {
         header = table.concat({
           "  █         █                                                    ",
@@ -171,6 +179,7 @@ return {
           item("l", " Lazy panel", "Lazy", "Config"),
           item("c", " Edit configuration", "edit $MYVIMRC", "Config"),
         },
+        footer = table.concat({ "", version, datetime, "" }, padding),
         content_hooks = {
           starter.gen_hook.adding_bullet(" ", true),
           starter.gen_hook.aligning("center", "center"),
@@ -178,30 +187,7 @@ return {
       }
     end,
     config = function(_, opts)
-      local starter = require("mini.starter")
-      starter.setup(opts)
-
-      -- footer
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "LazyVimStarted",
-        callback = function()
-          -- Load `count` plugins in `time` ms
-          local stats = require("lazy").stats()
-          local count = (" %d plugin(s)"):format(stats.count)
-          local time = (" %.2f ms"):format(stats.startuptime)
-          -- Neovim version
-          local v = vim.version()
-          local version = (" v%d.%d.%d"):format(v.major, v.minor, v.patch)
-          -- Current date and time
-          local datetime = os.date(" %Y-%m-%d %H:%M:%S")
-          -- Padding
-          local padding = string.rep(" ", 4)
-          -- Set MiniStarterFooter
-          starter.config.footer =
-            table.concat({ time, count, version, datetime }, padding)
-          pcall(starter.refresh)
-        end,
-      })
+      require("mini.starter").setup(opts)
     end,
   },
   {
