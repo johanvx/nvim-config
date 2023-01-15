@@ -199,6 +199,41 @@ return {
   },
   {
     "echasnovski/mini.statusline",
+    opts = {
+      content = {
+        active = function()
+          local statusline = require("mini.statusline")
+
+          local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
+          local spell = vim.wo.spell and "" or ""
+          local wrap = vim.wo.wrap and "" or ""
+          local git = statusline.section_git({ trunc_width = 75 })
+          local diagnostics =
+            statusline.section_diagnostics({ trunc_width = 75 })
+          local filename = statusline.section_filename({ trunc_width = 140 })
+          local fileinfo = statusline.section_fileinfo({ trunc_width = 120 })
+          local searchcount =
+            statusline.section_searchcount({ trunc_width = 75 })
+          local location = statusline.section_location({ trunc_width = 75 })
+
+          -- Usage of `statusline.combine_groups()` ensures highlighting and
+          -- correct padding with spaces between groups (accounts for 'missing'
+          -- sections, etc.)
+          return statusline.combine_groups({
+            { hl = mode_hl, strings = { mode, spell, wrap } },
+            { hl = "statuslineDevinfo", strings = { git, diagnostics } },
+            "%<", -- Mark general truncate point
+            { hl = "statuslineFilename", strings = { filename } },
+            "%=", -- End left alignment
+            { hl = "statuslineFileinfo", strings = { fileinfo } },
+            {
+              hl = mode_hl,
+              strings = { searchcount, location },
+            },
+          })
+        end,
+      },
+    },
     config = function(_, opts)
       require("mini.statusline").setup(opts)
     end,
