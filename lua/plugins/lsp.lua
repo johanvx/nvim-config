@@ -99,6 +99,8 @@ return {
             },
           },
         },
+        -- `rust-analyzer` for Rust
+        rust_analyzer = {},
         -- `lua-language-server` for Lua
         sumneko_lua = {
           settings = {
