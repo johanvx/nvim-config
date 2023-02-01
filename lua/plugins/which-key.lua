@@ -28,8 +28,12 @@ return {
       ["<Leader>"] = {
         b = { name = "+Buffer" },
         f = { name = "+Telescope", g = { name = "+Git" } },
+        g = {
+          name = "+Gitsigns",
+          h = { name = "+Hunk" },
+          t = { name = "+Toggle" },
+        },
         l = { name = "+LSP" },
-        o = { name = "+Options" },
         w = { name = "+Window" },
       },
       ["g"] = {

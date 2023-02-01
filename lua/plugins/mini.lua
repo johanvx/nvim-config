@@ -38,7 +38,7 @@ return {
       {
         "<Leader>bW",
         "<Cmd>lua MiniBufremove.wipeout(0, true)<CR>",
-        desc = "Wipe out",
+        desc = "Wipe out (forced)",
       },
     },
     config = function(_, opts)
