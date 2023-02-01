@@ -66,7 +66,17 @@ return {
     event = "VeryLazy",
     keys = {
       {
-        "<Leader>=",
+        "<Leader>ld",
+        "<Cmd>lua vim.diagnostic.open_float()<CR>",
+        desc = "Diagnostics",
+      },
+      {
+        "<Leader>lh",
+        "<Cmd>lua vim.lsp.buf.hover()<CR>",
+        desc = "Information",
+      },
+      {
+        "<Leader>lf",
         "<Cmd>lua User.p.format_and_save()<CR>",
         desc = "Format and save",
       },
