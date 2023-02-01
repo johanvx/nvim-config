@@ -2,6 +2,7 @@ _G.User = {}
 
 require("core.utils")
 require("core.globals")
+require("core.envs")
 require("core.options")
 require("core.keymaps")
 require("core.lazy")
