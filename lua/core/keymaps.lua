@@ -34,13 +34,13 @@ vim.keymap.set("x", ">", ">gv")
 -- Toggle options
 vim.keymap.set(
   "n",
-  "<Leader>os",
+  "<LocalLeader>s",
   "<Cmd>lua User.opt.toggle_spell()<CR>",
   { desc = "Toggle spell" }
 )
 vim.keymap.set(
   "n",
-  "<Leader>ow",
+  "<LocalLeader>w",
   "<Cmd>lua User.opt.toggle_wrap()<CR>",
   { desc = "Toggle wrap" }
 )
