@@ -31,19 +31,33 @@ return {
           local null_ls = require("null-ls")
           return {
             sources = {
+              -- Completion
+              -- Spell suggestion
+              null_ls.builtins.completion.spell,
+              -- Tags
+              null_ls.builtins.completion.tags,
+
               -- Diagnostics
               -- `chktex` for LaTeX
               null_ls.builtins.diagnostics.chktex,
               -- `fish` for fish
               null_ls.builtins.diagnostics.fish,
+              -- `ruff` for Python
+              null_ls.builtins.diagnostics.ruff,
 
               -- Formatting
+              -- `black` for Python
+              null_ls.builtins.formatting.black,
               -- `clang-format` for C/C++/...
               null_ls.builtins.formatting.clang_format,
               -- `deno` for frontend
               null_ls.builtins.formatting.deno_fmt,
+              -- `shfmt` for Bash
+              null_ls.builtins.formatting.shfmt,
               -- `stylua` for Lua
               null_ls.builtins.formatting.stylua,
+              -- `ruff` for Python
+              null_ls.builtins.formatting.ruff,
               -- `rustfmt` for Rust
               null_ls.builtins.formatting.rustfmt,
             },
@@ -55,6 +69,9 @@ return {
       },
       {
         "SmiteshP/nvim-navic",
+        opts = {
+          highlight = true,
+        },
         config = function(_, opts)
           require("nvim-navic").setup(opts)
 
@@ -98,17 +115,24 @@ return {
     },
     opts = {
       servers = {
-        -- `pyright` for Python
-        pyright = {
-          settings = {
-            python = {
-              venvPath = ".",
-              analysis = {
-                extraPaths = { "." },
-              },
-            },
+        -- `bash-language-server` for Bash
+        bashls = {},
+        -- `deno` for frontend
+        denols = {
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+            "json",
+            "jsonc",
+            "markdown",
           },
         },
+        -- `ruff-lsp` for Python
+        ruff_lsp = {},
         -- `rust-analyzer` for Rust
         rust_analyzer = {},
         -- `lua-language-server` for Lua
