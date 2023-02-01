@@ -32,74 +32,87 @@ return {
     { "<Leader>fw", "<Cmd>Telescope grep_string<CR>", desc = "Word" },
     -- Git
     { "<Leader>fgb", "<Cmd>Telescope git_branches<CR>", desc = "Branches" },
-    { "<Leader>fgc", "<Cmd>Telescope git_bcommits<CR>", desc = "Commits (buffer)" },
-    { "<Leader>fgC", "<Cmd>Telescope git_commits<CR>", desc = "Commits (directory)" },
+    {
+      "<Leader>fgc",
+      "<Cmd>Telescope git_bcommits<CR>",
+      desc = "Commits (buffer)",
+    },
+    {
+      "<Leader>fgC",
+      "<Cmd>Telescope git_commits<CR>",
+      desc = "Commits (directory)",
+    },
     { "<Leader>fgf", "<Cmd>Telescope git_files<CR>", desc = "Files" },
-    { "<Leader>fgs", "<Cmd>Telescope git_status<CR>", desc = "Status"},
-    { "<Leader>fgS", "<Cmd>Telescope git_stash<CR>", desc = "Stash"},
+    { "<Leader>fgs", "<Cmd>Telescope git_status<CR>", desc = "Status" },
+    { "<Leader>fgS", "<Cmd>Telescope git_stash<CR>", desc = "Stash" },
   },
-  opts = {
-    defaults = {
-      sorting_strategy = "ascending",
-      scroll_strategy = "limit",
-      layout_strategy = "flex",
-      layout_config = {
-        flex = { flip_columns = 100 },
-        horizontal = {
-          prompt_position = "top",
-          preview_cutoff = 100,
-          preview_width = 0.6,
-          height = function(_, max, _)
-            return max
-          end,
-          width = function(_, max, _)
-            return max
-          end,
+  opts = function()
+    return {
+      defaults = {
+        sorting_strategy = "ascending",
+        scroll_strategy = "limit",
+        layout_strategy = "flex",
+        layout_config = {
+          flex = { flip_columns = 100 },
+          horizontal = {
+            prompt_position = "top",
+            preview_cutoff = 100,
+            preview_width = 0.6,
+            height = function(_, max, _)
+              return max
+            end,
+            width = function(_, max, _)
+              return max
+            end,
+          },
+          vertical = {
+            preview_cutoff = 10,
+            preview_height = 0.6,
+            height = function(_, max, _)
+              return max
+            end,
+            width = function(_, max, _)
+              return max
+            end,
+          },
         },
-        vertical = {
-          preview_cutoff = 10,
-          preview_height = 0.6,
-          height = function(_, max, _)
-            return max
-          end,
-          width = function(_, max, _)
-            return max
-          end,
-        },
-      },
-      -- Use the sorter provided by mini.fuzzy
-      file_sorter = require("mini.fuzzy").get_telescope_sorter,
-      generic_sorter = require("mini.fuzzy").get_telescope_sorter,
-    },
-    winblend = 10,
-    path_display = { shorten = { len = 1, exclude = { 1, -2, -1 } } },
-    get_status_text = nil,
-    dynamic_preview_title = true,
-    mappings = {
-      i = {
-        ["<C-u>"] = false,
-      },
-    },
-    extensions = {
-      file_browser = {
-        initial_mode = "normal",
-        hijack_netrw = true,
-        grouped = true,
         mappings = {
-          ["i"] = {
-            ["<C-w>"] = function()
-              vim.cmd("normal vbd")
-            end,
+          i = {
+            ["<C-j>"] = "move_selection_next",
+            ["<C-k>"] = "move_selection_previous",
+            ["<C-n>"] = false,
+            ["<C-p>"] = false,
           },
-          ["n"] = {
-            ["/"] = function()
-              vim.cmd("startinsert")
-            end,
+        },
+        -- Use the sorter provided by mini.fuzzy
+        file_sorter = require("mini.fuzzy").get_telescope_sorter,
+        generic_sorter = require("mini.fuzzy").get_telescope_sorter,
+        winblend = 10,
+        path_display = { shorten = { len = 1, exclude = { 1, -2, -1 } } },
+        get_status_text = nil,
+        dynamic_preview_title = true,
+      },
+      extensions = {
+        file_browser = {
+          initial_mode = "normal",
+          hijack_netrw = true,
+          grouped = true,
+          mappings = {
+            ["i"] = {
+              ["<C-w>"] = function()
+                vim.cmd("normal vbd")
+              end,
+            },
+            ["n"] = {
+              ["/"] = function()
+                vim.cmd("startinsert")
+              end,
+            },
           },
         },
       },
-    },
-  },
+    }
+  end,
   config = function(_, opts)
     local telescope = require("telescope")
 
