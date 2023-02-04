@@ -135,7 +135,7 @@ return {
     event = "VeryLazy",
     config = function(_, opts)
       require("mini.move").setup(opts)
-    end
+    end,
   },
   {
     "echasnovski/mini.pairs",
