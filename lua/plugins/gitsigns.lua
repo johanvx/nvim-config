@@ -48,6 +48,7 @@ return {
       },
     },
     opts = {
+      numhl = true,
       preview_config = {
         border = "rounded",
       },
