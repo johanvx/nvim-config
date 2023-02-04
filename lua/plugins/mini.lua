@@ -68,6 +68,10 @@ return {
         source_func = "omnifunc",
         auto_setup = false,
       },
+      window = {
+        info = { border = "rounded" },
+        signature = { border = "rounded" },
+      },
     },
     config = function(_, opts)
       require("mini.completion").setup(opts)
@@ -179,12 +183,13 @@ return {
           item("i", " New file", "enew | startinsert", "Built-in"),
           item("q", " Quit", "confirm quitall", "Built-in"),
           -- Telescope
-          item("r", " Recent files", "Telescope oldfiles", "Telescope"),
-          item("f", " Find files", "Telescope find_files", "Telescope"),
           item("e", " File Browser", "Telescope file_browser", "Telescope"),
+          item("f", " Find files", "Telescope find_files", "Telescope"),
+          item("h", " Help tags", "Telescope help_tags", "Telescope"),
+          item("r", " Recent files", "Telescope oldfiles", "Telescope"),
           -- Config-related
-          item("l", " Lazy panel", "Lazy", "Config"),
           item("c", " Edit configuration", "edit $MYVIMRC", "Config"),
+          item("l", " Lazy panel", "Lazy", "Config"),
         },
         footer = table.concat({ "", version, datetime, "" }, padding),
         content_hooks = {
