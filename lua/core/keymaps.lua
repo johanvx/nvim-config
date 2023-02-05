@@ -35,14 +35,20 @@ vim.keymap.set("x", ">", ">gv")
 vim.keymap.set(
   "n",
   "<LocalLeader>s",
-  "<Cmd>lua User.opt.toggle_spell()<CR>",
+  "<Cmd>lua User.opt.toggle('spell')<CR>",
   { desc = "Toggle spell" }
 )
 vim.keymap.set(
   "n",
   "<LocalLeader>w",
-  "<Cmd>lua User.opt.toggle_wrap()<CR>",
+  "<Cmd>lua User.opt.toggle('wrap')<CR>",
   { desc = "Toggle wrap" }
+)
+vim.keymap.set(
+  "n",
+  "<LocalLeader>r",
+  "<Cmd>lua User.opt.toggle('relativenumber')<CR>",
+  { desc = "Toggle relativenumber" }
 )
 
 -- Quit

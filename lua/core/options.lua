@@ -1,9 +1,6 @@
 User.opt = {
-  toggle_spell = function()
-    vim.wo.spell = not vim.wo.spell
-  end,
-  toggle_wrap = function()
-    vim.wo.wrap = not vim.wo.wrap
+  toggle = function(win_opt)
+    vim.wo[win_opt] = not vim.wo[win_opt]
   end,
 }
 
