@@ -47,6 +47,7 @@ return {
             -- Builtins
             Boolean = { fg = p.purple },
             Conditional = { fg = p.pink },
+            Comment = { fg = p.orange },
             Character = { fg = p.pink },
             Constant = { fg = p.purple },
             CursorLine = { bg = p.none },
