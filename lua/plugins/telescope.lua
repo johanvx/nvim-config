@@ -8,11 +8,6 @@ return {
   keys = {
     {
       "<Leader>e",
-      "<Cmd>Telescope file_browser respect_gitignore=false<CR>",
-      desc = "File browser (no ignore)",
-    },
-    {
-      "<Leader><Leader>",
       "<Cmd>Telescope file_browser<CR>",
       desc = "File browser",
     },
