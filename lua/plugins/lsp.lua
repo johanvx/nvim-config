@@ -136,7 +136,7 @@ return {
         -- `rust-analyzer` for Rust
         rust_analyzer = {},
         -- `lua-language-server` for Lua
-        sumneko_lua = {
+        lua_ls = {
           settings = {
             Lua = {
               runtime = {
@@ -177,6 +177,9 @@ return {
             if client.server_capabilities.documentSymbolProvider then
               require("nvim-navic").attach(client, bufnr)
             end
+
+            -- Disable LSP highlight
+            client.server_capabilities.semanticTokensProvider = nil
           end,
         }, opts.servers[server]))
       end
