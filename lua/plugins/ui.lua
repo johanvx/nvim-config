@@ -23,6 +23,16 @@ return {
       },
     },
     event = "VeryLazy",
+    opts = {
+      notify = {
+        view = "mini",
+      },
+      messages = {
+        view = "mini",
+        view_error = "mini",
+        view_warn = "mini",
+      },
+    },
     config = function(_, opts)
       require("noice").setup(opts)
     end,
