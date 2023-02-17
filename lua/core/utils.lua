@@ -17,7 +17,7 @@ end
 ---@type string
 local path_sep = vim.loop.os_uname().sysname == "Windows_NT" and "\\" or "/"
 
----path_concat - Concatenate paths to base with os-related spearator
+---path_concat - Concatenate paths to base with os-related separator
 ---@param base string
 ---@param ... string
 ---@return string
