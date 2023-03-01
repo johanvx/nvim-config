@@ -2,15 +2,9 @@ return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope-file-browser.nvim",
   },
   cmd = { "Telescope" },
   keys = {
-    {
-      "<Leader>e",
-      "<Cmd>Telescope file_browser<CR>",
-      desc = "File browser",
-    },
     { "<Leader>/", "<Cmd>Telescope live_grep<CR>", desc = "Global search" },
     { "<Leader>f<Leader>", "<Cmd>Telescope builtin<CR>", desc = "Builtins" },
     { "<Leader>f'", "<Cmd>Telescope registers<CR>", desc = "Registers" },
@@ -109,10 +103,7 @@ return {
     }
   end,
   config = function(_, opts)
-    local telescope = require("telescope")
-
-    telescope.setup(opts)
-    telescope.load_extension("file_browser")
+    require("telescope").setup(opts)
   end,
 }
 
