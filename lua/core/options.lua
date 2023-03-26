@@ -23,7 +23,7 @@ vim.opt.fillchars = {
   vertleft = "┤",
   vertright = "├",
 }
-vim.opt.foldcolumn = "auto:2"
+vim.opt.foldcolumn = "auto"
 vim.opt.foldenable = true
 vim.opt.foldlevel = 4
 vim.opt.foldlevelstart = 4
@@ -40,7 +40,7 @@ vim.opt.ruler = false
 vim.opt.scrolloff = 10
 vim.opt.showmode = false
 vim.opt.sidescrolloff = 5
-vim.opt.signcolumn = "auto:3-5"
+vim.opt.signcolumn = "auto"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.switchbuf = "usetab"
