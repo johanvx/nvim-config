@@ -1,13 +1,13 @@
 User.fn = {}
 
----file_exists - Verify if a file exists
+---file_exists() - Verify if a file exists
 ---@param path string
 ---@return boolean
 function User.fn.file_exists(path)
   return vim.fn.filereadable(path) == 1
 end
 
----dir_exists - Verify if a directory exists
+---dir_exists() - Verify if a directory exists
 ---@param path string
 ---@return boolean
 function User.fn.dir_exists(path)
@@ -15,9 +15,10 @@ function User.fn.dir_exists(path)
 end
 
 ---@type string
+---OS-related path separator
 local path_sep = vim.loop.os_uname().sysname == "Windows_NT" and "\\" or "/"
 
----path_concat - Concatenate paths to base with os-related separator
+---path_concat() - Concatenate paths to base with os-related separator
 ---@param base string
 ---@param ... string
 ---@return string
