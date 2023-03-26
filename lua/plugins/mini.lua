@@ -155,6 +155,18 @@ return {
     end,
   },
   {
+    "echasnovski/mini.splitjoin",
+    event = "VeryLazy",
+    opts = {
+      mappings = {
+        toggle = "gs",
+      },
+    },
+    config = function(_, opts)
+      require("mini.splitjoin").setup(opts)
+    end,
+  },
+  {
     "echasnovski/mini.starter",
     event = "VimEnter",
     opts = function()
