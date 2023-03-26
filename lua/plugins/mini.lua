@@ -55,11 +55,14 @@ return {
   {
     "echasnovski/mini.comment",
     event = "VeryLazy",
+    dependencies = {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+    },
     opts = {
       hooks = {
         pre = function()
           -- JoosepAlviste/nvim-ts-context-commentstring
-          require("ts_context_commentstring.internal").update_commentstring({})
+          require("ts_context_commentstring.internal").update_commentstring()
         end,
       },
     },
@@ -100,7 +103,7 @@ return {
   },
   {
     "echasnovski/mini.fuzzy",
-    event = "VeryLazy",
+    lazy = true,
     config = function(_, opts)
       require("mini.fuzzy").setup(opts)
     end,
