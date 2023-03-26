@@ -18,6 +18,13 @@ return {
     lazy = true,
   },
   {
+    "echasnovski/mini.bracketed",
+    event = "VeryLazy",
+    config = function(_, opts)
+      require("mini.bracketed").setup(opts)
+    end,
+  },
+  {
     "echasnovski/mini.bufremove",
     keys = {
       {
