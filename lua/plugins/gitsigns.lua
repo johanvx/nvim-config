@@ -48,9 +48,10 @@ return {
       },
     },
     opts = {
+      current_line_blame = true,
       numhl = true,
       preview_config = {
-        border = "rounded",
+        border = "none",
       },
     },
     config = function(_, opts)
