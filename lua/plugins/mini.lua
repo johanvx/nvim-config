@@ -200,13 +200,14 @@ return {
           " ██        ███                                                   ",
           "  █         █                                                    ",
         }, "\n"),
+        evaluate_single = true,
         items = {
           -- Built-in
           item("i", " New file", "enew | startinsert", "Built-in"),
           item("q", " Quit", "confirm quitall", "Built-in"),
           -- Telescope
-          item("e", " File Browser", "Telescope file_browser", "Telescope"),
           item("f", " Find files", "Telescope find_files", "Telescope"),
+          item("g", " Live grep", "Telescope live_grep", "Telescope"),
           item("h", " Help tags", "Telescope help_tags", "Telescope"),
           item("r", " Recent files", "Telescope oldfiles", "Telescope"),
           -- Config-related
