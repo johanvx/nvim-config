@@ -31,12 +31,6 @@ return {
           local null_ls = require("null-ls")
           return {
             sources = {
-              -- Completion
-              -- Spell suggestion
-              null_ls.builtins.completion.spell,
-              -- Tags
-              null_ls.builtins.completion.tags,
-
               -- Diagnostics
               -- `chktex` for LaTeX
               null_ls.builtins.diagnostics.chktex,
