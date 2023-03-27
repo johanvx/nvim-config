@@ -76,7 +76,7 @@ return {
         -- Use the sorter provided by mini.fuzzy
         file_sorter = require("mini.fuzzy").get_telescope_sorter,
         generic_sorter = require("mini.fuzzy").get_telescope_sorter,
-        winblend = 10,
+        winblend = 20,
         path_display = { shorten = { len = 1, exclude = { 1, -2, -1 } } },
         get_status_text = nil,
         dynamic_preview_title = true,
