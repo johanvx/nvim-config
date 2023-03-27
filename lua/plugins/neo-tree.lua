@@ -1,12 +1,26 @@
 return {
   {
     "nvim-neo-tree/neo-tree.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
     event = "VeryLazy",
     keys = {
+      {
+        "<Leader>e",
+        function()
+          require("neo-tree.command").execute({
+            toggle = false,
+            dir = vim.loop.cwd(),
+          })
+        end,
+      },
       {
         "<Leader><Leader>",
         function()
           require("neo-tree.command").execute({
+            action = "show",
             toggle = true,
             dir = vim.loop.cwd(),
           })
@@ -23,6 +37,7 @@ return {
       filesystem = {
         bind_to_cwd = false,
         follow_current_file = true,
+        use_libuv_file_watcher = true,
       },
     },
     config = function(_, opts)
