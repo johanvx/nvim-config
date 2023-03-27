@@ -46,9 +46,9 @@ return {
       },
       indent = { enable = true },
       -- JoosepAlviste/nvim-ts-context-commentstring
-      context_commentstring = { enable = true },
+      context_commentstring = { enable = true, enable_autocmd = false },
     },
-    config = function(plugin, opts)
+    config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
