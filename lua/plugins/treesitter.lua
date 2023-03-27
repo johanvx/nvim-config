@@ -6,6 +6,15 @@ return {
     },
     build = ":TSUpdate",
     event = "BufReadPost",
+    keys = {
+      {
+        "<LocalLeader><LocalLeader>",
+        function()
+          vim.print(vim.treesitter.get_captures_at_cursor(0))
+        end,
+        desc = "Get captures at cursor",
+      },
+    },
     opts = {
       auto_install = false,
       sync_install = false,

@@ -2,15 +2,6 @@ return {
   {
     "catppuccin/nvim",
     name = "catppuccin",
-    keys = {
-      {
-        "<LocalLeader><LocalLeader>",
-        function()
-          vim.pretty_print(vim.treesitter.get_captures_at_cursor(0))
-        end,
-        desc = "Get captures at cursor",
-      },
-    },
     opts = {
       flavour = "mocha",
       integrations = {
