@@ -28,7 +28,7 @@ return {
           base = "#22212c",
           text = "#f8f8f2",
           red = "#ff5555",
-          -- blue = "#5555ff",
+          blue = "#55a9ff",
           yellow = "#ffff80",
           green = "#8aff80",
           pink = "#ff80bf",
@@ -52,12 +52,15 @@ return {
             Constant = { fg = p.purple },
             CursorLine = { bg = p.none },
             Function = { fg = p.green },
-            Include = { fg = p.purple },
+            Include = { fg = p.pink },
             Keyword = { fg = p.cyan },
+            NormalFloat = { link = "Normal" },
             Number = { fg = p.purple },
             Macro = { fg = p.pink },
+            MsgArea = { bg = p.base },
             Operator = { fg = p.pink },
             Repeat = { fg = p.pink },
+            StatusLine = { fg = p.text, bg = p.base },
             StorageClass = { fg = p.cyan },
             String = { fg = p.yellow },
             Structure = { fg = p.pink },
@@ -65,6 +68,9 @@ return {
             Type = { fg = p.cyan },
             TypeDef = { fg = p.yellow },
             VertSplit = { fg = p.surface2 },
+
+            -- Mini
+            MiniStatuslineInactive = { bg = p.base },
 
             -- Treesitter
             ["@constant"] = { fg = p.purple },
