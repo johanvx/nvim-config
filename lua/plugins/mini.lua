@@ -72,6 +72,7 @@ return {
   },
   {
     "echasnovski/mini.completion",
+    enabled = false,
     event = { "InsertEnter", "CmdlineEnter" },
     opts = {
       lsp_completion = {
