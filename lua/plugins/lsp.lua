@@ -96,16 +96,6 @@ return {
         "<Cmd>lua vim.lsp.buf.rename()<CR>",
         desc = "Rename",
       },
-      {
-        "]d",
-        "<Cmd>lua vim.diagnostic.goto_next()<CR>",
-        desc = "Next diagnostic",
-      },
-      {
-        "[d",
-        "<Cmd>lua vim.diagnostic.goto_prev()<CR>",
-        desc = "Previous diagnostic",
-      },
     },
     opts = {
       servers = {
