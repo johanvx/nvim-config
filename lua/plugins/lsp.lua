@@ -73,8 +73,10 @@ return {
           vim.o.winbar = "%{%v:lua.require('nvim-navic').get_location()%}"
         end,
       },
+      -- For hrsh7th/nvim-cmp
+      "hrsh7th/cmp-nvim-lsp",
     },
-    event = "VeryLazy",
+    event = { "BufReadPre, BufNewFile" },
     keys = {
       {
         "<Leader>ld",
@@ -149,13 +151,14 @@ return {
       },
     },
     config = function(_, opts)
-      -- Server setups
       local lspconfig = require("lspconfig")
+
+      -- Server setups
       for _, server in pairs(vim.tbl_keys(opts.servers)) do
         lspconfig[server].setup(vim.tbl_deep_extend("force", {
           on_attach = function(client, bufnr)
-            -- Use mini.completion
-            vim.bo[bufnr].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
+            -- Use echasnovski/mini.completion
+            -- vim.bo[bufnr].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
 
             -- Use SmiteshP/nvim-navic
             if client.server_capabilities.documentSymbolProvider then
@@ -165,6 +168,8 @@ return {
             -- Disable LSP highlight
             client.server_capabilities.semanticTokensProvider = nil
           end,
+          -- Use hrsh7th/cmp-nvim-lsp for hrsh7th/nvim-cmp
+          capabilities = require("cmp_nvim_lsp").default_capabilities(),
         }, opts.servers[server]))
       end
     end,
