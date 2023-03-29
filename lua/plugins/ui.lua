@@ -32,6 +32,10 @@ return {
         view_error = "mini",
         view_warn = "mini",
       },
+      presets = {
+        command_palette = true,
+        long_message_to_split = true,
+      },
     },
     config = function(_, opts)
       require("noice").setup(opts)
