@@ -62,6 +62,7 @@ return {
 
             -- Mini
             MiniStatuslineInactive = { bg = p.base },
+            MiniTablineHidden = { fg = p.surface0, bg = p.base },
 
             -- Treesitter
             ["@constant"] = { fg = p.purple },
