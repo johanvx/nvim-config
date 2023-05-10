@@ -119,8 +119,6 @@ return {
         },
         -- `ruff-lsp` for Python
         ruff_lsp = {},
-        -- `rust-analyzer` for Rust
-        rust_analyzer = {},
         -- `lua-language-server` for Lua
         lua_ls = {
           settings = {
