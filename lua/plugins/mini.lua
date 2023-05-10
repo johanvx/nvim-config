@@ -53,6 +53,10 @@ return {
     end,
   },
   {
+    "echasnovski/mini.colors",
+    lazy = true,
+  },
+  {
     "echasnovski/mini.comment",
     event = "VeryLazy",
     dependencies = {
@@ -109,6 +113,17 @@ return {
     lazy = true,
     config = function(_, opts)
       require("mini.fuzzy").setup(opts)
+    end,
+  },
+  {
+    "echasnovski/mini.hues",
+    enabled = false,
+    opts = {
+      background = "#21212f",
+      foreground = "#e2e2f1",
+    },
+    config = function(_, opts)
+      require("mini.hues").setup(opts)
     end,
   },
   {
