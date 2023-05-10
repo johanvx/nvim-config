@@ -37,9 +37,9 @@ vim.opt.listchars = {
 }
 vim.opt.number = true
 vim.opt.ruler = false
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 2
 vim.opt.showmode = false
-vim.opt.sidescrolloff = 5
+vim.opt.sidescrolloff = 1
 vim.opt.signcolumn = "auto"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
