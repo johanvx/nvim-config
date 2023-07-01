@@ -34,6 +34,8 @@ return {
               -- Diagnostics
               -- `chktex` for LaTeX
               null_ls.builtins.diagnostics.chktex,
+              -- `deno` for frontend
+              null_ls.builtins.diagnostics.deno_lint,
               -- `fish` for fish
               null_ls.builtins.diagnostics.fish,
               -- `ruff` for Python
@@ -103,6 +105,8 @@ return {
       servers = {
         -- `bash-language-server` for Bash
         bashls = {},
+        -- `clangd` for C/C++
+        clangd = {},
         -- `deno` for frontend
         denols = {
           filetypes = {
@@ -117,8 +121,6 @@ return {
             "markdown",
           },
         },
-        -- `ruff-lsp` for Python
-        ruff_lsp = {},
         -- `lua-language-server` for Lua
         lua_ls = {
           settings = {
@@ -135,6 +137,8 @@ return {
             },
           },
         },
+        -- `ruff-lsp` for Python
+        ruff_lsp = {},
         -- `texlab` for LaTeX
         texlab = {
           settings = {
@@ -146,6 +150,8 @@ return {
             },
           },
         },
+        -- `typst-lsp` for Typst
+        typst_lsp = {},
       },
     },
     config = function(_, opts)
@@ -162,9 +168,6 @@ return {
             if client.server_capabilities.documentSymbolProvider then
               require("nvim-navic").attach(client, bufnr)
             end
-
-            -- Disable LSP highlight
-            client.server_capabilities.semanticTokensProvider = nil
           end,
           -- Use hrsh7th/cmp-nvim-lsp for hrsh7th/nvim-cmp
           capabilities = require("cmp_nvim_lsp").default_capabilities(),
