@@ -50,7 +50,7 @@ vim.opt.wrap = false
 
 -- GUI
 vim.opt.guifont = "Hack Nerd Font"
-vim.opt.guifontwide = "Sarasa Mono SC"
+vim.opt.guifontwide = "Noto Sans CJK SC"
 
 -- Edit
 vim.opt.autochdir = true
@@ -59,6 +59,7 @@ vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.breakindent = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
+vim.opt.confirm = true
 vim.opt.encoding = "utf-8"
 vim.opt.expandtab = true
 vim.opt.fileencodings = { "utf-8", "default", "latin1" }

@@ -51,18 +51,6 @@ vim.keymap.set(
 -- Window actions
 vim.keymap.set("n", "<Leader>w", "<C-w>")
 vim.keymap.set(
-  "n",
-  "<Leader>wq",
-  "<Cmd>confirm quit<CR>",
-  { desc = "Quit current window" }
-)
-vim.keymap.set(
-  "n",
-  "<Leader>wa",
-  "<Cmd>confirm quitall<CR>",
-  { desc = "Quit all windows" }
-)
-vim.keymap.set(
   { "", "!" },
   "<Up>",
   "<Cmd>resize +1<CR>",
