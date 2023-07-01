@@ -55,6 +55,17 @@ return {
       context_commentstring = { enable = true, enable_autocmd = false },
     },
     config = function(_, opts)
+      -- Prefer Git
+      require("nvim-treesitter.install").prefer_git = true
+
+      -- Use SSH
+      for _, config in
+        pairs(require("nvim-treesitter.parsers").get_parser_configs())
+      do
+        config.install_info.url =
+          config.install_info.url:gsub("https://github.com/", "git@github.com:")
+      end
+
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
