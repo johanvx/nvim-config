@@ -40,7 +40,7 @@ return {
       defaults = {
         sorting_strategy = "ascending",
         scroll_strategy = "limit",
-        layout_strategy = "flex",
+        layout_strategy = "vertical",
         layout_config = {
           flex = { flip_columns = 100 },
           horizontal = {
@@ -77,7 +77,6 @@ return {
         file_sorter = require("mini.fuzzy").get_telescope_sorter,
         generic_sorter = require("mini.fuzzy").get_telescope_sorter,
         winblend = 20,
-        path_display = { shorten = { len = 1, exclude = { 1, -2, -1 } } },
         get_status_text = nil,
         dynamic_preview_title = true,
       },
