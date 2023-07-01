@@ -99,6 +99,20 @@ return {
     end,
   },
   {
+    "echasnovski/mini.files",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<Leader><Leader>",
+        "<Cmd>lua MiniFiles.open(nil, false)<CR>",
+        desc = "File browser (mini.files)",
+      },
+    },
+    config = function(_, opts)
+      require("mini.files").setup(opts)
+    end,
+  },
+  {
     "echasnovski/mini.fuzzy",
     lazy = true,
     config = function(_, opts)
