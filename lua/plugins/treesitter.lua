@@ -26,7 +26,6 @@ return {
         "fish",
         "gitignore",
         "haskell",
-        "help",
         "html",
         "javascript",
         "json",
@@ -44,6 +43,7 @@ return {
         "tsx",
         "typescript",
         "vim",
+        "vimdoc",
         "yaml",
       },
       highlight = {
