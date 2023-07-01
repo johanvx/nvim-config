@@ -59,17 +59,7 @@ return {
   {
     "echasnovski/mini.comment",
     event = "VeryLazy",
-    dependencies = {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-    },
-    opts = {
-      hooks = {
-        pre = function()
-          -- JoosepAlviste/nvim-ts-context-commentstring
-          require("ts_context_commentstring.internal").update_commentstring()
-        end,
-      },
-    },
+    opts = {},
     config = function(_, opts)
       require("mini.comment").setup(opts)
     end,
