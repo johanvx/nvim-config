@@ -28,7 +28,11 @@ return {
       whichkey.register({
         ["<Leader>"] = {
           b = { name = "+Buffer" },
-          f = { name = "+Telescope", g = { name = "+Git" } },
+          f = {
+            name = "+Telescope",
+            g = { name = "+Git" },
+            l = { name = "+LSP" },
+          },
           g = {
             name = "+Gitsigns",
             h = { name = "+Hunk" },

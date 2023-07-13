@@ -34,6 +34,13 @@ return {
     { "<Leader>fgf", "<Cmd>Telescope git_files<CR>", desc = "Files" },
     { "<Leader>fgs", "<Cmd>Telescope git_status<CR>", desc = "Status" },
     { "<Leader>fgS", "<Cmd>Telescope git_stash<CR>", desc = "Stash" },
+    -- LSP
+    {
+      "<Leader>fld",
+      "<Cmd>Telescope lsp_definitions<CR>",
+      desc = "Definitions",
+    },
+    { "<Leader>flr", "<Cmd>Telescope lsp_references<CR>", desc = "References" },
   },
   opts = function()
     return {
