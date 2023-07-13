@@ -81,14 +81,29 @@ return {
     event = { "BufReadPre, BufNewFile" },
     keys = {
       {
+        "gd",
+        "<Cmd>lua vim.lsp.buf.definition()<CR>",
+        desc = "Definition (LSP)",
+      },
+      {
+        "gD",
+        "<Cmd>lua vim.lsp.buf.declaration()<CR>",
+        desc = "Declaration (LSP)",
+      },
+      {
+        "gi",
+        "<Cmd>lua vim.lsp.buf.implementation()<CR>",
+        desc = "Implementation (LSP)",
+      },
+      {
+        "K",
+        "<Cmd>lua vim.lsp.buf.hover()<CR>",
+        desc = "Information (LSP)",
+      },
+      {
         "<Leader>ld",
         "<Cmd>lua vim.diagnostic.open_float()<CR>",
         desc = "Diagnostics",
-      },
-      {
-        "<Leader>lh",
-        "<Cmd>lua vim.lsp.buf.hover()<CR>",
-        desc = "Information",
       },
       {
         "<Leader>lf",
