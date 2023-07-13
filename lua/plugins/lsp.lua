@@ -139,6 +139,8 @@ return {
         },
         -- `ruff-lsp` for Python
         ruff_lsp = {},
+        -- `tailwindcss-language-server` for TailwindCSS
+        tailwindcss = {},
         -- `texlab` for LaTeX
         texlab = {
           settings = {
@@ -150,6 +152,8 @@ return {
             },
           },
         },
+        -- `typescript-language-server` for frontend
+        -- tsserver = {},
         -- `typst-lsp` for Typst
         typst_lsp = {},
       },
