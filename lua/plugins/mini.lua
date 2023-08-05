@@ -53,6 +53,76 @@ return {
     end,
   },
   {
+    "echasnovski/mini.clue",
+    opts = function()
+      local clue = require("mini.clue")
+
+      return {
+        clues = {
+          {
+            { mode = "n", keys = "<Leader>b", desc = "+Buffer" },
+            { mode = "n", keys = "<Leader>f", desc = "+Telescope" },
+            { mode = "n", keys = "<Leader>fg", desc = "+Git" },
+            { mode = "n", keys = "<Leader>fl", desc = "+LSP" },
+            { mode = "n", keys = "<Leader>g", desc = "+Gitsigns" },
+            { mode = "n", keys = "<Leader>gh", desc = "+Hunk" },
+            { mode = "n", keys = "<Leader>gt", desc = "+Toggle" },
+            { mode = "n", keys = "<Leader>l", desc = "+LSP" },
+          },
+          clue.gen_clues.builtin_completion(),
+          clue.gen_clues.g(),
+          clue.gen_clues.marks(),
+          clue.gen_clues.registers(),
+          clue.gen_clues.windows({ submode_resize = true }),
+          clue.gen_clues.z(),
+        },
+        triggers = {
+          { mode = "c", keys = "<C-R>" },
+          { mode = "i", keys = "<C-R>" },
+          { mode = "i", keys = "<C-X>" },
+          { mode = "n", keys = "'" },
+          { mode = "n", keys = "<C-W>" },
+          { mode = "n", keys = "<Leader>" },
+          { mode = "n", keys = "<LocalLeader>" },
+          { mode = "n", keys = "[" },
+          { mode = "n", keys = "]" },
+          { mode = "n", keys = "`" },
+          { mode = "n", keys = "g" },
+          { mode = "n", keys = "s" },
+          { mode = "n", keys = "z" },
+          { mode = "n", keys = '"' },
+          { mode = "o", keys = "[" },
+          { mode = "o", keys = "]" },
+          { mode = "o", keys = "`" },
+          { mode = "o", keys = "a" },
+          { mode = "o", keys = "i" },
+          { mode = "t", keys = "<C-W>" },
+          { mode = "t", keys = "<Space>" },
+          { mode = "x", keys = "'" },
+          { mode = "x", keys = "<Leader>" },
+          { mode = "x", keys = "[" },
+          { mode = "x", keys = "]" },
+          { mode = "x", keys = "`" },
+          { mode = "x", keys = "a" },
+          { mode = "x", keys = "g" },
+          { mode = "x", keys = "i" },
+          { mode = "x", keys = "s" },
+          { mode = "x", keys = "z" },
+          { mode = "x", keys = '"' },
+        },
+        window = {
+          delay = 0,
+          config = {
+            width = "auto",
+          },
+        },
+      }
+    end,
+    config = function(_, opts)
+      require("mini.clue").setup(opts)
+    end,
+  },
+  {
     "echasnovski/mini.colors",
     lazy = true,
   },

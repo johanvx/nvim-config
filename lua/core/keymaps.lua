@@ -49,7 +49,6 @@ vim.keymap.set(
 )
 
 -- Window actions
-vim.keymap.set("n", "<Leader>w", "<C-w>")
 vim.keymap.set(
   { "", "!" },
   "<Up>",
