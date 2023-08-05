@@ -21,20 +21,20 @@ return {
       color_overrides = {
         -- Use colors from the default color palette of TailwindCSS
         mocha = {
-          rosewater = "#f43f5e", -- rose.500
-          flamingo = "#ec4899", -- pink.500
-          pink = "#ec4899", -- pink.500
-          mauve = "#8b5cf6", -- violet.500
-          red = "#ef4444", -- red.500
-          maroon = "#f59e0b", -- amber.500
-          peach = "#f97316", -- orange.500
-          yellow = "#eab308", -- yellow.500
-          green = "#10b981", -- emerald.500
-          teal = "#10b981", -- emerald.500
-          sky = "#06b6d4", -- cyan.500
-          sapphire = "#0ea5e9", -- sky.500
-          blue = "#3b82f6", -- blue.500
-          lavender = "#6366f1", -- indigo.500
+          rosewater = "#fb7185", -- rose.400
+          flamingo = "#f472b6", -- pink.400
+          pink = "#f472b6", -- pink.400
+          mauve = "#a78bfa", -- violet.400
+          red = "#f87171", -- red.400
+          maroon = "#fbbf24", -- amber.400
+          peach = "#fb923c", -- orange.400
+          yellow = "#facc15", -- yellow.400
+          green = "#34d399", -- emerald.400
+          teal = "#2dd4bf", -- teal.400
+          sky = "#22d3ee", -- cyan.400
+          sapphire = "#38bdf8", -- sky.400
+          blue = "#60a5fa", -- blue.400
+          lavender = "#818cf8", -- indigo.400
           text = "#f8fafc", -- slate.50
           subtext1 = "#f1f5f9", -- slate.100
           subtext0 = "#e2e8f0", -- slate.200
@@ -54,7 +54,7 @@ return {
           return {
             -- Builtins
             NormalFloat = { link = "Normal" },
-            Comment = { fg = p.subtext0 },
+            Comment = { fg = p.overlay1 },
             Constant = { fg = p.sapphire },
             String = { link = "Constant" },
             Character = { fg = p.pink },
@@ -86,22 +86,22 @@ return {
             SpecialComment = { link = "Special" },
             Debug = { link = "Special" },
             Underlined = { fg = p.sapphire, style = { "underline" } },
-            Ignore = { fg = p.overlay0 },
+            Ignore = { fg = p.surface2 },
             Error = { fg = p.red },
             Todo = { fg = p.sky },
             CursorLine = { bg = p.none },
-            Visual = { bg = p.surface0 },
-            FloatBorder = { fg = p.subtext0 },
+            FloatBorder = { fg = p.surface1 },
             MsgArea = { bg = p.base },
-            StatusLine = { fg = p.text, bg = p.surface0 },
-            VertSplit = { fg = p.subtext0 },
+            -- StatusLine = { fg = p.text, bg = p.surface0 },
+            VertSplit = { fg = p.surface1 },
+            LineNr = { fg = p.surface2 },
 
             -- Mini
             MiniStatuslineInactive = { bg = p.base },
             MiniTablineCurrent = { fg = p.text, bg = p.base, style = {} },
             MiniTablineFill = { bg = p.surface0 },
             MiniTablineHidden = { fg = p.overlay0, bg = p.surface0 },
-            MiniTablineVisible = { fg = p.subtext0, bg = p.base },
+            -- MiniTablineVisible = { fg = p.subtext0, bg = p.base },
 
             -- Treesitter
             ["@constant"] = { link = "Constant" },
@@ -117,7 +117,7 @@ return {
             ["@namespace"] = { link = "Structure" },
             ["@number"] = { link = "Number" },
             ["@number.css"] = { link = "Number" },
-            ["@parameter"] = { link = "Normal"},
+            ["@parameter"] = { link = "Normal" },
             ["@parameter.reference"] = { link = "Normal" },
             ["@property"] = { link = "@variable" },
             ["@property.css"] = { link = "@property" },
@@ -146,6 +146,8 @@ return {
             ["@text.reference"] = { fg = p.pink },
             ["@text.strong"] = { fg = p.sky, style = { "bold" } },
             ["@text.title"] = { fg = p.blue },
+            ["@text.todo"] = { link = "MiniHipatternsTodo" },
+            ["@text.note"] = { link = "MiniHipatternsNote" },
             ["@text.underline"] = { link = "Underlined" },
             ["@text.uri"] = { link = "Underlined" },
             ["@variable"] = { link = "Normal" },
