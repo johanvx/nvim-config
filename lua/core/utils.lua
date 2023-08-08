@@ -26,14 +26,14 @@ function User.fn.path_concat(base, ...)
   local count = select("#", ...)
   assert(
     count >= 1,
-    "expected at least 2 arguments, got " .. tostring(count + 1)
+    ("expected at least 2 arguments, got %d"):format(count + 1)
   )
 
   local ret = base
   vim.validate({ ["argument 1"] = { ret, "string" } })
   for i = 1, count do
     local path = select(i, ...)
-    vim.validate({ ["argument " .. tostring(i + 1)] = { path, "string" } })
+    vim.validate({ [("argument %d"):format(i + 1)] = { path, "string" } })
     ret = ret .. path_sep .. path
   end
   return ret
