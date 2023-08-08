@@ -1,6 +1,7 @@
 User.opt = {
-  toggle = function(win_opt)
-    vim.wo[win_opt] = not vim.wo[win_opt]
+  toggle = function(opt, tf)
+    tf = tf or { true, false }
+    vim.o[opt] = vim.o[opt] == tf[2] and tf[1] or tf[2]
   end,
 }
 
