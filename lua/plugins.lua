@@ -1,24 +1,20 @@
 -- Plugin-related table
 User.p = {}
 
-function User.p.format_and_save()
+function User.p.format()
   local bufnr = vim.api.nvim_get_current_buf()
   local ft = vim.bo[bufnr].filetype
   local has_null_ls = #require("null-ls.sources").get_available(
     ft,
     "NULL_LS_FORMATTING"
   ) > 0
-
-  -- Format
   vim.lsp.buf.format({
+    async = true,
     bufnr = bufnr,
     filter = function(client)
       return has_null_ls == (client.name == "null-ls")
     end,
   })
-
-  -- Save
-  vim.cmd("update")
 end
 
 function User.p.server_opts_with_fallback(opts)
