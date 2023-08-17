@@ -111,7 +111,9 @@ return {
         -- `bash-language-server` for Bash
         bashls = {},
         -- `clangd` for C/C++
-        clangd = {},
+        clangd = {
+          offsetEncoding = { "utf-16", "utf-8" },
+        },
         -- `deno` for frontend
         denols = {
           filetypes = {
