@@ -25,9 +25,6 @@ end
 set_lead("n", "bs", "<Cmd>update<CR>", "Save")
 set_lead("n", "bn", "<Cmd>enew<CR>", "New")
 
--- Clear search highlight with <Esc>
-set({ "i", "n" }, "<Esc>", "<Cmd>nohlsearch<CR><Esc>")
-
 -- Cursor movements
 set("", "j", "gj")
 set("", "k", "gk")
@@ -36,16 +33,19 @@ set("!", "<C-k>", "<Up>")
 set("!", "<C-h>", "<Left>")
 set("!", "<C-l>", "<Right>")
 
--- Increment / decrement
+-- Increment/decrement
 set("n", "+", "<C-a>")
 set("n", "-", "<C-x>")
 
--- Select All
+-- Select all
 set("n", "<C-a>", "ggVG")
 
 -- Shifts
 set("x", "<", "<gv")
 set("x", ">", ">gv")
+
+-- Suspend
+set({"i", "n", "v"}, "<C-s>", "<Cmd>suspend<CR>")
 
 -- Toggle options
 set_toggle("b", "background", { "dark", "light" })
@@ -58,6 +58,9 @@ set_toggle("n", "number")
 set_toggle("r", "relativenumber")
 set_toggle("s", "spell")
 set_toggle("w", "wrap")
+
+-- Type commands quicker
+set({"n", "v"}, ";", ":")
 
 -- Window actions
 set({ "", "!" }, "<Up>", "<Cmd>resize +1<CR>", "Increase height")
