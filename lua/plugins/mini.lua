@@ -256,6 +256,11 @@ return {
   {
     "echasnovski/mini.jump",
     event = "VeryLazy",
+    opts = {
+      mappings = {
+        repeat_jump = "",
+      },
+    },
     config = function(_, opts)
       require("mini.jump").setup(opts)
     end,
