@@ -112,7 +112,9 @@ return {
         bashls = {},
         -- `clangd` for C/C++
         clangd = {
-          offsetEncoding = { "utf-16", "utf-8" },
+          capabilities = {
+            offsetEncoding = { "utf-16", "utf-8" },
+          },
         },
         -- `deno` for frontend
         denols = {
