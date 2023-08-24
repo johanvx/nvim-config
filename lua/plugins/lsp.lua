@@ -98,7 +98,7 @@ return {
         "<Leader>lf",
         "<Cmd>lua User.p.format()<CR>",
         mode = { "n", "x" },
-        desc = "Format and save",
+        desc = "Format",
       },
       {
         "<Leader>lr",
