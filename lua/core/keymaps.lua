@@ -45,7 +45,12 @@ set("x", "<", "<gv")
 set("x", ">", ">gv")
 
 -- Suspend
-set({"i", "n", "v"}, "<C-s>", "<Cmd>suspend<CR>")
+set({ "i", "n", "v" }, "<C-s>", "<Cmd>suspend<CR>")
+
+-- System clipboard
+set({ "n", "x" }, "<Leader>c", '"+y', "Copy to system clipboard")
+set("n", "<Leader>p", '"+p', "Paste from system clipboard")
+set("x", "<Leader>p", '"+P', "Paste from system clipboard")
 
 -- Toggle options
 set_toggle("b", "background", { "dark", "light" })
@@ -60,7 +65,7 @@ set_toggle("s", "spell")
 set_toggle("w", "wrap")
 
 -- Type commands quicker
-set({"n", "v"}, ";", ":")
+set({ "n", "v" }, ";", ":")
 
 -- Window actions
 set({ "", "!" }, "<Up>", "<Cmd>resize +1<CR>", "Increase height")

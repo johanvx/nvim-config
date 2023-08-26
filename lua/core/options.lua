@@ -58,7 +58,6 @@ vim.opt.autochdir = true
 vim.opt.autowrite = true
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.breakindent = true
-vim.opt.clipboard = "unnamedplus"
 vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
 vim.opt.confirm = true
 vim.opt.encoding = "utf-8"
