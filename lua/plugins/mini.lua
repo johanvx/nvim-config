@@ -280,6 +280,14 @@ return {
     end,
   },
   {
+    "echasnovski/mini.operators",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts)
+      require("mini.operators").setup(opts)
+    end,
+  },
+  {
     "echasnovski/mini.pairs",
     event = "VeryLazy",
     config = function(_, opts)
@@ -289,11 +297,7 @@ return {
   {
     "echasnovski/mini.splitjoin",
     event = "VeryLazy",
-    opts = {
-      mappings = {
-        toggle = "gs",
-      },
-    },
+    opts = {},
     config = function(_, opts)
       require("mini.splitjoin").setup(opts)
     end,
