@@ -23,6 +23,9 @@ function User.p.server_opts_with_fallback(opts)
       -- Use echasnovski/mini.completion
       -- vim.bo[bufnr].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
 
+      -- Use LSP omnifunc
+      vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+
       -- Use SmiteshP/nvim-navic
       if client.server_capabilities.documentSymbolProvider then
         require("nvim-navic").attach(client, bufnr)
