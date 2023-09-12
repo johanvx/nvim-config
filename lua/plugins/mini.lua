@@ -226,10 +226,11 @@ return {
   },
   {
     "echasnovski/mini.hues",
-    enabled = false,
+    enabled = true,
     opts = {
-      background = "#21212f",
-      foreground = "#e2e2f1",
+      background = "#0f172a",
+      foreground = "#f8fafc",
+      saturation = "high",
     },
     config = function(_, opts)
       require("mini.hues").setup(opts)
