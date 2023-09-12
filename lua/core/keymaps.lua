@@ -3,8 +3,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Helper functions
-local function set(modes, lhs, rhs, desc)
-  vim.keymap.set(modes, lhs, rhs, { desc = desc })
+local function set(modes, lhs, rhs, desc, remap)
+  vim.keymap.set(modes, lhs, rhs, { desc = desc, remap = not not remap })
 end
 
 local function set_lead(modes, keys, rhs, desc)
@@ -32,6 +32,8 @@ set("!", "<C-j>", "<Down>")
 set("!", "<C-k>", "<Up>")
 set("!", "<C-h>", "<Left>")
 set("!", "<C-l>", "<Right>")
+set("", "H", "^", "", true)
+set("", "L", "$", "", true)
 
 -- Increment/decrement
 set("n", "+", "<C-a>")
