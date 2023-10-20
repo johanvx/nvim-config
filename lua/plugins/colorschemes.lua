@@ -92,7 +92,7 @@ return {
             CursorLine = { bg = p.none },
             FloatBorder = { fg = p.surface1 },
             MsgArea = { bg = p.base },
-            -- StatusLine = { fg = p.text, bg = p.surface0 },
+            StatusLine = { fg = p.text, bg = p.surface0 },
             VertSplit = { fg = p.surface1 },
             LineNr = { fg = p.surface2 },
 
@@ -101,7 +101,7 @@ return {
             MiniTablineCurrent = { fg = p.text, bg = p.base, style = {} },
             MiniTablineFill = { bg = p.surface0 },
             MiniTablineHidden = { fg = p.overlay0, bg = p.surface0 },
-            -- MiniTablineVisible = { fg = p.subtext0, bg = p.base },
+            MiniTablineVisible = { fg = p.overlay1, bg = p.base },
 
             -- Treesitter
             ["@constant"] = { link = "Constant" },
