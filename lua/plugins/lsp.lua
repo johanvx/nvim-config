@@ -62,7 +62,7 @@ return {
       -- Signature
       "ray-x/lsp_signature.nvim",
     },
-    event = { "BufReadPre, BufNewFile" },
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     keys = {
       {
         "gd",
