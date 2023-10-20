@@ -68,6 +68,7 @@ return {
             { mode = "n", keys = "<Leader>gh", desc = "+Hunk" },
             { mode = "n", keys = "<Leader>gt", desc = "+Toggle" },
             { mode = "n", keys = "<Leader>l", desc = "+LSP" },
+            { mode = "n", keys = "<Leader>m", desc = "+MiniMap" },
             { mode = "n", keys = "<Leader>w", desc = "+Window" },
           },
           clue.gen_clues.builtin_completion(),
@@ -271,6 +272,45 @@ return {
     event = "VeryLazy",
     config = function(_, opts)
       require("mini.jump2d").setup(opts)
+    end,
+  },
+  {
+    "echasnovski/mini.map",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<Leader>mc",
+        "<Cmd>lua MiniMap.close()<CR>",
+        desc = "Close",
+      },
+      {
+        "<Leader>mf",
+        "<Cmd>lua MiniMap.toggle_focus()<CR>",
+        desc = "Toggle focus",
+      },
+      {
+        "<Leader>mo",
+        "<Cmd>lua MiniMap.open()<CR>",
+        desc = "Open",
+      },
+      {
+        "<Leader>mr",
+        "<Cmd>lua MiniMap.refresh()<CR>",
+        desc = "Refresh",
+      },
+      {
+        "<Leader>ms",
+        "<Cmd>lua MiniMap.toggle_side()<CR>",
+        desc = "Toggle side",
+      },
+      {
+        "<Leader>mt",
+        "<Cmd>lua MiniMap.toggle()<CR>",
+        desc = "Toggle",
+      },
+    },
+    config = function(_, opts)
+      require("mini.map").setup(opts)
     end,
   },
   {
