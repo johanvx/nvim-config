@@ -3,28 +3,24 @@
 return {
   -- Requires `deno` for Markdown
   {
-    "toppair/peek.nvim",
-    build = "deno task --quiet build:fast",
-    ft = "markdown",
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    ft = { "markdown" },
+    build = "cd app && yarn install",
     keys = {
       {
         "<LocalLeader>p",
-        function()
-          local peek = require("peek")
-          if peek.is_open() then
-            peek.close()
-          else
-            peek.open()
-          end
-        end,
-        desc = "Toggle markdown preview (peek.nvim)",
+        "<Cmd>MarkdownPreviewToggle<CR>",
+        desc = "Toggle markdown preview (markdown-preview.nvim)",
       },
     },
     opts = {
-      theme = "light",
+      mkdp_auto_close = 0,
     },
     config = function(_, opts)
-      require("peek").setup(opts)
+      for k, v in pairs(opts) do
+        vim.g[k] = v
+      end
     end,
   },
   -- Requires `rust-analyzer` for Rust
