@@ -33,7 +33,7 @@ function User.p.server_opts_with_fallback(opts)
 
       -- Enable inlay hint
       if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint(bufnr, true)
+        vim.lsp.inlay_hint.enable(bufnr, true)
       end
 
       -- Use ray-x/lsp_signature.nvim
