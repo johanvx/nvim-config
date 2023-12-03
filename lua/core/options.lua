@@ -54,7 +54,6 @@ vim.opt.guifont = "Hack Nerd Font"
 vim.opt.guifontwide = "Noto Sans CJK SC"
 
 -- Edit
-vim.opt.autochdir = true
 vim.opt.autowrite = true
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.breakindent = true
