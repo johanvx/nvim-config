@@ -3,7 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
         dependencies = {
           "nvim-lua/plenary.nvim",
         },
@@ -12,6 +12,8 @@ return {
           return {
             sources = {
               -- Diagnostics
+              -- `actionlint` for GitHub Actions YAML
+              null_ls.builtins.diagnostics.actionlint,
               -- `chktex` for LaTeX
               null_ls.builtins.diagnostics.chktex,
               -- `deno` for frontend
@@ -38,6 +40,8 @@ return {
               null_ls.builtins.formatting.stylua,
               -- `taplo` for TOML
               null_ls.builtins.formatting.taplo,
+              -- `yamlfmt` for YAML
+              null_ls.builtins.formatting.yamlfmt,
             },
           }
         end,
