@@ -16,7 +16,6 @@ return {
         neotree = true,
         telescope = true,
         vimwiki = true,
-        which_key = true,
       },
       color_overrides = {
         -- Use colors from the default color palette of TailwindCSS
@@ -53,8 +52,8 @@ return {
         mocha = function(p)
           return {
             -- Builtins
-            NormalFloat = { link = "Normal" },
-            Comment = { fg = p.overlay1 },
+            NormalFloat = { fg = p.text, bg = p.surface0 },
+            Comment = { fg = p.blue },
             Constant = { fg = p.sapphire },
             String = { link = "Constant" },
             Character = { fg = p.pink },
@@ -89,12 +88,15 @@ return {
             Ignore = { fg = p.surface2 },
             Error = { fg = p.red },
             Todo = { fg = p.sky },
-            CursorLine = { bg = p.none },
+            CursorLine = { bg = p.surface1 },
             FloatBorder = { fg = p.surface1 },
             MsgArea = { bg = p.base },
             StatusLine = { fg = p.text, bg = p.surface0 },
             VertSplit = { fg = p.surface1 },
             LineNr = { fg = p.surface2 },
+
+            -- LSP
+            LspInlayHint = { fg = p.surface2, bg = p.none },
 
             -- Mini
             MiniStatuslineInactive = { bg = p.base },
@@ -117,8 +119,8 @@ return {
             ["@namespace"] = { link = "Structure" },
             ["@number"] = { link = "Number" },
             ["@number.css"] = { link = "Number" },
-            ["@parameter"] = { link = "Normal" },
-            ["@parameter.reference"] = { link = "Normal" },
+            ["@parameter"] = { fg = p.text },
+            ["@parameter.reference"] = { fg = p.text },
             ["@property"] = { link = "@variable" },
             ["@property.css"] = { link = "@property" },
             ["@property.class.css"] = { fg = p.pink },
@@ -140,21 +142,18 @@ return {
             ["@type.css"] = { link = "@type" },
             ["@type.qualifier"] = { link = "@type" },
             ["@type.tag.css"] = { link = "@tag" },
-            ["@text"] = { link = "Normal" },
+            ["@text"] = { fg = p.text },
             ["@text.emphasis"] = { fg = p.yellow, style = { "italic" } },
             ["@text.literal"] = { fg = p.green },
             ["@text.reference"] = { fg = p.pink },
             ["@text.strong"] = { fg = p.sky, style = { "bold" } },
-            ["@text.title"] = { fg = p.blue },
+            ["@text.title"] = { fg = p.lavender },
             ["@text.todo"] = { link = "MiniHipatternsTodo" },
             ["@text.note"] = { link = "MiniHipatternsNote" },
             ["@text.underline"] = { link = "Underlined" },
             ["@text.uri"] = { link = "Underlined" },
-            ["@variable"] = { link = "Normal" },
+            ["@variable"] = { fg = p.text },
             ["@variable.builtin"] = { fg = p.pink },
-
-            -- WhichKey
-            WhichKeyFloat = { link = "Normal" },
           }
         end,
       },
