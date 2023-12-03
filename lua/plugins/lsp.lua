@@ -151,6 +151,11 @@ return {
         },
         -- `ruff-lsp` for Python
         ruff_lsp = {},
+        -- `rust-analyzer` for Rust
+        rust_analyzer = {
+          general = { positionEncodings = { "utf-16", "utf-8" } },
+          cargo = { features = "all" },
+        },
         -- `tailwindcss-language-server` for TailwindCSS
         tailwindcss = {},
         -- `taplo` for TOML
