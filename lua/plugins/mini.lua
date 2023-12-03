@@ -1,7 +1,65 @@
+local function parse_args(input)
+  local args = {}
+  local current_arg = ""
+  local in_single_quotes = false
+  local in_double_quotes = false
+
+  for char in input:gmatch(".") do
+    if char == "'" and not in_double_quotes then
+      in_single_quotes = not in_single_quotes
+      current_arg = current_arg .. char
+    elseif char == '"' and not in_single_quotes then
+      in_double_quotes = not in_double_quotes
+      current_arg = current_arg .. char
+    elseif char:match("%s") and not (in_single_quotes or in_double_quotes) then
+      if current_arg ~= "" then
+        table.insert(args, current_arg)
+        current_arg = ""
+      end
+    else
+      current_arg = current_arg .. char
+    end
+  end
+
+  if current_arg ~= "" then
+    table.insert(args, current_arg)
+  end
+
+  for i, arg in ipairs(args) do
+    arg = arg:gsub("(['\"])(.-)%1", "%2")
+    arg = arg:gsub("\\n", "\n"):gsub("\\t", "\t")
+    args[i] = arg
+  end
+
+  return args
+end
+
+function User.p.pick_cli()
+  vim.ui.input({ prompt = "Pick CLI: " }, function(input)
+    if input ~= nil then
+      local args = parse_args(input)
+      MiniPick.builtin.cli({ command = args })
+    end
+  end)
+end
+
 return {
   {
     "echasnovski/mini.ai",
+    dependencies = { "echasnovski/mini.extra" },
     event = "VeryLazy",
+    opts = function()
+      local gen_ai_spec = require("mini.extra").gen_ai_spec
+      return {
+        custom_textobjects = {
+          B = gen_ai_spec.buffer(),
+          D = gen_ai_spec.diagnostic(),
+          I = gen_ai_spec.indent(),
+          L = gen_ai_spec.line(),
+          N = gen_ai_spec.number(),
+        },
+      }
+    end,
     config = function(_, opts)
       require("mini.ai").setup(opts)
     end,
@@ -61,7 +119,7 @@ return {
         clues = {
           {
             { mode = "n", keys = "<Leader>b", desc = "+Buffer" },
-            { mode = "n", keys = "<Leader>f", desc = "+Telescope" },
+            { mode = "n", keys = "<Leader>f", desc = "+Pick" },
             { mode = "n", keys = "<Leader>fg", desc = "+Git" },
             { mode = "n", keys = "<Leader>fl", desc = "+LSP" },
             { mode = "n", keys = "<Leader>g", desc = "+Gitsigns" },
@@ -69,6 +127,7 @@ return {
             { mode = "n", keys = "<Leader>gt", desc = "+Toggle" },
             { mode = "n", keys = "<Leader>l", desc = "+LSP" },
             { mode = "n", keys = "<Leader>m", desc = "+MiniMap" },
+            { mode = "n", keys = "<Leader>v", desc = "+MiniVisits" },
             { mode = "n", keys = "<Leader>w", desc = "+Window" },
           },
           clue.gen_clues.builtin_completion(),
@@ -171,6 +230,14 @@ return {
     end,
   },
   {
+    "echasnovski/mini.extra",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts)
+      require("mini.extra").setup(opts)
+    end,
+  },
+  {
     "echasnovski/mini.files",
     event = "VeryLazy",
     keys = {
@@ -194,27 +261,19 @@ return {
   {
     "echasnovski/mini.hipatterns",
     opts = function()
+      local hi_words = require("mini.extra").gen_highlighter.words
       local hipatterns = require("mini.hipatterns")
 
       return {
         highlighters = {
           -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
-          fixme = {
-            pattern = "%f[%w]()FIXME()%f[%W]",
-            group = "MiniHipatternsFixme",
-          },
-          hack = {
-            pattern = "%f[%w]()HACK()%f[%W]",
-            group = "MiniHipatternsHack",
-          },
-          todo = {
-            pattern = "%f[%w]()TODO()%f[%W]",
-            group = "MiniHipatternsTodo",
-          },
-          note = {
-            pattern = "%f[%w]()NOTE()%f[%W]",
-            group = "MiniHipatternsNote",
-          },
+          fixme = hi_words(
+            { "FIXME", "Fixme", "fixme" },
+            "MiniHipatternsFixme"
+          ),
+          hack = hi_words({ "HACK", "Hack", "hack" }, "MiniHipatternsHack"),
+          todo = hi_words({ "TODO", "Todo", "todo" }, "MiniHipatternsTodo"),
+          note = hi_words({ "NOTE", "Note", "note" }, "MiniHipatternsNote"),
 
           -- Highlight hex color strings (`#rrggbb`) using that color
           hex_color = hipatterns.gen_highlighter.hex_color(),
@@ -336,6 +395,85 @@ return {
     end,
   },
   {
+    "echasnovski/mini.pick",
+    cmd = { "Pick" },
+    keys = {
+      { "<Leader>/", "<Cmd>Pick grep_live<CR>", desc = "Live grep" },
+      { "<Leader>f'", "<Cmd>Pick registers<CR>", desc = "Registers" },
+      { "<Leader>f=", "<Cmd>Pick spellsuggest<CR>", desc = "Spell" },
+      { "<Leader>fb", "<Cmd>Pick buffers<CR>", desc = "Buffers" },
+      { "<Leader>fB", "<Cmd>Pick buf_lines<CR>", desc = "Line in buffers" },
+      { "<Leader>fc", "<Cmd>lua User.p.pick_cli()<CR>", desc = "CLI" },
+      { "<Leader>fC", "<Cmd>Pick commands<CR>", desc = "Commands" },
+      { "<Leader>fd", "<Cmd>Pick diagnostic<CR>", desc = "Diagnostic" },
+      { "<Leader>fe", "<Cmd>Pick explorer<CR>", desc = "Explorer" },
+      { "<Leader>ff", "<Cmd>Pick files<CR>", desc = "Files" },
+      { "<Leader>fh", "<Cmd>Pick help<CR>", desc = "Help tags" },
+      { "<Leader>fH", "<Cmd>Pick hl_groups<CR>", desc = "Highlight" },
+      { "<Leader>fj", "<Cmd>Pick list scope='jump'<CR>", desc = "Jump" },
+      { "<Leader>fk", "<Cmd>Pick keymaps<CR>", desc = "Keymaps" },
+      { "<Leader>fm", "<Cmd>Pick marks<CR>", desc = "Marks" },
+      { "<Leader>fo", "<Cmd>Pick oldfiles<CR>", desc = "Old files" },
+      { "<Leader>fO", "<Cmd>Pick options<CR>", desc = "Options" },
+      {
+        "<Leader>fq",
+        "<Cmd>Pick list scope='quickfix'<CR>",
+        desc = "Quickfix",
+      },
+      { "<Leader>fr", "<Cmd>Pick resume<CR>", desc = "Resume" },
+      { "<Leader>fR", "<Cmd>Pick history<CR>", desc = "History" },
+      { "<Leader>ft", "<Cmd>Pick treesitter<CR>", desc = "Treesitter" },
+      { "<Leader>fv", "<Cmd>Pick visit_paths<CR>", desc = "Visit paths" },
+      { "<Leader>fV", "<Cmd>Pick visit_labels<CR>", desc = "Visit labels" },
+      { "<Leader>fw", "<Cmd>Pick grep<CR>", desc = "Grep" },
+      -- Git
+      { "<Leader>fgb", "<Cmd>Pick git_branches<CR>", desc = "Branches" },
+      { "<Leader>fgc", "<Cmd>Pick git_commits<CR>", desc = "Commits" },
+      { "<Leader>fgf", "<Cmd>Pick git_files<CR>", desc = "Files" },
+      { "<Leader>fgh", "<Cmd>Pick git_hunks<CR>", desc = "Hunks" },
+      -- LSP
+      {
+        "<Leader>flD",
+        "<Cmd>Pick lsp scope='definition'",
+        desc = "Definition",
+      },
+      {
+        "<Leader>flS",
+        "<Cmd>Pick lsp scope='workspace_symbol'",
+        desc = "Workspace symbol",
+      },
+      {
+        "<Leader>fld",
+        "<Cmd>Pick lsp scope='declaration'",
+        desc = "Declaration",
+      },
+      {
+        "<Leader>fli",
+        "<Cmd>Pick lsp scope='implementation'",
+        desc = "Implementation",
+      },
+      {
+        "<Leader>flr",
+        "<Cmd>Pick lsp scope='references'",
+        desc = "References",
+      },
+      {
+        "<Leader>fls",
+        "<Cmd>Pick lsp scope='document_symbol'",
+        desc = "Document symbol",
+      },
+      {
+        "<Leader>flt",
+        "<Cmd>Pick lsp scope='type_definition'",
+        desc = "Type definition",
+      },
+    },
+    opts = {},
+    config = function(_, opts)
+      require("mini.pick").setup(opts)
+    end,
+  },
+  {
     "echasnovski/mini.splitjoin",
     event = "VeryLazy",
     opts = {},
@@ -377,11 +515,11 @@ return {
           -- Built-in
           item("i", " New file", "enew | startinsert", "Built-in"),
           item("q", " Quit", "confirm quitall", "Built-in"),
-          -- Telescope
-          item("f", " Find files", "Telescope find_files", "Telescope"),
-          item("g", " Live grep", "Telescope live_grep", "Telescope"),
-          item("h", " Help tags", "Telescope help_tags", "Telescope"),
-          item("r", " Recent files", "Telescope oldfiles", "Telescope"),
+          -- Pick
+          item("f", " Find files", "Pick files", "Pick"),
+          item("g", " Live grep", "Pick grep_live", "Pick"),
+          item("h", " Help tags", "Pick help", "Pick"),
+          -- item("r", " Recent files", "Telescope oldfiles", "Pick"),
           -- Config-related
           item("c", " Edit configuration", "edit $MYVIMRC", "Config"),
           item("l", " Lazy panel", "Lazy", "Config"),
@@ -467,6 +605,22 @@ return {
     },
     config = function(_, opts)
       require("mini.trailspace").setup(opts)
+    end,
+  },
+  {
+    "echasnovski/mini.visits",
+    event = "VeryLazy",
+    keys = {
+      { "<Leader>vv", "<Cmd>lua MiniVisits.add_label()<CR>", desc = "Add" },
+      {
+        "<Leader>vV",
+        "<Cmd>lua MiniVisits.remove_label()<CR>",
+        desc = "Remove",
+      },
+    },
+    opts = {},
+    config = function(_, opts)
+      require("mini.visits").setup(opts)
     end,
   },
 }
