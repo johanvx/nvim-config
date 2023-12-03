@@ -37,7 +37,7 @@ return {
   -- `nvim-lspconfig`, so don't set up `tsserver` manually in `lsp.lua`.
   {
     "pmizio/typescript-tools.nvim",
-    enabled = false,
+    enabled = true,
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = User.p.server_opts_with_fallback({
       settings = {

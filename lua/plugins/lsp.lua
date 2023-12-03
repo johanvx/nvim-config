@@ -117,19 +117,19 @@ return {
           },
         },
         -- `deno` for frontend
-        denols = {
-          filetypes = {
-            "javascript",
-            "javascriptreact",
-            "javascript.jsx",
-            "typescript",
-            "typescriptreact",
-            "typescript.tsx",
-            "json",
-            "jsonc",
-            "markdown",
-          },
-        },
+        -- denols = {
+        --   filetypes = {
+        --     "javascript",
+        --     "javascriptreact",
+        --     "javascript.jsx",
+        --     "typescript",
+        --     "typescriptreact",
+        --     "typescript.tsx",
+        --     "json",
+        --     "jsonc",
+        --     "markdown",
+        --   },
+        -- },
         -- `lua-language-server` for Lua
         lua_ls = {
           settings = {
