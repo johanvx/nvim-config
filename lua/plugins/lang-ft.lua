@@ -33,7 +33,14 @@ return {
     dependencies = {
       "neovim/nvim-lspconfig",
     },
-    opts = { server = User.p.server_opts_with_fallback({}) },
+    opts = {
+      server = User.p.server_opts_with_fallback({}),
+      tools = {
+        inlay_hints = {
+          auto = false,
+        },
+      },
+    },
     config = function(_, opts)
       require("rust-tools").setup(opts)
     end,
