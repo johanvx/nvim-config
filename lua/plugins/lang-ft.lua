@@ -25,25 +25,11 @@ return {
   },
   -- Requires `rust-analyzer` for Rust
   --
-  -- This plugin sets up the `servers.rust_analyzer` for `nvim-lspconfig`, so
-  -- don't do that manually in `lsp.lua`.
+  -- This plugin doesn't set up the `servers.rust_analyzer` for `nvim-lspconfig`,
+  -- so need to set up `servers.rust_analyzer` that manually in `lsp.lua`.
   {
-    "simrat39/rust-tools.nvim",
+    "rust-lang/rust.vim",
     ft = "rust",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-    },
-    opts = {
-      server = User.p.server_opts_with_fallback({}),
-      tools = {
-        inlay_hints = {
-          auto = false,
-        },
-      },
-    },
-    config = function(_, opts)
-      require("rust-tools").setup(opts)
-    end,
   },
   -- A `tsserver` alternative for TypeScript
   --
