@@ -8,7 +8,10 @@ return {
       integrations = {
         cmp = true,
         gitsigns = true,
-        mini = true,
+        mini = {
+          enabled = true,
+          indentscope_color = "surface2",
+        },
         navic = {
           enabled = true,
           custom_bg = "NONE",
@@ -87,7 +90,7 @@ return {
             Error = { fg = p.red },
             Todo = { fg = p.sky },
             CursorLine = { bg = p.surface1 },
-            FloatBorder = { fg = p.surface1 },
+            FloatBorder = { fg = p.surface1, bg = p.surface0 },
             MsgArea = { bg = p.base },
             StatusLine = { fg = p.text, bg = p.surface0 },
             StatusLineNC = { link = "Comment" },
