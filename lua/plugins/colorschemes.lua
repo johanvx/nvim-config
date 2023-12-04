@@ -13,26 +13,24 @@ return {
           enabled = true,
           custom_bg = "NONE",
         },
-        neotree = true,
-        telescope = true,
         vimwiki = true,
       },
       color_overrides = {
         -- Use colors from the default color palette of TailwindCSS
         mocha = {
-          rosewater = "#fb7185", -- rose.400
+          rosewater = "#f43f5e", -- rose.500
           flamingo = "#f472b6", -- pink.400
           pink = "#f472b6", -- pink.400
-          mauve = "#a78bfa", -- violet.400
-          red = "#f87171", -- red.400
-          maroon = "#fbbf24", -- amber.400
-          peach = "#fb923c", -- orange.400
-          yellow = "#facc15", -- yellow.400
-          green = "#34d399", -- emerald.400
+          mauve = "#818cf8", -- indigo.400
+          red = "#f43f5e", -- rose.500
+          maroon = "#fcd34d", -- amber.300
+          peach = "#fcd34d", -- amber.300
+          yellow = "#fcd34d", -- amber.300
+          green = "#2dd4bf", -- teal.400
           teal = "#2dd4bf", -- teal.400
-          sky = "#22d3ee", -- cyan.400
+          sky = "#38bdf8", -- sky.400
           sapphire = "#38bdf8", -- sky.400
-          blue = "#60a5fa", -- blue.400
+          blue = "#818cf8", -- indigo.400
           lavender = "#818cf8", -- indigo.400
           text = "#f8fafc", -- slate.50
           subtext1 = "#f1f5f9", -- slate.100
@@ -92,8 +90,10 @@ return {
             FloatBorder = { fg = p.surface1 },
             MsgArea = { bg = p.base },
             StatusLine = { fg = p.text, bg = p.surface0 },
+            StatusLineNC = { link = "Comment" },
             VertSplit = { fg = p.surface1 },
             LineNr = { fg = p.surface2 },
+            CurSearch = { link = "IncSearch" },
 
             -- LSP
             LspInlayHint = { fg = p.surface2, bg = p.none },
@@ -147,7 +147,7 @@ return {
             ["@text.literal"] = { fg = p.green },
             ["@text.reference"] = { fg = p.pink },
             ["@text.strong"] = { fg = p.sky, style = { "bold" } },
-            ["@text.title"] = { fg = p.lavender },
+            ["@text.title"] = { fg = p.sky },
             ["@text.todo"] = { link = "MiniHipatternsTodo" },
             ["@text.note"] = { link = "MiniHipatternsNote" },
             ["@text.underline"] = { link = "Underlined" },
