@@ -37,6 +37,7 @@ vim.opt.listchars = {
   trail = "•",
 }
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.ruler = false
 vim.opt.scrolloff = 2
 vim.opt.showmode = false
