@@ -50,15 +50,32 @@ return {
         end,
       },
       {
-        "SmiteshP/nvim-navic",
+        "SmiteshP/nvim-navbuddy",
+        keys = {
+          { "<Leader>n", "<Cmd>Navbuddy<CR>", desc = "Navbuddy" },
+        },
+        dependencies = {
+          "MunifTanjim/nui.nvim",
+          {
+            "SmiteshP/nvim-navic",
+            opts = {
+              highlight = true,
+              click = true,
+            },
+            config = function(_, opts)
+              require("nvim-navic").setup(opts)
+
+              -- Use winbar to display
+              vim.o.winbar = "%{%v:lua.require('nvim-navic').get_location()%}"
+            end,
+          },
+        },
         opts = {
-          highlight = true,
+          border = "none",
+          lsp = { auto_attach = true },
         },
         config = function(_, opts)
-          require("nvim-navic").setup(opts)
-
-          -- Use winbar to display
-          vim.o.winbar = "%{%v:lua.require('nvim-navic').get_location()%}"
+          require("nvim-navbuddy").setup(opts)
         end,
       },
       -- For hrsh7th/nvim-cmp
