@@ -1,7 +1,7 @@
 -- This is for specific languages and filetypes.
 
 return {
-  -- Requires `deno` for Markdown
+  -- Requires `yarn` for Markdown
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
