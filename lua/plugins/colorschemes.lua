@@ -10,7 +10,7 @@ return {
         gitsigns = true,
         mini = {
           enabled = true,
-          indentscope_color = "surface2",
+          indentscope_color = "overlay0",
         },
         navic = {
           enabled = true,
@@ -24,7 +24,7 @@ return {
           rosewater = "#f43f5e", -- rose.500
           flamingo = "#f472b6", -- pink.400
           pink = "#f472b6", -- pink.400
-          mauve = "#818cf8", -- indigo.400
+          mauve = "#3b82f6", -- blue.500
           red = "#f43f5e", -- rose.500
           maroon = "#fcd34d", -- amber.300
           peach = "#fcd34d", -- amber.300
@@ -33,8 +33,8 @@ return {
           teal = "#2dd4bf", -- teal.400
           sky = "#38bdf8", -- sky.400
           sapphire = "#38bdf8", -- sky.400
-          blue = "#818cf8", -- indigo.400
-          lavender = "#818cf8", -- indigo.400
+          blue = "#3b82f6", -- blue.500
+          lavender = "#3b82f6", -- blue.500
           text = "#f8fafc", -- slate.50
           subtext1 = "#f1f5f9", -- slate.100
           subtext0 = "#e2e8f0", -- slate.200
@@ -54,6 +54,7 @@ return {
           return {
             -- Builtins
             NormalFloat = { fg = p.text, bg = p.surface0 },
+            -- If you prefer grey-scale comment, consider p.overlay1 (slate.400)
             Comment = { fg = p.blue },
             Constant = { fg = p.sapphire },
             String = { link = "Constant" },
@@ -82,24 +83,32 @@ return {
             Special = { fg = p.pink },
             SpecialChar = { link = "Special" },
             Tag = { link = "Special" },
-            Delimiter = { fg = p.overlay0 },
             SpecialComment = { link = "Special" },
             Debug = { link = "Special" },
             Underlined = { fg = p.sapphire, style = { "underline" } },
-            Ignore = { fg = p.surface2 },
+            Ignore = { fg = p.overlay0 },
+            Conceal = { link = "Ignore" },
+            NonText = { link = "Ignore" },
+            EndOfBuffer = { link = "Ignore" },
+            Whitespace = { link = "Ignore" },
+            VertSplit = { link = "Ignore" },
+            LineNr = { link = "Ignore" },
             Error = { fg = p.red },
             Todo = { fg = p.sky },
+            CursorLineNr = { link = "LineNr" },
             CursorLine = { bg = p.surface1 },
+            ColorColumn = { link = "CursorLine" },
             FloatBorder = { fg = p.surface1, bg = p.surface0 },
             MsgArea = { bg = p.base },
             StatusLine = { fg = p.text, bg = p.surface0 },
             StatusLineNC = { link = "Comment" },
-            VertSplit = { fg = p.surface1 },
-            LineNr = { fg = p.surface2 },
             CurSearch = { link = "IncSearch" },
 
+            -- Gitsigns
+            GitSignsCurrentLineBlame = { link = "Ignore" },
+
             -- LSP
-            LspInlayHint = { fg = p.surface2, bg = p.none },
+            LspInlayHint = { link = "Ignore" },
 
             -- Mini
             MiniStatuslineInactive = { bg = p.base },
@@ -119,6 +128,8 @@ return {
             ["@keyword.function"] = { link = "Keyword" },
             ["@keyword.operator"] = { link = "Operator" },
             ["@keyword.return"] = { link = "Operator" },
+            ["@label"] = { link = "Label" },
+            ["@label.json"] = { link = "Label" },
             ["@namespace"] = { link = "Structure" },
             ["@number"] = { link = "Number" },
             ["@number.css"] = { link = "Number" },
@@ -128,8 +139,9 @@ return {
             ["@property.css"] = { link = "@property" },
             ["@property.class.css"] = { fg = p.pink },
             ["@property.id.css"] = { link = "@property" },
-            ["@punctuation.bracket"] = { link = "Delimiter" },
-            ["@punctuation.delimiter"] = { link = "Delimiter" },
+            ["@property.toml"] = { link = "@property" },
+            ["@punctuation.bracket"] = { link = "Ignore" },
+            ["@punctuation.delimiter"] = { link = "Ignore" },
             ["@punctuation.special"] = { link = "SpecialChar" },
             ["@string"] = { link = "String" },
             ["@string.escape"] = { link = "Identifier" },
