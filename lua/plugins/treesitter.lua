@@ -5,11 +5,11 @@ return {
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     keys = {
       {
-        "<LocalLeader><LocalLeader>",
+        "<LocalLeader><LocalLeader><LocalLeader>",
         function()
           vim.print(vim.treesitter.get_captures_at_cursor(0))
         end,
-        desc = "Get captures at cursor",
+        desc = "Inspect captures at cursor",
       },
     },
     opts = {

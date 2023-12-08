@@ -129,6 +129,11 @@ return {
             { mode = "n", keys = "<Leader>m", desc = "+MiniMap" },
             { mode = "n", keys = "<Leader>v", desc = "+MiniVisits" },
             { mode = "n", keys = "<Leader>w", desc = "+Window" },
+            {
+              mode = "n",
+              keys = "<LocalLeader><LocalLeader>",
+              desc = "+Inspect",
+            },
           },
           clue.gen_clues.builtin_completion(),
           clue.gen_clues.g(),
