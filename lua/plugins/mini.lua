@@ -516,7 +516,7 @@ return {
         items = {
           -- Built-in
           item("i", " New file", "enew | startinsert", "Built-in"),
-          item("q", " Quit", "confirm quitall", "Built-in"),
+          item("q", " Quit", "confirm quitall", "Built-in"),
           -- Pick
           item("f", " Find files", "Pick files", "Pick"),
           item("g", " Live grep", "Pick grep_live", "Pick"),
