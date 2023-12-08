@@ -15,10 +15,15 @@ local function set_locallead(modes, keys, rhs, desc)
   set(modes, "<LocalLeader>" .. keys, rhs, desc)
 end
 
-local function set_toggle(key, opt, tf)
+local function set_toggle_with_inspcet(key, opt, tf)
+  -- Set toggle
   tf = vim.inspect(tf)
-  local rhs = ("<Cmd>lua User.opt.toggle(%q, %s)<CR>"):format(opt, tf)
-  set_locallead("n", key, rhs, ("Toggle %s"):format(opt))
+  local trhs = ("<Cmd>lua User.opt.toggle(%q, %s)<CR>"):format(opt, tf)
+  set_locallead("n", key, trhs, ("Toggle %s"):format(opt))
+
+  -- Set inspect
+  local irhs = ("<Cmd>set %s?<CR>"):format(opt)
+  set_locallead("n", "<LocalLeader>" .. key, irhs, ("Inspect %s"):format(opt))
 end
 
 -- Buffer actions
@@ -55,16 +60,17 @@ set("n", "<Leader>p", '"+p', "Paste from system clipboard")
 set("x", "<Leader>p", '"+P', "Paste from system clipboard")
 
 -- Toggle options
-set_toggle("b", "background", { "dark", "light" })
-set_toggle("C", "cursorcolumn")
-set_toggle("c", "cursorline")
-set_toggle("h", "hlsearch")
-set_toggle("i", "ignorecase")
-set_toggle("l", "list")
-set_toggle("n", "number")
-set_toggle("r", "relativenumber")
-set_toggle("s", "spell")
-set_toggle("w", "wrap")
+set_toggle_with_inspcet("a", "autochdir")
+set_toggle_with_inspcet("b", "background", { "dark", "light" })
+set_toggle_with_inspcet("C", "cursorcolumn")
+set_toggle_with_inspcet("c", "cursorline")
+set_toggle_with_inspcet("h", "hlsearch")
+set_toggle_with_inspcet("i", "ignorecase")
+set_toggle_with_inspcet("l", "list")
+set_toggle_with_inspcet("n", "number")
+set_toggle_with_inspcet("r", "relativenumber")
+set_toggle_with_inspcet("s", "spell")
+set_toggle_with_inspcet("w", "wrap")
 
 -- Type commands quicker
 set({ "n", "v" }, ";", ":")
