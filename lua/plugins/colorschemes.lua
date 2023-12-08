@@ -111,6 +111,8 @@ return {
             LspInlayHint = { link = "Ignore" },
 
             -- Mini
+            MiniPickPrompt = { fg = p.sky, bg = p.surface0 },
+            MiniPickBorderText = { fg = p.overlay0, bg = p.surface0 },
             MiniStatuslineInactive = { bg = p.base },
             MiniTablineCurrent = { fg = p.text, bg = p.base, style = {} },
             MiniTablineFill = { bg = p.surface0 },
