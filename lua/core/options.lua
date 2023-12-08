@@ -51,8 +51,8 @@ vim.opt.termguicolors = true
 vim.opt.wrap = false
 
 -- GUI
-vim.opt.guifont = "Hack Nerd Font"
-vim.opt.guifontwide = "Noto Sans CJK SC"
+vim.opt.guifont = "MonaspiceNe Nerd Font:h24"
+vim.opt.guifontwide = "Noto Sans CJK SC:h24"
 
 -- Edit
 vim.opt.autowrite = true
