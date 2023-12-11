@@ -120,6 +120,8 @@ return {
             },
           },
         },
+        -- `typos-lsp` for spell check
+        typos_lsp = {},
         -- `typst-lsp` for Typst
         typst_lsp = {
           settings = {
