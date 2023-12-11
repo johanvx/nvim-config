@@ -15,7 +15,7 @@ return {
     },
     opts = {
       formatters_by_ft = {
-        ["*"] = { "typos", "codespell" },
+        ["*"] = { "typos", "codespell", "autocorrect" },
         bash = { "shfmt" },
         c = { { "clang_format", "ast-grep" } },
         cpp = { { "clang_format", "ast-grep" } },
