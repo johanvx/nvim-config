@@ -54,9 +54,6 @@ return {
         border = "none",
       },
     },
-    config = function(_, opts)
-      require("gitsigns").setup(opts)
-    end,
   },
 }
 

@@ -11,9 +11,6 @@ return {
       },
     },
     opts = { border = "none" },
-    config = function(_, opts)
-      require("ssr").setup(opts)
-    end,
   },
 }
 

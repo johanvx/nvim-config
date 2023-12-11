@@ -179,17 +179,6 @@ return {
         conditionals = {},
       },
     },
-    config = function(_, opts)
-      require("catppuccin").setup(opts)
-    end,
-  },
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    opts = {},
-    config = function(_, opts)
-      require("gruvbox").setup(opts)
-    end,
   },
 }
 

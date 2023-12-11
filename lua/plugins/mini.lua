@@ -60,16 +60,11 @@ return {
         },
       }
     end,
-    config = function(_, opts)
-      require("mini.ai").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.align",
     event = "VeryLazy",
-    config = function(_, opts)
-      require("mini.align").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.base16",
@@ -78,9 +73,7 @@ return {
   {
     "echasnovski/mini.bracketed",
     event = "VeryLazy",
-    config = function(_, opts)
-      require("mini.bracketed").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.bufremove",
@@ -106,9 +99,7 @@ return {
         desc = "Wipe out (forced)",
       },
     },
-    config = function(_, opts)
-      require("mini.bufremove").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.clue",
@@ -119,6 +110,7 @@ return {
         clues = {
           {
             { mode = "n", keys = "<Leader>b", desc = "+Buffer" },
+            { mode = "n", keys = "<Leader>d", desc = "+DAP" },
             { mode = "n", keys = "<Leader>f", desc = "+Pick" },
             { mode = "n", keys = "<Leader>fg", desc = "+Git" },
             { mode = "n", keys = "<Leader>fl", desc = "+LSP" },
@@ -184,9 +176,6 @@ return {
         },
       }
     end,
-    config = function(_, opts)
-      require("mini.clue").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.colors",
@@ -196,51 +185,21 @@ return {
     "echasnovski/mini.comment",
     event = "VeryLazy",
     opts = {},
-    config = function(_, opts)
-      require("mini.comment").setup(opts)
-    end,
-  },
-  {
-    "echasnovski/mini.completion",
-    enabled = false,
-    event = { "InsertEnter", "CmdlineEnter" },
-    opts = {
-      lsp_completion = {
-        source_func = "omnifunc",
-        process_items = function(items, base)
-          -- Don't show 'Text' and 'Snippet' suggestions
-          items = vim.tbl_filter(function(x)
-            return x.kind ~= 1 and x.kind ~= 15
-          end, items)
-          return MiniCompletion.default_process_items(items, base)
-        end,
-      },
-    },
-    config = function(_, opts)
-      require("mini.completion").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.cursorword",
     event = "VeryLazy",
-    config = function(_, opts)
-      require("mini.cursorword").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.doc",
     event = "VeryLazy",
-    config = function(_, opts)
-      require("mini.doc").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.extra",
     event = "VeryLazy",
     opts = {},
-    config = function(_, opts)
-      require("mini.extra").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.files",
@@ -252,16 +211,12 @@ return {
         desc = "File browser (mini.files)",
       },
     },
-    config = function(_, opts)
-      require("mini.files").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.fuzzy",
     lazy = true,
-    config = function(_, opts)
-      require("mini.fuzzy").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.hipatterns",
@@ -282,9 +237,6 @@ return {
         },
       }
     end,
-    config = function(_, opts)
-      require("mini.hipatterns").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.hues",
@@ -294,9 +246,6 @@ return {
       foreground = "#f8fafc",
       saturation = "high",
     },
-    config = function(_, opts)
-      require("mini.hues").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.indentscope",
@@ -312,9 +261,6 @@ return {
         symbol = "│",
       }
     end,
-    config = function(_, opts)
-      require("mini.indentscope").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.jump",
@@ -324,16 +270,11 @@ return {
         repeat_jump = "",
       },
     },
-    config = function(_, opts)
-      require("mini.jump").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.jump2d",
     event = "VeryLazy",
-    config = function(_, opts)
-      require("mini.jump2d").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.map",
@@ -370,31 +311,22 @@ return {
         desc = "Toggle",
       },
     },
-    config = function(_, opts)
-      require("mini.map").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.move",
     event = "VeryLazy",
-    config = function(_, opts)
-      require("mini.move").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.operators",
     event = "VeryLazy",
     opts = {},
-    config = function(_, opts)
-      require("mini.operators").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.pairs",
     event = "VeryLazy",
-    config = function(_, opts)
-      require("mini.pairs").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.pick",
@@ -471,17 +403,11 @@ return {
       },
     },
     opts = {},
-    config = function(_, opts)
-      require("mini.pick").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.splitjoin",
     event = "VeryLazy",
     opts = {},
-    config = function(_, opts)
-      require("mini.splitjoin").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.starter",
@@ -521,10 +447,11 @@ return {
           item("f", " Find files", "Pick files", "Pick"),
           item("g", " Live grep", "Pick grep_live", "Pick"),
           item("h", " Help tags", "Pick help", "Pick"),
-          -- item("r", " Recent files", "Telescope oldfiles", "Pick"),
+          item("o", " Old files", "Pick oldfiles", "Pick"),
           -- Config-related
           item("c", " Edit configuration", "edit $MYVIMRC", "Config"),
           item("l", " Lazy panel", "Lazy", "Config"),
+          item("m", " Mason panel", "Mason", "Config"),
         },
         footer = table.concat({ "", version, datetime, "" }, padding),
         content_hooks = {
@@ -532,9 +459,6 @@ return {
           starter.gen_hook.aligning("center", "center"),
         },
       }
-    end,
-    config = function(_, opts)
-      require("mini.starter").setup(opts)
     end,
   },
   {
@@ -574,22 +498,15 @@ return {
         end,
       },
     },
-    config = function(_, opts)
-      require("mini.statusline").setup(opts)
-    end,
   },
   {
     "echasnovski/mini.surround",
     event = "VeryLazy",
-    config = function(_, opts)
-      require("mini.surround").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.tabline",
-    config = function(_, opts)
-      require("mini.tabline").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.trailspace",
@@ -605,25 +522,24 @@ return {
         desc = "Trim trailing empty lines",
       },
     },
-    config = function(_, opts)
-      require("mini.trailspace").setup(opts)
-    end,
+    opts = {},
   },
   {
     "echasnovski/mini.visits",
     event = "VeryLazy",
     keys = {
-      { "<Leader>vv", "<Cmd>lua MiniVisits.add_label()<CR>", desc = "Add" },
+      {
+        "<Leader>vv",
+        "<Cmd>lua MiniVisits.add_label()<CR>",
+        desc = "Add label",
+      },
       {
         "<Leader>vV",
         "<Cmd>lua MiniVisits.remove_label()<CR>",
-        desc = "Remove",
+        desc = "Remove label",
       },
     },
     opts = {},
-    config = function(_, opts)
-      require("mini.visits").setup(opts)
-    end,
   },
 }
 
