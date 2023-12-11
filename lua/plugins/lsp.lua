@@ -1,89 +1,21 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     dependencies = {
-      {
-        "nvimtools/none-ls.nvim",
-        dependencies = {
-          "nvim-lua/plenary.nvim",
-        },
-        opts = function()
-          local null_ls = require("null-ls")
-          return {
-            sources = {
-              -- Diagnostics
-              -- `actionlint` for GitHub Actions YAML
-              null_ls.builtins.diagnostics.actionlint,
-              -- `chktex` for LaTeX
-              null_ls.builtins.diagnostics.chktex,
-              -- `deno` for frontend
-              null_ls.builtins.diagnostics.deno_lint,
-              -- `fish` for fish
-              null_ls.builtins.diagnostics.fish,
-              -- `ruff` for Python
-              null_ls.builtins.diagnostics.ruff,
-
-              -- Formatting
-              -- `black` for Python
-              null_ls.builtins.formatting.black,
-              -- `clang-format` for C/C++/...
-              null_ls.builtins.formatting.clang_format,
-              -- `deno` for frontend
-              null_ls.builtins.formatting.deno_fmt,
-              -- `ruff` for Python
-              null_ls.builtins.formatting.ruff,
-              -- `rustfmt` for Rust
-              null_ls.builtins.formatting.rustfmt,
-              -- `shfmt` for Bash
-              null_ls.builtins.formatting.shfmt,
-              -- `stylua` for Lua
-              null_ls.builtins.formatting.stylua,
-              -- `taplo` for TOML
-              null_ls.builtins.formatting.taplo,
-              -- `yamlfmt` for YAML
-              null_ls.builtins.formatting.yamlfmt,
-            },
-          }
-        end,
-        config = function(_, opts)
-          require("null-ls").setup(opts)
-        end,
-      },
-      {
-        "SmiteshP/nvim-navbuddy",
-        keys = {
-          { "<Leader>n", "<Cmd>Navbuddy<CR>", desc = "Navbuddy" },
-        },
-        dependencies = {
-          "MunifTanjim/nui.nvim",
-          {
-            "SmiteshP/nvim-navic",
-            opts = {
-              highlight = true,
-              click = true,
-            },
-            config = function(_, opts)
-              require("nvim-navic").setup(opts)
-
-              -- Use winbar to display
-              vim.o.winbar = "%{%v:lua.require('nvim-navic').get_location()%}"
-            end,
-          },
-        },
-        opts = {
-          border = "none",
-          lsp = { auto_attach = true },
-        },
-        config = function(_, opts)
-          require("nvim-navbuddy").setup(opts)
-        end,
-      },
-      -- For hrsh7th/nvim-cmp
+      -- Formatter
+      "stevearc/conform.nvim",
+      -- Linter
+      "mfussenegger/nvim-lint",
+      -- Navigation
+      "SmiteshP/nvim-navbuddy",
+      -- Completion
       "hrsh7th/cmp-nvim-lsp",
       -- Signature
       "ray-x/lsp_signature.nvim",
+      -- Neovim package manager
+      "williamboman/mason-lspconfig.nvim",
     },
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     keys = {
       {
         "gd",
@@ -116,12 +48,6 @@ return {
         desc = "Diagnostics",
       },
       {
-        "<Leader>lf",
-        "<Cmd>lua User.p.format()<CR>",
-        mode = { "n", "x" },
-        desc = "Format",
-      },
-      {
         "<Leader>lr",
         "<Cmd>lua vim.lsp.buf.rename()<CR>",
         desc = "Rename",
@@ -129,6 +55,8 @@ return {
     },
     opts = {
       servers = {
+        -- `ast-grep` for many languages...
+        ast_grep = {},
         -- `bash-language-server` for Bash
         bashls = {},
         -- `clangd` for C/C++
@@ -137,7 +65,7 @@ return {
             offsetEncoding = { "utf-16", "utf-8" },
           },
         },
-        -- `deno` for frontend
+        -- -- `deno` for frontend
         -- denols = {
         --   filetypes = {
         --     "javascript",
@@ -186,7 +114,7 @@ return {
           settings = {
             texlab = {
               build = {
-                args = { "-X", "bulid" },
+                args = { "-X", "build" },
                 executable = "tectonic",
               },
             },
@@ -210,6 +138,41 @@ return {
         )
       end
     end,
+  },
+  {
+    "SmiteshP/nvim-navbuddy",
+    keys = {
+      { "<Leader>n", "<Cmd>Navbuddy<CR>", desc = "Navbuddy" },
+    },
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      {
+        "SmiteshP/nvim-navic",
+        opts = {
+          highlight = true,
+          click = true,
+        },
+        init = function()
+          -- Use winbar to display
+          vim.o.winbar = "%{%v:lua.require('nvim-navic').get_location()%}"
+        end,
+      },
+    },
+    opts = {
+      border = "none",
+      lsp = { auto_attach = true },
+    },
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
+    opts = {
+      -- Some are manually installed.
+      automatic_installation = { exclude = { "denols", "rust_analyzer" } },
+    },
   },
 }
 

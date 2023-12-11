@@ -1,7 +1,7 @@
 return {
   {
-    "nvim-tree/nvim-web-devicons",
-    lazy = true,
+    "folke/neodev.nvim",
+    event = "VeryLazy",
     opts = {},
   },
 }

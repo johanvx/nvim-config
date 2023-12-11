@@ -2,19 +2,7 @@
 User.p = {}
 
 function User.p.format()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local ft = vim.bo[bufnr].filetype
-  local has_null_ls = #require("null-ls.sources").get_available(
-    ft,
-    "NULL_LS_FORMATTING"
-  ) > 0
-  vim.lsp.buf.format({
-    async = true,
-    bufnr = bufnr,
-    filter = function(client)
-      return has_null_ls == (client.name == "null-ls")
-    end,
-  })
+  require("conform").format({ async = true, lsp_fallback = true })
 end
 
 function User.p.server_opts_with_fallback(opts)

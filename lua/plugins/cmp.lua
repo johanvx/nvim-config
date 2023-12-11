@@ -4,11 +4,12 @@ return {
     event = "VeryLazy",
     dependencies = {
       "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
       "hrsh7th/cmp-vsnip",
       "hrsh7th/vim-vsnip",
-      "hrsh7th/cmp-cmdline",
+      "rcarriga/cmp-dap",
     },
     opts = function()
       local cmp = require("cmp")
@@ -56,6 +57,13 @@ return {
           { name = "path" },
         }, {
           { name = "cmdline" },
+        }),
+      })
+
+      cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "dap" },
         }),
       })
     end,

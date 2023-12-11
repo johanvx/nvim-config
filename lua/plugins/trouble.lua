@@ -9,9 +9,7 @@ return {
         desc = "Trouble",
       },
     },
-    config = function(_, opts)
-      require("trouble").setup(opts)
-    end,
+    opts = {},
   },
 }
 
