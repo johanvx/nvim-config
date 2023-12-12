@@ -1,6 +1,7 @@
 _G.User = {}
 
 require("core")
+require("neovide")
 
 vim.cmd("colorscheme catppuccin")
 
