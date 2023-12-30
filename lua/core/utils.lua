@@ -39,4 +39,15 @@ function User.fn.path_concat(base, ...)
   return ret
 end
 
+---feedkey() - Wrapped vim.api.nvim_feedkey
+---@param key string
+---@param mode string
+function User.fn.feedkey(key, mode)
+  vim.api.nvim_feedkeys(
+    vim.api.nvim_replace_termcodes(key, true, true, true),
+    mode,
+    true
+  )
+end
+
 -- vim:sw=2:ts=2:sts=2:et:tw=80:cc=+1:norl:
