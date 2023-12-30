@@ -1,19 +1,3 @@
-function User.p.jump_next_with_fallback(key)
-  if vim.fn["vsnip#jumpable"](1) then
-    return "<Plug>(vsnip-jump-next)"
-  end
-
-  return key
-end
-
-function User.p.jump_prev_with_fallback(key)
-  if vim.fn["vsnip#jumpable"](-1) then
-    return "<Plug>(vsnip-jump-prev)"
-  end
-
-  return key
-end
-
 return {
   {
     "hrsh7th/nvim-cmp",
@@ -26,26 +10,6 @@ return {
       "hrsh7th/cmp-vsnip",
       "hrsh7th/vim-vsnip",
       "rcarriga/cmp-dap",
-    },
-    keys = {
-      {
-        "<Tab>",
-        function()
-          return User.p.jump_next_with_fallback("<Tab>")
-        end,
-        mode = { "i", "s" },
-        desc = "Jump to the next item",
-        expr = true,
-      },
-      {
-        "<S-Tab>",
-        function()
-          return User.p.jump_prev_with_fallback("<S-Tab>")
-        end,
-        mode = { "i", "s" },
-        desc = "Jump to the previous item",
-        expr = true,
-      },
     },
     opts = function()
       local cmp = require("cmp")
@@ -62,6 +26,18 @@ return {
           ["<C-]>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if vim.fn["vsnip#jumpable"](1) == 1 then
+              User.fn.feedkey("<Plug>(vsnip-jump-next)", "")
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          ["<S-Tab>"] = cmp.mapping(function()
+            if vim.fn["vsnip#jumpable"](-1) == 1 then
+              User.fn.feedkey("<Plug>(vsnip-jump-prev)", "")
+            end
+          end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
