@@ -7,8 +7,6 @@ return {
       "stevearc/conform.nvim",
       -- Linter
       "mfussenegger/nvim-lint",
-      -- Navigation
-      "SmiteshP/nvim-navbuddy",
       -- Completion
       "hrsh7th/cmp-nvim-lsp",
       -- Signature
@@ -193,30 +191,6 @@ return {
         desc = "Toggle inlay-hint",
       })
     end,
-  },
-  {
-    "SmiteshP/nvim-navbuddy",
-    keys = {
-      { "<Leader>n", "<Cmd>Navbuddy<CR>", desc = "Navbuddy" },
-    },
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      {
-        "SmiteshP/nvim-navic",
-        opts = {
-          highlight = true,
-          click = true,
-        },
-        init = function()
-          -- Use winbar to display
-          vim.o.winbar = "%{%v:lua.require('nvim-navic').get_location()%}"
-        end,
-      },
-    },
-    opts = {
-      border = "none",
-      lsp = { auto_attach = true },
-    },
   },
   {
     "williamboman/mason-lspconfig.nvim",
