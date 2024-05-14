@@ -1,6 +1,7 @@
 return {
   {
-    "folke/neodev.nvim",
+    "sindrets/diffview.nvim",
+    event = "VeryLazy",
     opts = {},
   },
 }

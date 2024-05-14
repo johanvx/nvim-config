@@ -1,20 +1,14 @@
-User.opt = {
-  toggle = function(opt, tf)
-    tf = tf or { true, false }
-    vim.o[opt] = vim.o[opt] == tf[2] and tf[1] or tf[2]
-  end,
-}
-
 -- UI
 vim.opt.background = "dark"
 vim.opt.cmdheight = 1
 vim.opt.cmdwinheight = 5
 vim.opt.cursorline = true
+vim.opt.cursorlineopt = "number"
 vim.opt.fillchars = {
   eob = " ",
   fold = " ",
-  foldclose = "",
-  foldopen = "",
+  foldclose = "",
+  foldopen = "",
   foldsep = "│",
   horiz = "─",
   horizdown = "┬",
@@ -48,6 +42,7 @@ vim.opt.splitright = true
 vim.opt.switchbuf = "usetab"
 vim.opt.synmaxcol = 2000 -- 3000 by default
 vim.opt.termguicolors = true
+vim.opt.visualbell = true
 vim.opt.wrap = false
 
 -- GUI
@@ -86,6 +81,7 @@ vim.opt.virtualedit = { "onemore", "block" }
 vim.opt.whichwrap = "h,l,<,>,[,],~"
 vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.wildoptions = "pum"
+vim.opt.wildmode = "list:longest"
 
 -- Misc.
 -- Backup

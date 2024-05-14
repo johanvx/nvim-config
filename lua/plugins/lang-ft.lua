@@ -23,10 +23,8 @@ return {
       end
     end,
   },
-  -- Requires `rust-analyzer` for Rust
-  --
   -- This plugin doesn't set up the `servers.rust_analyzer` for `nvim-lspconfig`,
-  -- so need to set up `servers.rust_analyzer` that manually in `lsp.lua`.
+  -- so need to set it up manually in `lsp.lua`.
   {
     "rust-lang/rust.vim",
     ft = "rust",
@@ -34,7 +32,7 @@ return {
   -- A `tsserver` alternative for TypeScript
   --
   -- This plugin acts as a replacement of `servers.tsserver` for
-  -- `nvim-lspconfig`, so don't set up `tsserver` manually in `lsp.lua`.
+  -- `nvim-lspconfig`, so don't set it up manually in `lsp.lua`.
   {
     "pmizio/typescript-tools.nvim",
     enabled = true,
@@ -57,6 +55,15 @@ return {
   {
     "kaarmu/typst.vim",
     ft = "typst",
+  },
+  -- Pkl support
+  {
+    "apple/pkl-neovim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    build = ":TSInstall pkl",
+    event = { "BufReadPre *.pkl" },
   },
 }
 

@@ -3,6 +3,13 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+    dependencies = {
+      {
+        "nvim-treesitter/nvim-treesitter-context",
+        enabled = false,
+        opts = {},
+      },
+    },
     keys = {
       {
         "<LocalLeader><LocalLeader><LocalLeader>",
@@ -42,6 +49,7 @@ return {
         "toml",
         "tsx",
         "typescript",
+        "typst",
         "vim",
         "vimdoc",
         "yaml",
@@ -50,9 +58,16 @@ return {
         enable = true,
         additional_vim_regex_highlighting = false,
       },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<C-H>",
+          node_incremental = "<C-N>",
+          scope_incremental = "<C-H>",
+          node_decremental = "<C-P>",
+        },
+      },
       indent = { enable = true },
-      -- JoosepAlviste/nvim-ts-context-commentstring
-      context_commentstring = { enable = true, enable_autocmd = false },
     },
     config = function(_, opts)
       -- Prefer Git
