@@ -535,9 +535,10 @@ return {
           return statusline.combine_groups({
             { hl = mode_hl, strings = { mode } },
             { hl = "statuslineDevinfo", strings = { git, diagnostics } },
+            "%=", -- End left alignment
             "%<", -- Mark general truncate point
             { hl = "statuslineFilename", strings = { filename } },
-            "%=", -- End left alignment
+            "%=", -- End center alignment
             { hl = "statuslineFileinfo", strings = { fileinfo } },
             {
               hl = mode_hl,
@@ -555,6 +556,7 @@ return {
   },
   {
     "echasnovski/mini.tabline",
+    enabled = false,
     opts = {},
   },
   {
