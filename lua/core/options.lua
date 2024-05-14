@@ -22,6 +22,7 @@ vim.opt.foldcolumn = "auto"
 vim.opt.foldenable = true
 vim.opt.foldlevel = 4
 vim.opt.foldlevelstart = 4
+vim.opt.laststatus = 3 -- global statusline
 vim.opt.linebreak = true
 vim.opt.list = true
 vim.opt.listchars = {
