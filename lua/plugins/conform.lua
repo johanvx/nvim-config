@@ -7,40 +7,69 @@ return {
     event = "VeryLazy",
     keys = {
       {
-        "<Leader>lf",
-        "<Cmd>lua User.p.format()<CR>",
+        "<Leader>tf",
+        "<Cmd>FormatToggle<CR>",
         mode = "",
-        desc = "Format",
+        desc = "Toggle Format",
       },
     },
     opts = {
       formatters_by_ft = {
-        ["*"] = { "typos", "codespell", "autocorrect" },
+        ["*"] = {
+          --[["codespell",]]
+          -- "autocorrect",
+          "typos",
+          "trim_newlines",
+          "trim_whitespace",
+        },
         bash = { "shfmt" },
         c = { { "clang_format", "ast-grep" } },
+        cmake = { "gersemi" },
         cpp = { { "clang_format", "ast-grep" } },
         css = { "ast-grep" },
         fish = { "fish_indent" },
         go = { "ast-grep" },
         html = { "ast-grep" },
-        javascript = { { "biome", "deno_fmt" } },
-        javascriptreact = { { "biome", "deno_fmt" } },
-        json = { { "biome", "deno_fmt" } },
-        jsonc = { { "biome", "deno_fmt" } },
+        javascript = { { "prettier", "deno_fmt", "biome" } },
+        javascriptreact = { { "prettier", "deno_fmt", "biome" } },
+        json = { { "prettier", "deno_fmt", "biome" } },
+        jsonc = { { "prettier", "deno_fmt", "biome" } },
         lua = { { "stylua", "ast-grep" } },
         markdown = { "deno_fmt" },
         python = { "ruff_fix", "ruff_format" },
         rust = { "rustfmt" },
         sh = { "shfmt" },
         toml = { "taplo" },
-        typescript = { { "biome", "deno_fmt" } },
-        typescriptreact = { { "biome", "deno_fmt" } },
+        typescript = { { "prettier", "deno_fmt", "biome" } },
+        typescriptreact = { { "prettier", "deno_fmt", "biome" } },
         typst = { "typstfmt" },
         yaml = { "yamlfmt" },
       },
+      format_on_save = function()
+        if User.p.disable_format_on_save then
+          return
+        end
+        return { lsp_fallback = true, timeout_ms = 500 }
+      end,
     },
     init = function()
       vim.o.formatexpr = "v:lua.require('conform').formatexpr()"
+
+      -- Enable format-on-save by default
+      User.p.disable_format_on_save = false
+
+      vim.api.nvim_create_user_command("FormatToggle", function()
+        User.p.disable_format_on_save = not User.p.disable_format_on_save
+        if User.p.disable_format_on_save then
+          vim.notify("Format-on-save is disabled.", vim.log.levels.INFO)
+        else
+          vim.notify("Format-on-save is enabled.", vim.log.levels.INFO)
+        end
+      end, {
+        desc = "Toggle format-on-save",
+      })
     end,
   },
 }
+
+-- vim:sw=2:ts=2:sts=2:et:tw=80:cc=+1:norl:

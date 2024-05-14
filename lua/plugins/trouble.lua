@@ -1,6 +1,7 @@
 return {
   {
     "folke/trouble.nvim",
+    enabled = false,
     event = "VeryLazy",
     keys = {
       {

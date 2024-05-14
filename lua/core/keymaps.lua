@@ -3,32 +3,22 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Helper functions
-local function set(modes, lhs, rhs, desc, remap)
-  vim.keymap.set(modes, lhs, rhs, { desc = desc, remap = not not remap })
+local function set(modes, lhs, rhs, desc, remap, silent)
+  vim.keymap.set(
+    modes,
+    lhs,
+    rhs,
+    { desc = desc, remap = not not remap, silent = not not silent }
+  )
 end
 
-local function set_lead(modes, keys, rhs, desc)
-  set(modes, "<Leader>" .. keys, rhs, desc)
+local function set_lead(modes, keys, rhs, desc, remap, silent)
+  set(modes, "<Leader>" .. keys, rhs, desc, remap, silent)
 end
 
-local function set_locallead(modes, keys, rhs, desc)
-  set(modes, "<LocalLeader>" .. keys, rhs, desc)
+local function set_locallead(modes, keys, rhs, desc, remap, silent)
+  set(modes, "<LocalLeader>" .. keys, rhs, desc, remap, silent)
 end
-
-local function set_toggle_with_inspcet(key, opt, tf)
-  -- Set toggle
-  tf = vim.inspect(tf)
-  local trhs = ("<Cmd>lua User.opt.toggle(%q, %s)<CR>"):format(opt, tf)
-  set_locallead("n", key, trhs, ("Toggle %s"):format(opt))
-
-  -- Set inspect
-  local irhs = ("<Cmd>set %s?<CR>"):format(opt)
-  set_locallead("n", "<LocalLeader>" .. key, irhs, ("Inspect %s"):format(opt))
-end
-
--- Buffer actions
-set_lead("n", "bs", "<Cmd>update<CR>", "Save")
-set_lead("n", "bn", "<Cmd>enew<CR>", "New")
 
 -- Cursor movements
 set("", "j", "gj")
@@ -44,6 +34,19 @@ set("", "L", "$", "", true)
 set("n", "+", "<C-a>")
 set("n", "-", "<C-x>")
 
+-- Place search results at the center
+set("n", "n", "nzz", "", false, true)
+set("n", "N", "Nzz", "", false, true)
+set("n", "*", "*zz", "", false, true)
+set("n", "#", "#zz", "", false, true)
+set("n", "g*", "g*zz", "", false, true)
+
+-- Quit
+set_lead("n", "q", "<Cmd>quit<CR>", "Quit current")
+
+-- Save file
+set_lead("n", "w", "<Cmd>write<CR>", "Save file")
+
 -- Select all
 set("n", "<C-a>", "ggVG")
 
@@ -55,58 +58,30 @@ set("x", ">", ">gv")
 set({ "i", "n", "v" }, "<C-s>", "<Cmd>suspend<CR>")
 
 -- System clipboard
-set({ "n", "x" }, "<Leader>c", '"+y', "Copy to system clipboard")
-set("n", "<Leader>p", '"+p', "Paste from system clipboard")
-set("x", "<Leader>p", '"+P', "Paste from system clipboard")
+set_lead({ "n", "x" }, "c", '"+y', "Copy to system clipboard")
+set_lead("n", "p", '"+p', "Paste from system clipboard")
+set_lead("x", "p", '"+P', "Paste from system clipboard")
 
--- Toggle options
-set_toggle_with_inspcet("a", "autochdir")
-set_toggle_with_inspcet("b", "background", { "dark", "light" })
-set_toggle_with_inspcet("C", "cursorcolumn")
-set_toggle_with_inspcet("c", "cursorline")
-set_toggle_with_inspcet("h", "hlsearch")
-set_toggle_with_inspcet("i", "ignorecase")
-set_toggle_with_inspcet("l", "list")
-set_toggle_with_inspcet("n", "number")
-set_toggle_with_inspcet("r", "relativenumber")
-set_toggle_with_inspcet("s", "spell")
-set_toggle_with_inspcet("w", "wrap")
+-- Toggle
+set_locallead("n", "d", "<Cmd>set diff! <Bar> set diff?<CR>", "Diff")
+set_locallead(
+  "n",
+  "s",
+  "<Cmd>set scrollbind! <Bar> set scrollbind?<CR>",
+  "Scroll binding"
+)
 
 -- Type commands quicker
 set({ "n", "v" }, ";", ":")
+
+-- Use "very magic" (less escaping needed) regexes by default
+set("n", "?", "?\\v")
+set("n", "/", "/\\v")
 
 -- Window actions
 set({ "", "!" }, "<Up>", "<Cmd>resize +1<CR>", "Increase height")
 set({ "", "!" }, "<Down>", "<Cmd>resize -1<CR>", "Decrease height")
 set({ "", "!" }, "<Left>", "<Cmd>vertical resize -1<CR>", "Decrease width")
 set({ "", "!" }, "<Right>", "<Cmd>vertical resize +1<CR>", "Increase width")
-set_lead("n", "wb", "<C-w>b", "Focus bottom")
-set_lead("n", "wc", "<C-w>c", "Close")
-set_lead("n", "wd", "<C-w>d", "Split + jump to definition")
-set_lead("n", "wF", "<C-w>F", "Split + edit file name + jump")
-set_lead("n", "wf", "<C-w>f", "Split + edit file name")
-set_lead("n", "wH", "<C-w>H", "Move to very left")
-set_lead("n", "wh", "<C-w>h", "Focus left")
-set_lead("n", "wi", "<C-w>i", "Split + jump to declaration")
-set_lead("n", "wJ", "<C-w>J", "Move to very bottom")
-set_lead("n", "wj", "<C-w>j", "Focus down")
-set_lead("n", "wK", "<C-w>K", "Move to very top")
-set_lead("n", "wk", "<C-w>k", "Focus up")
-set_lead("n", "wL", "<C-w>L", "Move to very right")
-set_lead("n", "wl", "<C-w>l", "Focus right")
-set_lead("n", "wn", "<C-w>n", "Open new")
-set_lead("n", "wo", "<C-w>o", "Close all but current")
-set_lead("n", "wP", "<C-w>P", "Focus preview")
-set_lead("n", "wp", "<C-w>p", "Focus last accessed")
-set_lead("n", "wq", "<C-w>q", "Quit current")
-set_lead("n", "wR", "<C-w>R", "Rotate up/left")
-set_lead("n", "wr", "<C-w>r", "Rotate down/right")
-set_lead("n", "ws", "<C-w>s", "Split horizontally")
-set_lead("n", "wv", "<C-w>v", "Split vertically")
-set_lead("n", "wW", "<C-w>W", "Focus previous")
-set_lead("n", "ww", "<C-w>w", "Focus next")
-set_lead("n", "wx", "<C-w>x", "Exchange windows")
-set_lead("n", "wz", "<C-w>z", "Close preview")
-set_lead("n", "w=", "<C-w>=", "Make windows same dimensions")
 
 -- vim:sw=2:ts=2:sts=2:et:tw=80:cc=+1:norl:

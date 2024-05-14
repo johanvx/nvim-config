@@ -73,10 +73,13 @@ return {
   {
     "echasnovski/mini.bracketed",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      comment = { suffix = "e" },
+    },
   },
   {
     "echasnovski/mini.bufremove",
+    enabled = false,
     keys = {
       {
         "<Leader>bd",
@@ -109,14 +112,14 @@ return {
       return {
         clues = {
           {
-            { mode = "n", keys = "<Leader>b", desc = "+Buffer" },
             { mode = "n", keys = "<Leader>d", desc = "+DAP" },
             { mode = "n", keys = "<Leader>f", desc = "+Pick" },
             { mode = "n", keys = "<Leader>fg", desc = "+Git" },
             { mode = "n", keys = "<Leader>fl", desc = "+LSP" },
             { mode = "n", keys = "<Leader>g", desc = "+Gitsigns" },
             { mode = "n", keys = "<Leader>gh", desc = "+Hunk" },
-            { mode = "n", keys = "<Leader>gt", desc = "+Toggle" },
+            { mode = "n", keys = "<Leader>t", desc = "+Toggle" },
+            { mode = "n", keys = "<Leader>tg", desc = "+Gitsigns" },
             { mode = "n", keys = "<Leader>l", desc = "+LSP" },
             { mode = "n", keys = "<Leader>m", desc = "+MiniMap" },
             { mode = "n", keys = "<Leader>v", desc = "+MiniVisits" },
@@ -240,10 +243,9 @@ return {
   },
   {
     "echasnovski/mini.hues",
-    enabled = true,
     opts = {
-      background = "#0f172a",
-      foreground = "#f8fafc",
+      background = "#08192D",
+      foreground = "#DBEBF5",
       saturation = "high",
     },
   },
@@ -314,9 +316,41 @@ return {
     opts = {},
   },
   {
+    "echasnovski/mini.misc",
+    event = "VeryLazy",
+    keys = {
+      { "<Leader>z", "<Cmd>lua MiniMisc.zoom()<CR>", desc = "Toggle zoom" },
+    },
+    opts = {},
+    config = function(_, opts)
+      require("mini.misc").setup(opts)
+
+      -- Auto cd to the root of current git repo
+      MiniMisc.setup_auto_root()
+
+      -- Nest comment better
+      vim.api.nvim_create_autocmd("BufEnter", {
+        callback = function()
+          MiniMisc.use_nested_comments()
+        end,
+      })
+    end,
+  },
+  {
     "echasnovski/mini.move",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+      mappings = {
+        left = "<C-M-h>",
+        right = "<C-M-l>",
+        down = "<C-M-j>",
+        up = "<C-M-k>",
+        line_left = "<C-M-h>",
+        line_right = "<C-M-l>",
+        line_down = "<C-M-j>",
+        line_up = "<C-M-k>",
+      },
+    },
   },
   {
     "echasnovski/mini.operators",
@@ -325,6 +359,7 @@ return {
   },
   {
     "echasnovski/mini.pairs",
+    enabled = false,
     event = "VeryLazy",
     opts = {},
   },
@@ -335,7 +370,6 @@ return {
       { "<Leader>/", "<Cmd>Pick grep_live<CR>", desc = "Live grep" },
       { "<Leader>f'", "<Cmd>Pick registers<CR>", desc = "Registers" },
       { "<Leader>f=", "<Cmd>Pick spellsuggest<CR>", desc = "Spell" },
-      { "<Leader>fb", "<Cmd>Pick buffers<CR>", desc = "Buffers" },
       { "<Leader>fB", "<Cmd>Pick buf_lines<CR>", desc = "Line in buffers" },
       { "<Leader>fc", "<Cmd>lua User.p.pick_cli()<CR>", desc = "CLI" },
       { "<Leader>fC", "<Cmd>Pick commands<CR>", desc = "Commands" },
@@ -368,41 +402,58 @@ return {
       -- LSP
       {
         "<Leader>flD",
-        "<Cmd>Pick lsp scope='definition'",
+        "<Cmd>Pick lsp scope='definition'<CR>",
         desc = "Definition",
       },
       {
         "<Leader>flS",
-        "<Cmd>Pick lsp scope='workspace_symbol'",
+        "<Cmd>Pick lsp scope='workspace_symbol'<CR>",
         desc = "Workspace symbol",
       },
       {
         "<Leader>fld",
-        "<Cmd>Pick lsp scope='declaration'",
+        "<Cmd>Pick lsp scope='declaration'<CR>",
         desc = "Declaration",
       },
       {
         "<Leader>fli",
-        "<Cmd>Pick lsp scope='implementation'",
+        "<Cmd>Pick lsp scope='implementation'<CR>",
         desc = "Implementation",
       },
       {
         "<Leader>flr",
-        "<Cmd>Pick lsp scope='references'",
+        "<Cmd>Pick lsp scope='references'<CR>",
         desc = "References",
       },
       {
         "<Leader>fls",
-        "<Cmd>Pick lsp scope='document_symbol'",
+        "<Cmd>Pick lsp scope='document_symbol'<CR>",
         desc = "Document symbol",
       },
       {
         "<Leader>flt",
-        "<Cmd>Pick lsp scope='type_definition'",
+        "<Cmd>Pick lsp scope='type_definition'<CR>",
         desc = "Type definition",
       },
+      -- Quick search
+      { "<C-P>", "<Cmd>Pick files<CR>", desc = "Files" },
+      { "<Leader>b", "<Cmd>Pick buffers<CR>", desc = "Buffers" },
     },
-    opts = {},
+    opts = {
+      window = {
+        config = function()
+          height = math.floor(0.618 * vim.o.lines)
+          width = math.floor(0.618 * vim.o.columns)
+          return {
+            anchor = "NW",
+            height = height,
+            width = width,
+            row = math.floor(0.5 * (vim.o.lines - height)),
+            col = math.floor(0.5 * (vim.o.columns - width)),
+          }
+        end,
+      },
+    },
   },
   {
     "echasnovski/mini.splitjoin",
@@ -422,9 +473,9 @@ return {
 
       -- Neovim version
       local v = vim.version()
-      local version = (" v%d.%d.%d"):format(v.major, v.minor, v.patch)
+      local version = (" v%d.%d.%d"):format(v.major, v.minor, v.patch)
       -- Current date and time
-      local datetime = os.date(" %Y-%m-%d %H:%M:%S")
+      local datetime = os.date(" %Y-%m-%d %H:%M:%S")
       -- Padding
       local padding = string.rep(" ", 13)
 
@@ -441,21 +492,21 @@ return {
         evaluate_single = true,
         items = {
           -- Built-in
-          item("i", " New file", "enew | startinsert", "Built-in"),
-          item("q", " Quit", "confirm quitall", "Built-in"),
+          item("i", " New file", "ene | startinsert", "Built-in"),
+          item("q", " Quit", "confirm quitall", "Built-in"),
           -- Pick
-          item("f", " Find files", "Pick files", "Pick"),
-          item("g", " Live grep", "Pick grep_live", "Pick"),
-          item("h", " Help tags", "Pick help", "Pick"),
-          item("o", " Old files", "Pick oldfiles", "Pick"),
+          item("f", " Find files", "Pick files", "Pick"),
+          item("g", " Live grep", "Pick grep_live", "Pick"),
+          item("h", " Help tags", "Pick help", "Pick"),
+          item("o", " Old files", "Pick oldfiles", "Pick"),
           -- Config-related
-          item("c", " Edit configuration", "edit $MYVIMRC", "Config"),
-          item("l", " Lazy panel", "Lazy", "Config"),
-          item("m", " Mason panel", "Mason", "Config"),
+          item("c", " Edit configuration", "edit $MYVIMRC", "Config"),
+          item("l", " Lazy panel", "Lazy", "Config"),
+          item("m", " Mason panel", "Mason", "Config"),
         },
         footer = table.concat({ "", version, datetime, "" }, padding),
         content_hooks = {
-          starter.gen_hook.adding_bullet(" ", true),
+          starter.gen_hook.adding_bullet(" ", true),
           starter.gen_hook.aligning("center", "center"),
         },
       }
@@ -469,8 +520,6 @@ return {
           local statusline = require("mini.statusline")
 
           local mode, mode_hl = statusline.section_mode({ trunc_width = 120 })
-          local spell = vim.wo.spell and "" or ""
-          local wrap = vim.wo.wrap and "" or ""
           local git = statusline.section_git({ trunc_width = 75 })
           local diagnostics =
             statusline.section_diagnostics({ trunc_width = 75 })
@@ -484,7 +533,7 @@ return {
           -- correct padding with spaces between groups (accounts for 'missing'
           -- sections, etc.)
           return statusline.combine_groups({
-            { hl = mode_hl, strings = { mode, spell, wrap } },
+            { hl = mode_hl, strings = { mode } },
             { hl = "statuslineDevinfo", strings = { git, diagnostics } },
             "%<", -- Mark general truncate point
             { hl = "statuslineFilename", strings = { filename } },
@@ -512,12 +561,12 @@ return {
     "echasnovski/mini.trailspace",
     keys = {
       {
-        "<Leader>bt",
+        "<LocalLeader>t",
         "<Cmd>lua MiniTrailspace.trim()<CR>",
         desc = "Trim trailing whitespace",
       },
       {
-        "<Leader>be",
+        "<LocalLeader>e",
         "<Cmd>lua MiniTrailspace.trim_last_lines()<CR>",
         desc = "Trim trailing empty lines",
       },

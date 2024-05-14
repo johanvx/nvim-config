@@ -15,6 +15,8 @@ return {
       "ray-x/lsp_signature.nvim",
       -- Neovim package manager
       "williamboman/mason-lspconfig.nvim",
+      -- Neovim plugin development
+      "folke/neodev.nvim",
     },
     keys = {
       {
@@ -43,14 +45,35 @@ return {
         desc = "Signature (LSP)",
       },
       {
+        "<Leader>la",
+        "<Cmd>lua vim.lsp.buf.code_action()<CR>",
+        mode = { "n", "v" },
+        desc = "Code action",
+      },
+      {
         "<Leader>ld",
         "<Cmd>lua vim.diagnostic.open_float()<CR>",
         desc = "Diagnostics",
       },
       {
+        "<Leader>lq",
+        "<Cmd>lua vim.diagnostic.setqflist()<CR>",
+        desc = "Set quickfix list",
+      },
+      {
         "<Leader>lr",
         "<Cmd>lua vim.lsp.buf.rename()<CR>",
-        desc = "Rename",
+        desc = "Rename symbol",
+      },
+      {
+        "<Leader>td",
+        "<Cmd>DiagnosticsToggle<CR>",
+        desc = "Toggle diagnostics",
+      },
+      {
+        "<Leader>ti",
+        "<Cmd>InlayHintToggle<CR>",
+        desc = "Toggle inlay hint",
       },
     },
     opts = {
@@ -90,7 +113,7 @@ return {
                 callSnippet = "Replace",
               },
               diagnostics = {
-                globals = { "vim" },
+                globals = { "vim", "User" },
               },
               hint = {
                 enable = true,
@@ -98,6 +121,12 @@ return {
             },
           },
         },
+        -- `neocmakelsp` for CMake
+        neocmake = {},
+        -- `pylyzer` for Python
+        -- pylyzer = {},
+        -- `pyright` for Python
+        pyright = {},
         -- `ruff-lsp` for Python
         ruff_lsp = {},
         -- `rust-analyzer` for Rust
@@ -139,6 +168,30 @@ return {
           User.p.server_opts_with_fallback(opts.servers[server])
         )
       end
+
+      -- Custom commands
+      vim.api.nvim_create_user_command("DiagnosticsToggle", function()
+        local is_enabled = vim.diagnostic.is_enabled()
+        vim.diagnostic.enable(not is_enabled)
+        if is_enabled then
+          vim.notify("Diagnostics is disabled.", vim.log.levels.INFO)
+        else
+          vim.notify("Diagnostics is enabled.", vim.log.levels.INFO)
+        end
+      end, {
+        desc = "Toggle diagnostics",
+      })
+      vim.api.nvim_create_user_command("InlayHintToggle", function()
+        local is_enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = 0 })
+        vim.lsp.inlay_hint.enable(not is_enabled, { bufnr = 0 })
+        if is_enabled then
+          vim.notify("Inlay-hint is disabled.", vim.log.levels.INFO)
+        else
+          vim.notify("Inlay-hint is enabled.", vim.log.levels.INFO)
+        end
+      end, {
+        desc = "Toggle inlay-hint",
+      })
     end,
   },
   {

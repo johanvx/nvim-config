@@ -55,7 +55,11 @@ return {
             type = "gdb_python",
             request = "launch",
             program = function()
-              return vim.fn.input("gdb --args python ", vim.fn.getcwd() .. "/", "file")
+              return vim.fn.input(
+                "gdb --args python ",
+                vim.fn.getcwd() .. "/",
+                "file"
+              )
             end,
           },
         },
@@ -73,6 +77,7 @@ return {
     event = "VeryLazy",
     dependencies = {
       "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
     },
     keys = {
       {
