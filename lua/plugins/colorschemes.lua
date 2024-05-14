@@ -6,15 +6,21 @@ return {
     opts = {
       flavour = "mocha",
       integrations = {
+        barbecue = {
+          dim_dirname = false,
+          bold_basename = true,
+          dim_context = false,
+          alt_background = false,
+        },
+        colorful_winsep = {
+          enabled = true,
+          color = "sapphire",
+        },
         cmp = true,
         gitsigns = true,
         mini = {
           enabled = true,
-          indentscope_color = "overlay0",
-        },
-        navic = {
-          enabled = true,
-          custom_bg = "NONE",
+          indentscope_color = "overlay2",
         },
         vimwiki = true,
       },
@@ -85,7 +91,7 @@ return {
           return {
             -- Builtins
             NormalFloat = { fg = p.text, bg = p.surface0 },
-            -- If you prefer grey-scale comment, consider p.overlay1 (slate.400)
+            -- If you prefer grey-scale comment, consider p.overlay1
             Comment = { fg = p.yellow },
             Character = { fg = p.red },
             String = { fg = p.blue },
@@ -117,42 +123,58 @@ return {
             SpecialComment = { link = "Special" },
             Debug = { link = "Special" },
             Underlined = { fg = p.sapphire, style = { "underline" } },
-            Ignore = { fg = p.overlay0 },
-            Conceal = { fg = p.overlay0 }, -- Same as Ignore
-            NonText = { fg = p.overlay0 }, -- Same as Ignore
-            EndOfBuffer = { fg = p.overlay0 }, -- Same as Ignore
-            Whitespace = { fg = p.overlay0 }, -- Same as Ignore
-            VertSplit = { fg = p.overlay0 }, -- Same as Ignore
-            WinSeparator = { fg = p.overlay0 }, -- Same as Ignore
-            LineNr = { fg = p.overlay0 }, -- Same as Ignore
+            Ignore = { fg = p.overlay1 },
+            Conceal = { fg = p.overlay1 }, -- Same as Ignore
+            NonText = { fg = p.overlay1 }, -- Same as Ignore
+            EndOfBuffer = { fg = p.overlay1 }, -- Same as Ignore
+            Whitespace = { fg = p.overlay1 }, -- Same as Ignore
+            VertSplit = { fg = p.overlay1 }, -- Same as Ignore
+            WinSeparator = { fg = p.overlay1 }, -- Same as Ignore
+            LineNr = { fg = p.overlay1 }, -- Same as Ignore
             CursorLineNr = { fg = p.subtext1 }, -- The most contrast
             Error = { fg = p.red },
             Todo = { fg = p.sapphire },
-            CursorLine = { bg = p.surface1 },
+            CursorLine = { bg = p.surface2 },
             ColorColumn = { link = "CursorLine" },
-            FloatBorder = { fg = p.surface1, bg = p.surface0 },
+            FloatBorder = { fg = p.surface2, bg = p.surface0 },
             MsgArea = { bg = p.base },
-            StatusLine = { fg = p.text, bg = p.surface1 },
+            StatusLine = { fg = p.text, bg = p.surface0 },
             StatusLineNC = { fg = p.subtext1, bg = p.surface0 },
             CurSearch = { link = "IncSearch" },
+            Pmenu = { fg = p.text, bg = p.surface0 },
+            PmenuKind = { fg = p.text, bg = p.surface0 },
+            PmenuExtra = { fg = p.text, bg = p.surface0 },
+            PmenuSel = { fg = p.surface0, bg = p.text, style = {} },
+            PmenuKindSel = { fg = p.surface0, bg = p.text },
+            PmenuExtraSel = { fg = p.surface0, bg = p.text },
+
+            -- Cmp
+            CmpItemAbbr = { fg = p.text },
+            CmpItemAbbrDefault = { fg = p.text },
+            CmpItemAbbrDeprecated = { fg = p.red },
+            CmpItemAbbrDeprecatedDefault = { fg = p.red },
+            CmpItemAbbrMatch = { fg = p.cyan },
+            CmpItemAbbrMatchDefault = { fg = p.cyan },
+            CmpItemAbbrMatchFuzzy = { fg = p.cyan },
+            CmpItemAbbrMatchFuzzyDefault = { fg = p.cyan },
 
             -- Gitsigns
-            GitSignsCurrentLineBlame = { fg = p.overlay0 }, -- Same as Ignore
+            GitSignsCurrentLineBlame = { fg = p.overlay1 }, -- Same as Ignore
 
             -- LSP
-            LspInlayHint = { fg = p.overlay0 }, -- Same as Ignore
+            LspInlayHint = { fg = p.overlay1 }, -- Same as Ignore
 
             -- Mini
-            MiniHipatternsFixme = { fg = p.red, bg = p.surface1 },
-            MiniHipatternsHack = { fg = p.pink, bg = p.surface1 },
-            MiniHipatternsTodo = { fg = p.sapphire, bg = p.surface1 },
-            MiniHipatternsNote = { fg = p.sapphire, bg = p.surface1 },
+            MiniHipatternsFixme = { fg = p.red, bg = p.surface0 },
+            MiniHipatternsHack = { fg = p.pink, bg = p.surface0 },
+            MiniHipatternsTodo = { fg = p.sapphire, bg = p.surface0 },
+            MiniHipatternsNote = { fg = p.sapphire, bg = p.surface0 },
             MiniPickPrompt = { fg = p.sapphire, bg = p.surface0 },
-            MiniPickBorderText = { fg = p.overlay0, bg = p.surface0 },
-            MiniStatuslineInactive = { fg = p.overlay0, bg = p.surface0 },
+            MiniPickBorderText = { fg = p.overlay1, bg = p.surface0 },
+            MiniStatuslineInactive = { fg = p.overlay1, bg = p.surface0 },
             MiniTablineCurrent = { fg = p.text, bg = p.base, style = {} },
             MiniTablineFill = { bg = p.surface0 },
-            MiniTablineHidden = { fg = p.overlay0, bg = p.surface0 },
+            MiniTablineHidden = { fg = p.overlay1, bg = p.surface0 },
             MiniTablineVisible = { fg = p.overlay1, bg = p.base },
 
             -- Treesitter

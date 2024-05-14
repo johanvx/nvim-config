@@ -38,3 +38,5 @@ function User.p.server_opts_with_fallback(opts)
 end
 
 return {}
+
+-- vim:sw=2:ts=2:sts=2:et:tw=80:cc=+1:norl:
