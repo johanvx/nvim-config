@@ -14,6 +14,14 @@ return {
       },
     },
     opts = {
+      formatters = {
+        -- typstyle
+        typstyle = {
+          command = "typstyle", -- YOU SHOULD INSTALL IT YOURSELF RIGHT NOW
+          stdin = false,
+          args = { "-i", "$FILENAME" },
+        },
+      },
       formatters_by_ft = {
         ["*"] = {
           --[["codespell",]]
@@ -42,7 +50,7 @@ return {
         toml = { "taplo" },
         typescript = { { "prettier", "deno_fmt", "biome" } },
         typescriptreact = { { "prettier", "deno_fmt", "biome" } },
-        typst = { "typstfmt" },
+        typst = { "typstyle" },
         yaml = { "yamlfmt" },
       },
       format_on_save = function()
