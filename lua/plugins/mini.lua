@@ -195,6 +195,11 @@ return {
     opts = {},
   },
   {
+    "echasnovski/mini.diff",
+    event = "VeryLazy",
+    opts = {},
+  },
+  {
     "echasnovski/mini.doc",
     event = "VeryLazy",
     opts = {},
@@ -219,6 +224,12 @@ return {
   {
     "echasnovski/mini.fuzzy",
     lazy = true,
+    opts = {},
+  },
+  {
+    "echasnovski/mini-git",
+    enabled = false,
+    event = "VeryLazy",
     opts = {},
   },
   {
@@ -339,18 +350,7 @@ return {
   {
     "echasnovski/mini.move",
     event = "VeryLazy",
-    opts = {
-      mappings = {
-        left = "<C-M-h>",
-        right = "<C-M-l>",
-        down = "<C-M-j>",
-        up = "<C-M-k>",
-        line_left = "<C-M-h>",
-        line_right = "<C-M-l>",
-        line_down = "<C-M-j>",
-        line_up = "<C-M-k>",
-      },
-    },
+    opts = {},
   },
   {
     "echasnovski/mini.operators",

@@ -23,12 +23,17 @@ end
 -- Cursor movements
 set("", "j", "gj")
 set("", "k", "gk")
-set("!", "<C-j>", "<Down>")
-set("!", "<C-k>", "<Up>")
-set("!", "<C-h>", "<Left>")
-set("!", "<C-l>", "<Right>")
 set("", "H", "^", "", true)
 set("", "L", "$", "", true)
+-- Some Emacs stuff
+set("!", "<C-n>", "<Down>")
+set("!", "<C-p>", "<Up>")
+set("!", "<C-b>", "<Left>")
+set("!", "<C-f>", "<Right>")
+set("!", "<C-a>", "<Home>")
+set("!", "<C-e>", "<End>")
+set("!", "<C-h>", "<BS>")
+set("!", "<C-d>", "<Del>")
 
 -- Increment/decrement
 set("n", "+", "<C-a>")

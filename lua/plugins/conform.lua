@@ -25,7 +25,7 @@ return {
       formatters_by_ft = {
         ["*"] = {
           --[["codespell",]]
-          -- "autocorrect",
+          "autocorrect",
           "typos",
           "trim_newlines",
           "trim_whitespace",
