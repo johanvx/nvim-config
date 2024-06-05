@@ -1,7 +1,6 @@
 return {
   {
     "mfussenegger/nvim-lint",
-    enabled = false,
     dependencies = {
       "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
@@ -10,6 +9,8 @@ return {
       linters_by_ft = {
         ["*"] = { "typos", "proselint" },
         bash = { "shellcheck" },
+        c = { "clangtidy" },
+        cpp = { "clangtidy" },
         fish = { "fish" },
         javascript = { "eslint", "deno", "biomejs" },
         javascriptreact = { "deno", "biomejs" },

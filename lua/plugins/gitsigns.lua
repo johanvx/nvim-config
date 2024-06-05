@@ -1,6 +1,7 @@
 return {
   {
     "lewis6991/gitsigns.nvim",
+    enabled = false,
     event = "VeryLazy",
     keys = {
       { "]h", "<Cmd>Gitsigns next_hunk<CR>", desc = "Next hunk" },

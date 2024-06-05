@@ -21,6 +21,34 @@ return {
           end,
         },
         mapping = cmp.mapping.preset.insert({
+          ["<C-x><C-n>"] = cmp.mapping(function(fallback)
+            if not cmp.visible() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end, { "i", "c" }),
+          ["<C-x><C-p>"] = cmp.mapping(function(fallback)
+            if not cmp.visible() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end, { "i", "c" }),
+          ["<C-n>"] = cmp.mapping(function(_)
+            if cmp.visible() then
+              cmp.select_next_item()
+            else
+              User.fn.feedkey("<Down>", "n")
+            end
+          end, { "i", "c" }),
+          ["<C-p>"] = cmp.mapping(function(_)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            else
+              User.fn.feedkey("<Up>", "n")
+            end
+          end, { "i", "c" }),
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-]>"] = cmp.mapping.complete(),
