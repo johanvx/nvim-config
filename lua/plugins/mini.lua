@@ -119,7 +119,6 @@ return {
             { mode = "n", keys = "<Leader>g", desc = "+Gitsigns" },
             { mode = "n", keys = "<Leader>gh", desc = "+Hunk" },
             { mode = "n", keys = "<Leader>t", desc = "+Toggle" },
-            { mode = "n", keys = "<Leader>tg", desc = "+Gitsigns" },
             { mode = "n", keys = "<Leader>l", desc = "+LSP" },
             { mode = "n", keys = "<Leader>m", desc = "+MiniMap" },
             { mode = "n", keys = "<Leader>v", desc = "+MiniVisits" },
@@ -228,9 +227,11 @@ return {
   },
   {
     "echasnovski/mini-git",
-    enabled = false,
     event = "VeryLazy",
     opts = {},
+    config = function(_, _)
+      require("mini.git").setup()
+    end,
   },
   {
     "echasnovski/mini.hipatterns",
@@ -367,7 +368,7 @@ return {
     "echasnovski/mini.pick",
     cmd = { "Pick" },
     keys = {
-      { "<Leader>/", "<Cmd>Pick grep_live<CR>", desc = "Live grep" },
+      { "g/", "<Cmd>Pick grep_live<CR>", desc = "Live grep" },
       { "<Leader>f'", "<Cmd>Pick registers<CR>", desc = "Registers" },
       { "<Leader>f=", "<Cmd>Pick spellsuggest<CR>", desc = "Spell" },
       { "<Leader>fB", "<Cmd>Pick buf_lines<CR>", desc = "Line in buffers" },
@@ -441,17 +442,13 @@ return {
     },
     opts = {
       window = {
-        config = function()
-          height = math.floor(0.618 * vim.o.lines)
-          width = math.floor(0.618 * vim.o.columns)
-          return {
-            anchor = "NW",
-            height = height,
-            width = width,
-            row = math.floor(0.5 * (vim.o.lines - height)),
-            col = math.floor(0.5 * (vim.o.columns - width)),
-          }
-        end,
+        config = {
+          anchor = "NW",
+          height = vim.o.lines,
+          width = vim.o.columns,
+          row = 0,
+          col = 0,
+        },
       },
     },
   },
@@ -548,6 +545,10 @@ return {
         end,
       },
     },
+    config = function(_, opts)
+      require("mini.statusline").setup(opts)
+      vim.opt.laststatus = 3
+    end,
   },
   {
     "echasnovski/mini.surround",

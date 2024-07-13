@@ -25,16 +25,13 @@ return {
         vimwiki = true,
       },
       color_overrides = {
-        -- Use colors from the default color palette of TailwindCSS
-        --
-        -- Use only 6 color names:
-        -- red, green, blue, sapphire, pink and yellow
+        -- Use colors from Lettepa
         mocha = {
           rosewater = "#ED5A65", -- Nakabeni
           flamingo = "#FD67B8", -- brTsutsuji
           pink = "#FD67B8", -- brTsutsuji
           mauve = "#37B4FD", -- brRuri
-          red = "#ED5A65", -- rose.500, pick
+          red = "#ED5A65", -- Nakabeni
           maroon = "#F9BF45", -- Tamako
           peach = "#F9BF45", -- Tamako
           yellow = "#F9BF45", -- Tamako
@@ -44,18 +41,18 @@ return {
           sapphire = "#71DCEA", -- brChigusa
           blue = "#37B4FD", -- brRuri
           lavender = "#37B4FD", -- brRuri
-          text = "#DBEBF5", -- white
-          subtext1 = "#8FA0AC", -- brgrey
-          subtext0 = "#8FA0AC", -- brgrey
-          overlay2 = "#778998", -- grey
-          overlay1 = "#778998", -- grey
-          overlay0 = "#5C7186", -- dimgrey
-          surface2 = "#5C7186", -- dimgrey
-          surface1 = "#1B2F45", -- brblack
-          surface0 = "#1B2F45", -- brblack
-          base = "#08192D", -- black, Kachi
-          mantle = "#08192D", -- black, Kachi
-          crust = "#08192D", -- black, Kachi
+          text = "#CCE0EC", -- White
+          subtext1 = "#83A2B7", -- brGrey
+          subtext0 = "#83A2B7", -- brGrey
+          overlay2 = "#728A9E", -- Grey
+          overlay1 = "#728A9E", -- Grey
+          overlay0 = "#728A9E", -- Grey
+          surface2 = "#24384F", -- brBlack
+          surface1 = "#24384F", -- brBlack
+          surface0 = "#24384F", -- brBlack
+          base = "#08192D", -- Black, Kachi
+          mantle = "#08192D", -- Black, Kachi
+          crust = "#08192D", -- Black, Kachi
         },
         latte = {
           rosewater = "#CB1B45", -- kurenai
@@ -72,18 +69,18 @@ return {
           sapphire = "#3A8FB7", -- Chigusa
           blue = "#005CAF", -- Ruri
           lavender = "#005CAF", -- Ruri
-          text = "#1B2F45", -- brblack
-          subtext1 = "#5C7186", -- dimgrey
-          subtext0 = "#5C7186", -- dimgrey
-          overlay2 = "#778998", -- grey
-          overlay1 = "#778998", -- grey
-          overlay0 = "#8FA0AC", -- brgrey
-          surface2 = "#8FA0AC", -- brgrey
-          surface1 = "#DBEBF5", -- white
-          surface0 = "#DBEBF5", -- white
-          base = "#E5F2F9", -- brwhite
-          mantle = "#E5F2F9", -- brwhite
-          crust = "#E5F2F9", -- brwhite
+          text = "#24384F", -- brBlack
+          subtext1 = "#5C7186", -- dimGrey
+          subtext0 = "#5C7186", -- dimGrey
+          overlay2 = "#728A9E", -- Grey
+          overlay1 = "#728A9E", -- Grey
+          overlay0 = "#728A9E", -- Grey
+          surface2 = "#CCE0EC", -- White
+          surface1 = "#CCE0EC", -- White
+          surface0 = "#CCE0EC", -- White
+          base = "#DFF3FF", -- brWhite
+          mantle = "#DFF3FF", -- brWhite
+          crust = "#DFF3FF", -- brWhite
         },
       },
       highlight_overrides = {
@@ -91,11 +88,11 @@ return {
           return {
             -- Builtins
             NormalFloat = { fg = p.text, bg = p.surface0 },
-            -- If you prefer grey-scale comment, consider p.overlay1
+            -- If you prefer grey-scale comment, consider p.overlay0
             Comment = { fg = p.yellow },
             Character = { fg = p.red },
             String = { fg = p.blue },
-            Constant = { fg = p.yellow },
+            Constant = { link = "String" },
             Boolean = { link = "Constant" },
             Number = { link = "Constant" },
             Float = { link = "Constant" },
@@ -123,20 +120,20 @@ return {
             SpecialComment = { link = "Special" },
             Debug = { link = "Special" },
             Underlined = { fg = p.sapphire, style = { "underline" } },
-            Ignore = { fg = p.overlay1 },
-            Conceal = { fg = p.overlay1 }, -- Same as Ignore
-            NonText = { fg = p.overlay1 }, -- Same as Ignore
-            EndOfBuffer = { fg = p.overlay1 }, -- Same as Ignore
-            Whitespace = { fg = p.overlay1 }, -- Same as Ignore
-            VertSplit = { fg = p.overlay1 }, -- Same as Ignore
-            WinSeparator = { fg = p.overlay1 }, -- Same as Ignore
-            LineNr = { fg = p.overlay1 }, -- Same as Ignore
+            Ignore = { fg = p.overlay0 },
+            Conceal = { fg = p.overlay0 }, -- Same as Ignore
+            NonText = { fg = p.overlay0 }, -- Same as Ignore
+            EndOfBuffer = { fg = p.overlay0 }, -- Same as Ignore
+            Whitespace = { fg = p.overlay0 }, -- Same as Ignore
+            VertSplit = { fg = p.overlay0 }, -- Same as Ignore
+            WinSeparator = { fg = p.overlay0 }, -- Same as Ignore
+            LineNr = { fg = p.overlay0 }, -- Same as Ignore
             CursorLineNr = { fg = p.subtext1 }, -- The most contrast
             Error = { fg = p.red },
             Todo = { fg = p.sapphire },
-            CursorLine = { bg = p.surface2 },
+            CursorLine = { bg = p.surface0 },
             ColorColumn = { link = "CursorLine" },
-            FloatBorder = { fg = p.surface2, bg = p.surface0 },
+            FloatBorder = { fg = p.overlay0, bg = p.surface0 },
             MsgArea = { bg = p.base },
             StatusLine = { fg = p.text, bg = p.surface0 },
             StatusLineNC = { fg = p.subtext1, bg = p.surface0 },
@@ -159,30 +156,32 @@ return {
             CmpItemAbbrMatchFuzzyDefault = { fg = p.cyan },
 
             -- Gitsigns
-            GitSignsCurrentLineBlame = { fg = p.overlay1 }, -- Same as Ignore
+            GitSignsCurrentLineBlame = { fg = p.overlay0 }, -- Same as Ignore
 
             -- LSP
-            LspInlayHint = { fg = p.overlay1 }, -- Same as Ignore
+            LspInlayHint = { fg = p.overlay0 }, -- Same as Ignore
 
             -- Mini
+            MiniFilesCursorLine = { style = { "reverse" } },
             MiniHipatternsFixme = { fg = p.red, bg = p.surface0 },
             MiniHipatternsHack = { fg = p.pink, bg = p.surface0 },
             MiniHipatternsTodo = { fg = p.sapphire, bg = p.surface0 },
             MiniHipatternsNote = { fg = p.sapphire, bg = p.surface0 },
             MiniPickPrompt = { fg = p.sapphire, bg = p.surface0 },
-            MiniPickBorderText = { fg = p.overlay1, bg = p.surface0 },
-            MiniStatuslineInactive = { fg = p.overlay1, bg = p.surface0 },
+            MiniPickBorderText = { fg = p.overlay0, bg = p.surface0 },
+            MiniPickMatchCurrent = { style = { "reverse" } },
+            MiniStatuslineInactive = { fg = p.overlay0, bg = p.surface0 },
             MiniTablineCurrent = { fg = p.text, bg = p.base, style = {} },
             MiniTablineFill = { bg = p.surface0 },
-            MiniTablineHidden = { fg = p.overlay1, bg = p.surface0 },
-            MiniTablineVisible = { fg = p.overlay1, bg = p.base },
+            MiniTablineHidden = { fg = p.overlay0, bg = p.surface0 },
+            MiniTablineVisible = { fg = p.overlay0, bg = p.base },
 
             -- Treesitter
             ["@comment.documentation"] = { fg = p.green },
             ["@constant"] = { link = "Constant" },
             ["@constant.builtin"] = { link = "Constant" },
             ["@constructor"] = { link = "Type" },
-            ["@field"] = { link = "Normal" },
+            ["@field"] = { fg = p.text },
             ["@function.builtin"] = { link = "Function" },
             ["@function.macro"] = { link = "Macro" },
             ["@keyword"] = { link = "Keyword" },
@@ -196,11 +195,11 @@ return {
             ["@number.css"] = { link = "Number" },
             ["@parameter"] = { fg = p.text },
             ["@parameter.reference"] = { fg = p.text },
-            ["@property"] = { link = "Normal" },
-            ["@property.css"] = { link = "Normal" },
+            ["@property"] = { fg = p.text },
             ["@property.class.css"] = { link = "Type" },
-            ["@property.id.css"] = { link = "Normal" },
-            ["@property.toml"] = { link = "Normal" },
+            ["@property.css"] = { fg = p.text },
+            ["@property.id.css"] = { fg = p.text },
+            ["@property.toml"] = { fg = p.text },
             ["@punctuation.bracket"] = { link = "Ignore" },
             ["@punctuation.delimiter"] = { link = "Ignore" },
             ["@punctuation.special"] = { link = "SpecialChar" },
@@ -213,6 +212,16 @@ return {
             ["@tag"] = { link = "Tag" },
             ["@tag.attribute"] = { link = "@property" },
             ["@tag.delimiter"] = { link = "@punctuation.delimiter" },
+            ["@text"] = { fg = p.text },
+            ["@text.emphasis"] = { fg = p.yellow, style = { "italic" } },
+            ["@text.literal"] = { fg = p.green },
+            ["@text.note"] = { link = "MiniHipatternsNote" },
+            ["@text.reference"] = { fg = p.pink },
+            ["@text.strong"] = { fg = p.sapphire, style = { "bold" } },
+            ["@text.title"] = { fg = p.sapphire },
+            ["@text.todo"] = { link = "MiniHipatternsTodo" },
+            ["@text.underline"] = { link = "Underlined" },
+            ["@text.uri"] = { link = "Underlined" },
             ["@type"] = { link = "Type" },
             ["@type.builtin"] = { link = "Type" },
             ["@type.builtin.c"] = { link = "Type" },
@@ -220,19 +229,11 @@ return {
             ["@type.css"] = { link = "Type" },
             ["@type.qualifier"] = { link = "Type" },
             ["@type.tag.css"] = { link = "Tag" },
-            ["@text"] = { link = "Normal" },
-            ["@text.emphasis"] = { fg = p.yellow, style = { "italic" } },
-            ["@text.literal"] = { fg = p.green },
-            ["@text.reference"] = { fg = p.pink },
-            ["@text.strong"] = { fg = p.sapphire, style = { "bold" } },
-            ["@text.title"] = { fg = p.sapphire },
-            ["@text.todo"] = { link = "MiniHipatternsTodo" },
-            ["@text.note"] = { link = "MiniHipatternsNote" },
-            ["@text.underline"] = { link = "Underlined" },
-            ["@text.uri"] = { link = "Underlined" },
-            ["@variable"] = { link = "Normal" },
-            ["@variable.parameter"] = { link = "Normal" },
-            ["@variable.builtin"] = { link = "String" },
+            ["@variable"] = { fg = p.text },
+            ["@variable.builtin"] = { link = "Type" },
+            ["@variable.member"] = { fg = p.text },
+            ["@variable.parameter"] = { fg = p.text },
+            ["@variable.parameter.builtin"] = { link = "Type" },
           }
         end,
       },

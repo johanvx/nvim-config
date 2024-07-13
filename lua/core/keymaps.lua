@@ -25,7 +25,7 @@ set("", "j", "gj")
 set("", "k", "gk")
 set("", "H", "^", "", true)
 set("", "L", "$", "", true)
--- Some Emacs stuff
+-- Some Emacs stuff (or similar)
 set("!", "<C-n>", "<Down>")
 set("!", "<C-p>", "<Up>")
 set("!", "<C-b>", "<Left>")
@@ -34,6 +34,8 @@ set("!", "<C-a>", "<Home>")
 set("!", "<C-e>", "<End>")
 set("!", "<C-h>", "<BS>")
 set("!", "<C-d>", "<Del>")
+-- Delete shift width at the start of the line (paired with <C-t>)
+set("i", "<C-y>", "<C-d>")
 
 -- Increment/decrement
 set("n", "+", "<C-a>")
