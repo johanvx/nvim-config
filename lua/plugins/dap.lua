@@ -4,38 +4,38 @@ return {
     event = "VeryLazy",
     keys = {
       {
-        "<Leader>dB",
+        "<Leader>GB",
         function()
           require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
         end,
         desc = "Set breakpoint",
       },
       {
-        "<Leader>db",
+        "<Leader>Gb",
         "<Cmd>DapToggleBreakpoint<CR>",
         desc = "Toggle breakpoint",
       },
       {
-        "<Leader>dC",
+        "<Leader>GC",
         "<Cmd>lua require('dap').run_to_cursor()<CR>",
         desc = "Run to cursor",
       },
-      { "<Leader>dc", "<Cmd>DapContinue<CR>", desc = "Continue" },
+      { "<Leader>Gc", "<Cmd>DapContinue<CR>", desc = "Continue" },
       {
-        "<Leader>dg",
+        "<Leader>Gg",
         "<Cmd>lua require('dap').goto_()<CR>",
         desc = "Goto",
       },
-      { "<Leader>di", "<Cmd>DapStepInto<CR>", desc = "Step into" },
-      { "<Leader>dj", "<Cmd>lua require('dap').down()<CR>", desc = "Down" },
-      { "<Leader>dk", "<Cmd>lua require('dap').up()<CR>", desc = "Up" },
-      { "<Leader>dO", "<Cmd>DapStepOut<CR>", desc = "Step out" },
-      { "<Leader>do", "<Cmd>DapStepOver<CR>", desc = "Step out" },
-      { "<Leader>dp", "<Cmd>lua require('dap').pause()<CR>", desc = "Pause" },
-      { "<Leader>dq", "<Cmd>DapTerminate<CR>", desc = "Terminate" },
-      { "<Leader>dr", "<Cmd>DapToggleRepl<CR>", desc = "Toggle REPL" },
+      { "<Leader>Gi", "<Cmd>DapStepInto<CR>", desc = "Step into" },
+      { "<Leader>Gj", "<Cmd>lua require('dap').down()<CR>", desc = "Down" },
+      { "<Leader>Gk", "<Cmd>lua require('dap').up()<CR>", desc = "Up" },
+      { "<Leader>GO", "<Cmd>DapStepOut<CR>", desc = "Step out" },
+      { "<Leader>Go", "<Cmd>DapStepOver<CR>", desc = "Step out" },
+      { "<Leader>Gp", "<Cmd>lua require('dap').pause()<CR>", desc = "Pause" },
+      { "<Leader>Gq", "<Cmd>DapTerminate<CR>", desc = "Terminate" },
+      { "<Leader>Gr", "<Cmd>DapToggleRepl<CR>", desc = "Toggle REPL" },
       {
-        "<leader>dw",
+        "<Leader>Gw",
         "<Cmd>lua require('dap.ui.widgets').hover()<CR>",
         desc = "Widgets",
       },
@@ -81,13 +81,13 @@ return {
     },
     keys = {
       {
-        "<Leader>de",
+        "<Leader>Ge",
         "<Cmd>lua require('dapui').eval()<CR>",
         mode = { "n", "v" },
         desc = "Eval",
       },
       {
-        "<Leader>du",
+        "<Leader>Gu",
         "<Cmd>lua require('dapui').toggle()<CR>",
         desc = "Toggle UI",
       },

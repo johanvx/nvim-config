@@ -43,23 +43,23 @@ return {
         desc = "Signature (LSP)",
       },
       {
-        "<Leader>la",
+        "<LocalLeader><Leader>a",
         "<Cmd>lua vim.lsp.buf.code_action()<CR>",
         mode = { "n", "v" },
         desc = "Code action",
       },
       {
-        "<Leader>ld",
+        "<LocalLeader><Leader>d",
         "<Cmd>lua vim.diagnostic.open_float()<CR>",
         desc = "Diagnostics",
       },
       {
-        "<Leader>lq",
+        "<LocalLeader><Leader>q",
         "<Cmd>lua vim.diagnostic.setqflist()<CR>",
         desc = "Set quickfix list",
       },
       {
-        "<Leader>lr",
+        "<LocalLeader><Leader>r",
         "<Cmd>lua vim.lsp.buf.rename()<CR>",
         desc = "Rename symbol",
       },
