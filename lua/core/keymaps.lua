@@ -48,12 +48,6 @@ set("n", "*", "*zz", "", false, true)
 set("n", "#", "#zz", "", false, true)
 set("n", "g*", "g*zz", "", false, true)
 
--- Quit
-set_lead("n", "q", "<Cmd>quit<CR>", "Quit current")
-
--- Save file
-set_lead("n", "w", "<Cmd>write<CR>", "Save file")
-
 -- Select all
 set("n", "<C-a>", "ggVG")
 
@@ -65,7 +59,7 @@ set("x", ">", ">gv")
 set({ "i", "n", "v" }, "<C-s>", "<Cmd>suspend<CR>")
 
 -- System clipboard
-set_lead({ "n", "x" }, "c", '"+y', "Copy to system clipboard")
+set_lead({ "n", "x" }, "y", '"+y', "Copy to system clipboard")
 set_lead("n", "p", '"+p', "Paste from system clipboard")
 set_lead("x", "p", '"+P', "Paste from system clipboard")
 
