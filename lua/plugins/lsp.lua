@@ -125,8 +125,8 @@ return {
         -- pylyzer = {},
         -- `pyright` for Python
         pyright = {},
-        -- `ruff-lsp` for Python
-        ruff_lsp = {},
+        -- `ruff` for Python
+        ruff = {},
         -- `rust-analyzer` for Rust
         rust_analyzer = {
           general = { positionEncodings = { "utf-16", "utf-8" } },
@@ -166,6 +166,11 @@ return {
           User.p.server_opts_with_fallback(opts.servers[server])
         )
       end
+
+      -- Diagnostic setups
+      --
+      -- No virtual texts, no underlines
+      vim.diagnostic.config({ virtual_text = false, underline = false })
 
       -- Custom commands
       vim.api.nvim_create_user_command("DiagnosticsToggle", function()

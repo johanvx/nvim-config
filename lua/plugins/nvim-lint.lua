@@ -16,7 +16,7 @@ return {
         javascriptreact = { "deno", "biomejs" },
         json = { "eslint", "deno", "biomejs" },
         jsonc = { "eslint", "deno", "biomejs" },
-        lua = { "selene", "luacheck" },
+        lua = { "selene" },
         markdown = { "deno" },
         python = { "ruff" },
         sh = { "shellcheck" },
