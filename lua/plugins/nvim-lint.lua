@@ -73,7 +73,7 @@ return {
             end, names)
 
             if #names > 0 then
-              lint.try_lint(names)
+              lint.try_lint(names, { ignore_errors = true })
             end
           end,
         }

@@ -80,12 +80,18 @@ return {
         ast_grep = {},
         -- `bash-language-server` for Bash
         bashls = {},
+        -- `biome` for frontend
+        biome = { single_file_support = true },
         -- `clangd` for C/C++
         clangd = {
           capabilities = {
             offsetEncoding = { "utf-16", "utf-8" },
           },
         },
+        -- `css-variables-language-server` for CSS
+        css_variables = {},
+        -- `css-languageserver` from `vscode-langservers-extracted` for CSS
+        cssls = {},
         -- -- `deno` for frontend
         -- denols = {
         --   filetypes = {
