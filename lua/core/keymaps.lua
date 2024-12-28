@@ -35,7 +35,7 @@ set("!", "<C-e>", "<End>")
 set("!", "<C-h>", "<BS>")
 set("!", "<C-d>", "<Del>")
 -- Delete shift width at the start of the line (paired with <C-t>)
-set("i", "<C-y>", "<C-d>")
+set("i", "<C-g>", "<C-d>")
 
 -- Increment/decrement
 set("n", "+", "<C-a>")

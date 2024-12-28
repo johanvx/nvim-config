@@ -32,8 +32,9 @@ function User.p.server_opts_with_fallback(opts)
         },
       })
     end,
-    -- Use hrsh7th/cmp-nvim-lsp for hrsh7th/nvim-cmp
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+
+    -- Use saghen/blink.cmp
+    capabilities = require("blink.cmp").get_lsp_capabilities(),
   })
 end
 

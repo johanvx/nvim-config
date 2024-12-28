@@ -8,13 +8,22 @@ return {
       -- Linter
       "mfussenegger/nvim-lint",
       -- Completion
-      "hrsh7th/cmp-nvim-lsp",
+      -- "hrsh7th/cmp-nvim-lsp",
+      "saghen/blink.cmp",
       -- Signature
       "ray-x/lsp_signature.nvim",
       -- Neovim package manager
       "williamboman/mason-lspconfig.nvim",
-      -- Neovim plugin development
-      "folke/neodev.nvim",
+      -- Fast LuaLS setup for Neovim
+      {
+        "folke/lazydev.nvim",
+        ft = "lua",
+        opts = {
+          library = {
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
+        },
+      },
     },
     keys = {
       {
@@ -153,14 +162,14 @@ return {
             },
           },
         },
-        -- `typos-lsp` for spell check
-        typos_lsp = {},
-        -- `typst-lsp` for Typst
-        typst_lsp = {
+        -- `tinymist` for Typst
+        tinymist = {
           settings = {
-            exportPdf = "onType", -- Choose onType, onSave or never.
+            exportPdf = "onType",
           },
         },
+        -- `typos-lsp` for spell check
+        typos_lsp = {},
       },
     },
     config = function(_, opts)

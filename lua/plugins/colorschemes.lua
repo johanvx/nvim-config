@@ -145,7 +145,7 @@ return {
             PmenuKindSel = { fg = p.surface0, bg = p.text },
             PmenuExtraSel = { fg = p.surface0, bg = p.text },
 
-            -- Cmp
+            -- Cmp, used to highlight blink.cmp
             CmpItemAbbr = { fg = p.text },
             CmpItemAbbrDefault = { fg = p.text },
             CmpItemAbbrDeprecated = { fg = p.red },
@@ -249,7 +249,6 @@ return {
     priority = 1000, -- load first
     config = function()
       vim.cmd("colorscheme base16-gruvbox-dark-hard")
-      -- vim.cmd("colorscheme base16-solarized-dark")
       vim.o.background = "dark"
       -- Make comments more prominent -- they are important.
       local bools = vim.api.nvim_get_hl(0, { name = "Boolean" })
