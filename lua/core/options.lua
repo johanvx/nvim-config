@@ -2,6 +2,7 @@
 vim.opt.background = "dark"
 vim.opt.cmdheight = 1
 vim.opt.cmdwinheight = 5
+vim.opt.colorcolumn = "+1"
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
 vim.opt.fillchars = {

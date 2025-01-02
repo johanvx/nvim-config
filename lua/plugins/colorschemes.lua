@@ -177,7 +177,7 @@ return {
             MiniTablineVisible = { fg = p.overlay0, bg = p.base },
 
             -- Treesitter
-            ["@comment.documentation"] = { fg = p.green },
+            ["@comment.documentation"] = { fg = p.red },
             ["@constant"] = { link = "Constant" },
             ["@constant.builtin"] = { link = "Constant" },
             ["@constructor"] = { link = "Type" },

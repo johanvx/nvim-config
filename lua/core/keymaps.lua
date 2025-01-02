@@ -75,10 +75,6 @@ set_locallead(
 -- Type commands quicker
 set({ "n", "v" }, ";", ":")
 
--- Use "very magic" (less escaping needed) regexes by default
-set("n", "?", "?\\v")
-set("n", "/", "/\\v")
-
 -- Window actions
 set({ "", "!" }, "<Up>", "<Cmd>resize +1<CR>", "Increase height")
 set({ "", "!" }, "<Down>", "<Cmd>resize -1<CR>", "Decrease height")
