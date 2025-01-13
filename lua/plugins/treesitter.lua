@@ -61,10 +61,10 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<C-H>",
-          node_incremental = "<C-N>",
-          scope_incremental = "<C-H>",
-          node_decremental = "<C-P>",
+          init_selection = "ss",
+          node_incremental = "gn",
+          scope_incremental = "ss",
+          node_decremental = "gN",
         },
       },
       indent = { enable = true },
