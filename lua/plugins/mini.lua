@@ -360,6 +360,7 @@ return {
   },
   {
     "echasnovski/mini.move",
+    enabled = false,
     event = "VeryLazy",
     opts = {},
   },
