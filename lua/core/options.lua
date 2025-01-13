@@ -48,8 +48,8 @@ vim.opt.visualbell = true
 vim.opt.wrap = false
 
 -- GUI
-vim.opt.guifont = "MonaspiceNe Nerd Font:h24"
-vim.opt.guifontwide = "Noto Sans CJK SC:h24"
+vim.opt.guifont = "Departure Mono:h16"
+vim.opt.guifontwide = "Unifont:h16"
 
 -- Edit
 vim.opt.autowrite = true
