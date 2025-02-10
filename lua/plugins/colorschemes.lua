@@ -14,7 +14,7 @@ return {
         },
         colorful_winsep = {
           enabled = true,
-          color = "sapphire",
+          color = "sky",
         },
         cmp = true,
         gitsigns = true,
@@ -27,60 +27,76 @@ return {
       color_overrides = {
         -- Use colors from Lettepa
         mocha = {
-          rosewater = "#ED5A65", -- Nakabeni
-          flamingo = "#FD67B8", -- brTsutsuji
-          pink = "#FD67B8", -- brTsutsuji
-          mauve = "#37B4FD", -- brRuri
-          red = "#ED5A65", -- Nakabeni
-          maroon = "#F9BF45", -- Tamako
-          peach = "#F9BF45", -- Tamako
-          yellow = "#F9BF45", -- Tamako
-          green = "#47D2BC", -- brAomidori
-          teal = "#47D2BC", -- brAomidori
-          sky = "#71DCEA", -- brChigusa
-          sapphire = "#71DCEA", -- brChigusa
-          blue = "#37B4FD", -- brRuri
-          lavender = "#37B4FD", -- brRuri
-          text = "#CCE0EC", -- White
-          subtext1 = "#83A2B7", -- brGrey
-          subtext0 = "#83A2B7", -- brGrey
-          overlay2 = "#728A9E", -- Grey
-          overlay1 = "#728A9E", -- Grey
-          overlay0 = "#728A9E", -- Grey
-          surface2 = "#24384F", -- brBlack
-          surface1 = "#24384F", -- brBlack
-          surface0 = "#24384F", -- brBlack
-          base = "#08192D", -- Black, Kachi
-          mantle = "#08192D", -- Black, Kachi
-          crust = "#08192D", -- Black, Kachi
+          -- Main colors
+          text = "#bdc0ba", -- Shironezumi
+          subtext1 = "#91989F", -- Ginnezumi
+          subtext0 = "#91989F", -- Ginnezumi
+          overlay2 = "#656765", -- Nibi
+          overlay1 = "#656765", -- Nibi
+          overlay0 = "#656765", -- Nibi
+          surface2 = "#0F2540", -- Kon
+          surface1 = "#0F2540", -- Kon
+          surface0 = "#0F2540", -- Kon
+          base = "#08192D", -- Kachi
+          mantle = "#08192D", -- Kachi
+          crust = "#08192D", -- Kachi
+          -- Accent colors
+          -- Red
+          red = "#DB4D6D", -- Nakabeni
+          rosewater = "#DB4D6D", -- Nakabeni
+          -- Green
+          green = "#66BAB7", -- Mizuasagi
+          teal = "#66BAB7", -- Mizuasagi
+          -- Blue
+          blue = "#2EA9DF", -- Tsuyukusa
+          mauve = "#2EA9DF", -- Tsuyukusa
+          lavender = "#2EA9DF", -- Tsuyukusa
+          -- Cyan
+          sky = "#7DB9DE", -- Wasurenagusa
+          sapphire = "#7DB9DE", -- Wasurenagusa
+          -- Magenta (Pink)
+          pink = "#F596AA", -- Mono
+          flamingo = "#F596AA", -- Mono
+          -- Yellow
+          yellow = "#F7C242", -- Hanaba
+          maroon = "#F7C242", -- Hanaba
+          peach = "#F7C242", -- Hanaba
         },
         latte = {
-          rosewater = "#CB1B45", -- kurenai
-          flamingo = "#E03C8A", -- Tsutsuji
-          pink = "#E03C8A", -- Tsutsuji
+          -- Main colors
+          text = "#0F2540", -- Kon
+          subtext1 = "#434343", -- Keshizumi
+          subtext0 = "#434343", -- Keshizumi
+          overlay2 = "#828282", -- Hai
+          overlay1 = "#828282", -- Hai
+          overlay0 = "#828282", -- Hai
+          surface2 = "#BDC0BA", -- Shironezumi
+          surface1 = "#BDC0BA", -- Shironezumi
+          surface0 = "#BDC0BA", -- Shironezumi
+          base = "#FCFAF2", -- Shironeri
+          mantle = "#FCFAF2", -- Shironeri
+          crust = "#FCFAF2", -- Shironeri
+          -- Accent colors
+          -- Red
+          red = "#CB1B45", -- Kurenai
+          rosewater = "#CB1B45", -- Kurenai
+          -- Green
+          green = "#268785", -- Seiheki
+          teal = "#268785", -- Seiheki
+          -- Blue
+          blue = "#005CAF", -- Ruri
           mauve = "#005CAF", -- Ruri
-          red = "#CB1B45", -- kurenai
-          maroon = "#CA7A2C", -- Kohaku
-          peach = "#CA7A2C", -- Kohaku
-          yellow = "#CA7A2C", -- Kohaku
-          green = "#00AA90", -- Aomidori
-          teal = "#00AA90", -- Aomidori
+          lavender = "#005CAF", -- Ruri
+          -- Cyan
           sky = "#3A8FB7", -- Chigusa
           sapphire = "#3A8FB7", -- Chigusa
-          blue = "#005CAF", -- Ruri
-          lavender = "#005CAF", -- Ruri
-          text = "#24384F", -- brBlack
-          subtext1 = "#5C7186", -- dimGrey
-          subtext0 = "#5C7186", -- dimGrey
-          overlay2 = "#728A9E", -- Grey
-          overlay1 = "#728A9E", -- Grey
-          overlay0 = "#728A9E", -- Grey
-          surface2 = "#CCE0EC", -- White
-          surface1 = "#CCE0EC", -- White
-          surface0 = "#CCE0EC", -- White
-          base = "#DFF3FF", -- brWhite
-          mantle = "#DFF3FF", -- brWhite
-          crust = "#DFF3FF", -- brWhite
+          -- Magenta (Pink)
+          pink = "#E03C8A", -- Tsutsuji
+          flamingo = "#E03C8A", -- Tsutsuji
+          -- Yellow
+          yellow = "#96632E", -- Chojicha
+          maroon = "#96632E", -- Chojicha
+          peach = "#96632E", -- Chojicha
         },
       },
       highlight_overrides = {
@@ -110,7 +126,7 @@ return {
             Define = { link = "PreProc" },
             Macro = { link = "PreProc" },
             PreCondit = { link = "PreProc" },
-            Type = { fg = p.sapphire },
+            Type = { fg = p.sky },
             StorageClass = { link = "Type" },
             Structure = { link = "Type" },
             Typedef = { link = "Type" },
@@ -119,7 +135,7 @@ return {
             Tag = { link = "Special" },
             SpecialComment = { link = "Special" },
             Debug = { link = "Special" },
-            Underlined = { fg = p.sapphire, style = { "underline" } },
+            Underlined = { fg = p.sky, style = { "underline" } },
             Ignore = { fg = p.overlay0 },
             Conceal = { fg = p.overlay0 }, -- Same as Ignore
             NonText = { fg = p.overlay0 }, -- Same as Ignore
@@ -128,15 +144,15 @@ return {
             VertSplit = { fg = p.overlay0 }, -- Same as Ignore
             WinSeparator = { fg = p.overlay0 }, -- Same as Ignore
             LineNr = { fg = p.overlay0 }, -- Same as Ignore
-            CursorLineNr = { fg = p.subtext1 }, -- The most contrast
+            CursorLineNr = { fg = p.subtext0 }, -- The most contrast
             Error = { fg = p.red },
-            Todo = { fg = p.sapphire },
+            Todo = { fg = p.sky },
             CursorLine = { bg = p.surface0 },
             ColorColumn = { link = "CursorLine" },
             FloatBorder = { fg = p.overlay0, bg = p.surface0 },
             MsgArea = { bg = p.base },
             StatusLine = { fg = p.text, bg = p.surface0 },
-            StatusLineNC = { fg = p.subtext1, bg = p.surface0 },
+            StatusLineNC = { fg = p.subtext0, bg = p.surface0 },
             CurSearch = { link = "IncSearch" },
             Pmenu = { fg = p.text, bg = p.surface0 },
             PmenuKind = { fg = p.text, bg = p.surface0 },
@@ -155,9 +171,6 @@ return {
             CmpItemAbbrMatchFuzzy = { fg = p.cyan },
             CmpItemAbbrMatchFuzzyDefault = { fg = p.cyan },
 
-            -- Gitsigns
-            GitSignsCurrentLineBlame = { fg = p.overlay0 }, -- Same as Ignore
-
             -- LSP
             LspInlayHint = { fg = p.overlay0 }, -- Same as Ignore
 
@@ -165,9 +178,9 @@ return {
             MiniFilesCursorLine = { style = { "reverse" } },
             MiniHipatternsFixme = { fg = p.red, bg = p.surface0 },
             MiniHipatternsHack = { fg = p.pink, bg = p.surface0 },
-            MiniHipatternsTodo = { fg = p.sapphire, bg = p.surface0 },
-            MiniHipatternsNote = { fg = p.sapphire, bg = p.surface0 },
-            MiniPickPrompt = { fg = p.sapphire, bg = p.surface0 },
+            MiniHipatternsTodo = { fg = p.sky, bg = p.surface0 },
+            MiniHipatternsNote = { fg = p.sky, bg = p.surface0 },
+            MiniPickPrompt = { fg = p.sky, bg = p.surface0 },
             MiniPickBorderText = { fg = p.overlay0, bg = p.surface0 },
             MiniPickMatchCurrent = { style = { "reverse" } },
             MiniStatuslineInactive = { fg = p.overlay0, bg = p.surface0 },
@@ -217,8 +230,8 @@ return {
             ["@text.literal"] = { fg = p.green },
             ["@text.note"] = { link = "MiniHipatternsNote" },
             ["@text.reference"] = { fg = p.pink },
-            ["@text.strong"] = { fg = p.sapphire, style = { "bold" } },
-            ["@text.title"] = { fg = p.sapphire },
+            ["@text.strong"] = { fg = p.sky, style = { "bold" } },
+            ["@text.title"] = { fg = p.sky },
             ["@text.todo"] = { link = "MiniHipatternsTodo" },
             ["@text.underline"] = { link = "Underlined" },
             ["@text.uri"] = { link = "Underlined" },
