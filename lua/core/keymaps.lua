@@ -64,6 +64,13 @@ set_lead("n", "p", '"+p', "Paste from system clipboard")
 set_lead("x", "p", '"+P', "Paste from system clipboard")
 
 -- Toggle
+set_locallead("n", "b", function()
+  if vim.o.background == "dark" then
+    vim.opt.background = "light"
+  else
+    vim.opt.background = "dark"
+  end
+end, "Background")
 set_locallead("n", "d", "<Cmd>set diff! <Bar> set diff?<CR>", "Diff")
 set_locallead(
   "n",
