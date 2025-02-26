@@ -31,6 +31,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "echasnovski/mini.icons",
     },
+    ft = { "markdown" },
     keys = {
       {
         "<LocalLeader>m",
