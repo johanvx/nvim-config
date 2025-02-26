@@ -14,11 +14,6 @@ function User.p.server_opts_with_fallback(opts)
       -- Use LSP omnifunc
       vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-      -- Use SmiteshP/nvim-navic
-      if client.server_capabilities.documentSymbolProvider then
-        require("nvim-navic").attach(client, bufnr)
-      end
-
       -- Enable inlay hint
       if client.server_capabilities.inlayHintProvider then
         vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })

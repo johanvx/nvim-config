@@ -6,12 +6,6 @@ return {
     opts = {
       flavour = "mocha",
       integrations = {
-        barbecue = {
-          dim_dirname = false,
-          bold_basename = true,
-          dim_context = false,
-          alt_background = false,
-        },
         colorful_winsep = {
           enabled = true,
           color = "sky",
