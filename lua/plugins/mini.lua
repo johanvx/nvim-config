@@ -117,7 +117,7 @@ return {
             { mode = "n", keys = "<Leader>t", desc = "+Toggle" },
             { mode = "n", keys = "<Leader>l", desc = "+Pick LSP" },
             { mode = "n", keys = "<LocalLeader><Leader>", desc = "+LSP" },
-            { mode = "n", keys = "<LocalLeader>m", desc = "+MiniMap" },
+            -- { mode = "n", keys = "<LocalLeader>m", desc = "+MiniMap" },
             {
               mode = "n",
               keys = "<LocalLeader><LocalLeader>",
@@ -267,9 +267,14 @@ return {
     "echasnovski/mini.hues",
     opts = {
       background = "#08192D",
-      foreground = "#DBEBF5",
+      foreground = "#BDC0BA",
       saturation = "high",
     },
+  },
+  {
+    "echasnovski/mini.icons",
+    lazy = true,
+    opts = {},
   },
   {
     "echasnovski/mini.indentscope",
@@ -302,6 +307,7 @@ return {
   },
   {
     "echasnovski/mini.map",
+    enabled = false,
     event = "VeryLazy",
     keys = {
       {

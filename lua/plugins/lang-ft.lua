@@ -25,6 +25,21 @@ return {
       end
     end,
   },
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "echasnovski/mini.icons",
+    },
+    keys = {
+      {
+        "<LocalLeader>m",
+        "<Cmd>RenderMarkdown toggle<CR>",
+        desc = "Toggle markdown render (render-markdown.nvim)",
+      },
+    },
+    opts = {},
+  },
   -- This plugin doesn't set up the `servers.rust_analyzer` for `nvim-lspconfig`,
   -- so need to set it up manually in `lsp.lua`.
   {
