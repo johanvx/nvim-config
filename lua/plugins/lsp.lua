@@ -115,6 +115,8 @@ return {
         --     "markdown",
         --   },
         -- },
+        -- `gopls` for Go
+        gopls = {},
         -- `lua-language-server` for Lua
         lua_ls = {
           settings = {

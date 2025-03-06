@@ -23,6 +23,7 @@ return {
         "codelldb",
         "codespell",
         "gersemi",
+        "gopls",
         "neocmakelsp",
         "proselint",
         "pylyzer",

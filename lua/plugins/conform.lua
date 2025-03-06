@@ -38,7 +38,7 @@ return {
         cpp = { "clang_format" },
         css = { "dprint" },
         fish = { "fish_indent" },
-        go = { "ast-grep" },
+        go = { "gofmt" },
         html = { "deno_fmt" },
         javascript = { "prettier", "deno_fmt", "biome" },
         javascriptreact = { "prettier", "deno_fmt", "biome" },
