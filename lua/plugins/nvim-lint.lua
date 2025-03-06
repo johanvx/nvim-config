@@ -7,7 +7,7 @@ return {
     event = "VeryLazy",
     opts = {
       linters_by_ft = {
-        ["*"] = { "typos", "proselint" },
+        ["*"] = { "typos" },
         bash = { "shellcheck" },
         c = { "clangtidy" },
         cpp = { "clangtidy" },

@@ -25,7 +25,6 @@ return {
         "gersemi",
         "gopls",
         "neocmakelsp",
-        "proselint",
         "pylyzer",
         "pyright",
         "ruff",
