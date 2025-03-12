@@ -47,6 +47,7 @@ set("n", "N", "Nzz", "", false, true)
 set("n", "*", "*zz", "", false, true)
 set("n", "#", "#zz", "", false, true)
 set("n", "g*", "g*zz", "", false, true)
+set("n", "g#", "g#zz", "", false, true)
 
 -- Select all
 set("n", "<C-a>", "ggVG")
