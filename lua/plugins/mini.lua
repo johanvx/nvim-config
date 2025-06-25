@@ -117,12 +117,6 @@ return {
             { mode = "n", keys = "<Leader>t", desc = "+Toggle" },
             { mode = "n", keys = "<Leader>l", desc = "+Pick LSP" },
             { mode = "n", keys = "<LocalLeader><Leader>", desc = "+LSP" },
-            -- { mode = "n", keys = "<LocalLeader>m", desc = "+MiniMap" },
-            {
-              mode = "n",
-              keys = "<LocalLeader><LocalLeader>",
-              desc = "+Inspect",
-            },
           },
           clue.gen_clues.builtin_completion(),
           clue.gen_clues.g(),
@@ -293,6 +287,7 @@ return {
   },
   {
     "echasnovski/mini.jump",
+    enabled = false,
     event = "VeryLazy",
     opts = {
       mappings = {
@@ -302,6 +297,7 @@ return {
   },
   {
     "echasnovski/mini.jump2d",
+    enabled = false,
     event = "VeryLazy",
     opts = {},
   },
