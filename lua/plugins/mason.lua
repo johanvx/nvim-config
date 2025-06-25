@@ -34,7 +34,6 @@ return {
         "stylua",
         "taplo",
         "typos",
-        "typstfmt",
         "yamlfmt",
         "yamllint",
       },
