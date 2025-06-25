@@ -71,6 +71,9 @@ return {
         return "./" .. os.date("!%Y-%m-%dT%H-%M-%SZ") .. "_code.png"
       end,
     },
+    config = function(_, opts)
+      require("nvim-silicon").setup(opts)
+    end,
   },
 }
 
