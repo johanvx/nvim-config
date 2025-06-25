@@ -80,6 +80,9 @@ set_locallead(
   "Scroll binding"
 )
 
+-- Inspect highlight
+set_locallead("n", "<LocalLeader>", "<Cmd>Inspect<CR>", "Inspect highlight")
+
 -- Type commands quicker
 set({ "n", "v" }, ";", ":")
 
