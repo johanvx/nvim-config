@@ -118,7 +118,7 @@ call s:h('String', s:blue)
 call s:h('Character', s:red)
 call s:h('Number', s:blue)
 call s:h('Boolean', s:blue)
-call s:h('Float', s:red)
+call s:h('Float', s:blue)
 
 call s:h('Identifier', s:green)
 call s:h('Function', s:green)
@@ -213,7 +213,7 @@ call s:h('DiffChange', s:yellow, s:bg0)
 call s:h('DiffDelete', s:red, s:bg0)
 call s:h('DiffText', s:red, s:bg0, ['bold'])
 
-call s:h('ColorColumn', s:none, s:ignore)
+call s:h('ColorColumn', s:none, s:bg0)
 
 call s:h('SpellBad', s:fg, s:red0, ['underline'])
 call s:h('SpellCap', s:fg, s:blue0, ['underline'])
