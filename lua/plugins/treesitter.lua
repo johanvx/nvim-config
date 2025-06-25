@@ -36,6 +36,7 @@ return {
         "query",
         "regex",
         "rust",
+        "svelte",
         "swift",
         "toml",
         "tsx",

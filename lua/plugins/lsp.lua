@@ -149,6 +149,8 @@ return {
           general = { positionEncodings = { "utf-16", "utf-8" } },
           cargo = { features = "all" },
         },
+        -- `svelte` for Svelte
+        svelte = {},
         -- `tailwindcss-language-server` for TailwindCSS
         tailwindcss = {},
         -- `taplo` for TOML
