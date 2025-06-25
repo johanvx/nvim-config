@@ -167,6 +167,8 @@ return {
 
             -- LSP
             LspInlayHint = { fg = p.overlay0 }, -- Same as Ignore
+            ["@lsp.mod.documentation"] = { fg = p.red },
+            ["@lsp.typemod.comment.documentation"] = { fg = p.red },
 
             -- Mini
             MiniFilesCursorLine = { style = { "reverse" } },
