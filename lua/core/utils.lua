@@ -30,10 +30,10 @@ function User.fn.path_concat(base, ...)
   )
 
   local ret = base
-  vim.validate({ ["argument 1"] = { ret, "string" } })
+  vim.validate("base", ret, "string")
   for i = 1, count do
     local path = select(i, ...)
-    vim.validate({ [("argument %d"):format(i + 1)] = { path, "string" } })
+    vim.validate(("argument %d"):format(i + 1), path, "string")
     ret = ret .. path_sep .. path
   end
   return ret
