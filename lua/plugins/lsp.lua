@@ -52,10 +52,10 @@ return {
         desc = "Signature (LSP)",
       },
       {
-        "<LocalLeader><Leader>a",
+        "g.",
         "<Cmd>lua vim.lsp.buf.code_action()<CR>",
         mode = { "n", "v" },
-        desc = "Code action",
+        desc = "Code action (LSP)",
       },
       {
         "<LocalLeader><Leader>d",
