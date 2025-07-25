@@ -12,8 +12,11 @@ if User.g.is_macos then
     end
     local status, f = pcall(io.popen, get_appearance(), "r")
     if status then
-      local s = f:read("*a"):gsub("[\n\r]", "")
-      f:close()
+      local s = ""
+      if f then
+        s = f:read("*a"):gsub("[\n\r]", "")
+        f:close()
+      end
       local string2boolean = { ["true"] = true, ["false"] = false }
       if string2boolean[s] then
         vim.cmd("set bg=dark")
