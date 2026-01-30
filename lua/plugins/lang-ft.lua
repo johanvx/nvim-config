@@ -11,7 +11,7 @@ return {
     end,
     keys = {
       {
-        "<LocalLeader>p",
+        "<LocalLeader><Leader>p",
         "<Cmd>MarkdownPreviewToggle<CR>",
         desc = "Toggle markdown preview (markdown-preview.nvim)",
       },
@@ -34,12 +34,14 @@ return {
     ft = { "markdown" },
     keys = {
       {
-        "<LocalLeader>m",
+        "<LocalLeader><Leader>m",
         "<Cmd>RenderMarkdown toggle<CR>",
         desc = "Toggle markdown render (render-markdown.nvim)",
       },
     },
-    opts = {},
+    opts = {
+      file_types = { "markdown" },
+    },
   },
   -- This plugin doesn't set up the `servers.rust_analyzer` for `nvim-lspconfig`,
   -- so need to set it up manually in `lsp.lua`.
