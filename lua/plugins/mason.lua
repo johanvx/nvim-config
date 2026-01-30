@@ -4,9 +4,9 @@ return {
     opts = {
       ui = {
         icons = {
-          package_installed = "",
-          package_pending = "",
-          package_uninstalled = "",
+          package_installed = "o",
+          package_pending = "~",
+          package_uninstalled = "x",
         },
       },
     },
@@ -25,8 +25,6 @@ return {
         "gersemi",
         "gopls",
         "neocmakelsp",
-        "pylyzer",
-        "pyright",
         "ruff",
         "selene",
         "shellcheck",
