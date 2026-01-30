@@ -11,12 +11,12 @@ function User.p.server_opts_with_fallback(opts)
       -- Use echasnovski/mini.completion
       -- vim.bo[bufnr].omnifunc = "v:lua.MiniCompletion.completefunc_lsp"
 
-      -- Use LSP omnifunc
-      vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
+      -- -- Use LSP omnifunc
+      -- vim.bo[bufnr].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-      -- Enable inlay hint
+      -- Enable inlay hint, but not activate it
       if client.server_capabilities.inlayHintProvider then
-        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+        vim.lsp.inlay_hint.enable(false, { bufnr = bufnr })
       end
 
       -- Use ray-x/lsp_signature.nvim

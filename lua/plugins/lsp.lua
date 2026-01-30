@@ -37,48 +37,28 @@ return {
         desc = "Declaration (LSP)",
       },
       {
-        "gi",
-        "<Cmd>lua vim.lsp.buf.implementation()<CR>",
-        desc = "Implementation (LSP)",
-      },
-      {
-        "K",
-        "<Cmd>lua vim.lsp.buf.hover()<CR>",
-        desc = "Information (LSP)",
-      },
-      {
         "<C-K>",
         "<Cmd>lua vim.lsp.buf.signature_help()<CR>",
+        mode = { "n", "i" },
         desc = "Signature (LSP)",
       },
       {
-        "g.",
-        "<Cmd>lua vim.lsp.buf.code_action()<CR>",
-        mode = { "n", "v" },
-        desc = "Code action (LSP)",
-      },
-      {
-        "<LocalLeader><Leader>d",
+        "<LocalLeader>ld",
         "<Cmd>lua vim.diagnostic.open_float()<CR>",
         desc = "Diagnostics",
       },
       {
-        "<LocalLeader><Leader>q",
+        "<LocalLeader>lq",
         "<Cmd>lua vim.diagnostic.setqflist()<CR>",
         desc = "Set quickfix list",
       },
       {
-        "<LocalLeader><Leader>r",
-        "<Cmd>lua vim.lsp.buf.rename()<CR>",
-        desc = "Rename symbol",
-      },
-      {
-        "<Leader>td",
+        "<Leader><Leader>d",
         "<Cmd>DiagnosticsToggle<CR>",
         desc = "Toggle diagnostics",
       },
       {
-        "<Leader>ti",
+        "<Leader><Leader>i",
         "<Cmd>InlayHintToggle<CR>",
         desc = "Toggle inlay hint",
       },
@@ -97,6 +77,8 @@ return {
             offsetEncoding = { "utf-16", "utf-8" },
           },
         },
+        -- `copilot-language-server` for GitHub Copilot
+        copilot = {},
         -- `css-variables-language-server` for CSS
         css_variables = {},
         -- `css-languageserver` from `vscode-langservers-extracted` for CSS
@@ -138,10 +120,6 @@ return {
         },
         -- `neocmakelsp` for CMake
         neocmake = {},
-        -- `pylyzer` for Python
-        -- pylyzer = {},
-        -- `pyright` for Python
-        pyright = {},
         -- `ruff` for Python
         ruff = {},
         -- `rust-analyzer` for Rust
@@ -172,6 +150,8 @@ return {
             exportPdf = "onType",
           },
         },
+        -- `ty` for Python
+        ty = {},
         -- `typos-lsp` for spell check
         typos_lsp = {},
       },
@@ -181,15 +161,20 @@ return {
 
       -- Server setups
       for _, server in pairs(vim.tbl_keys(opts.servers)) do
-        lspconfig[server].setup(
+        -- lspconfig[server].setup(
+        --   User.p.server_opts_with_fallback(opts.servers[server])
+        -- )
+        vim.lsp.config[server] =
           User.p.server_opts_with_fallback(opts.servers[server])
-        )
       end
 
       -- Diagnostic setups
       --
       -- No virtual texts, no underlines
-      vim.diagnostic.config({ virtual_text = false, underline = false })
+      vim.diagnostic.config({
+        virtual_text = true,
+        virtual_lines = false,
+      })
 
       -- Custom commands
       vim.api.nvim_create_user_command("DiagnosticsToggle", function()
