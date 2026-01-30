@@ -7,7 +7,7 @@ return {
     event = "VeryLazy",
     keys = {
       {
-        "<Leader>tf",
+        "<Leader><Leader>f",
         "<Cmd>FormatToggle<CR>",
         mode = "",
         desc = "Toggle Format",
@@ -15,14 +15,6 @@ return {
     },
     opts = {
       default_format_opts = { stop_after_first = true },
-      formatters = {
-        -- typstyle
-        typstyle = {
-          command = "typstyle", -- YOU SHOULD INSTALL IT YOURSELF RIGHT NOW
-          stdin = false,
-          args = { "-i", "$FILENAME" },
-        },
-      },
       formatters_by_ft = {
         ["*"] = {
           --[["codespell",]]
