@@ -5,27 +5,39 @@ require("neovide")
 
 vim.cmd("colorscheme catppuccin")
 
+-- Automatically sync Neovim background with macOS appearance
 if User.g.is_macos then
-  local sync_with_os = function()
-    local get_appearance = function()
-      return "osascript -e 'tell app \"System Events\" to tell appearance preferences to get dark mode'"
+  local function get_appearance()
+    -- Returns true if macOS is in dark mode, false otherwise
+    local cmd =
+      "osascript -e 'tell app \"System Events\" to tell appearance preferences to get dark mode'"
+    local handle = io.popen(cmd, "r")
+    if handle then
+      local result = handle:read("*a"):gsub("[\n\r]", "")
+      handle:close()
+      return result == "true"
     end
-    local status, f = pcall(io.popen, get_appearance(), "r")
-    if status then
-      local s = ""
-      if f then
-        s = f:read("*a"):gsub("[\n\r]", "")
-        f:close()
-      end
-      local string2boolean = { ["true"] = true, ["false"] = false }
-      if string2boolean[s] then
-        vim.cmd("set bg=dark")
+    return false
+  end
+
+  local function sync_with_os(enabled)
+    enabled = enabled or false
+    if enabled then
+      if get_appearance() then
+        vim.opt.background = "dark"
       else
-        vim.cmd("set bg=light")
+        vim.opt.background = "light"
       end
     end
   end
-  sync_with_os()
+
+  -- Optionally, auto-sync on colorscheme change
+  vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "*",
+    callback = sync_with_os,
+  })
+
+  sync_with_os(false)
 end
 
 -- vim:sw=2:ts=2:sts=2:et:tw=80:cc=+1:norl:
