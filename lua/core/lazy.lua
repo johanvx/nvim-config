@@ -15,6 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   { import = "plugins" },
 }, {
+  change_detection = {
+    notify = false,
+  },
   git = { url_format = "git@github.com:%s.git" }, -- Use SSH
   performance = {
     rtp = {
