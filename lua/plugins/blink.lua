@@ -5,17 +5,44 @@ return {
     dependencies = {
       -- Snippet source, but I DON'T USE ANY SNIPPETS FOR NOW
       -- "rafamadriz/friendly-snippets",
+      -- Copilot
+      "fang2hou/blink-copilot",
     },
     opts = {
       keymap = { preset = "default" },
       appearance = {
-        use_nvim_cmp_as_default = true,
         nerd_font_variant = "mono",
+      },
+      completion = {
+        menu = {
+          draw = {
+            columns = { { "label", "label_description" }, { "kind" } },
+          },
+        },
       },
       signature = { enabled = true },
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "markdown" },
+        default = {
+          "lazydev",
+          "copilot",
+          "lsp",
+          "path",
+          "snippets",
+          "buffer",
+          "markdown",
+        },
         providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true,
+          },
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
           markdown = {
             name = "RenderMarkdown",
             module = "render-markdown.integ.blink",
