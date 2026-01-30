@@ -37,10 +37,6 @@ set("!", "<C-d>", "<Del>")
 -- Delete shift width at the start of the line (paired with <C-t>)
 set("i", "<C-g>", "<C-d>")
 
--- Increment/decrement
-set("n", "+", "<C-a>")
-set("n", "-", "<C-x>")
-
 -- Place search results at the center
 set("n", "n", "nzz", "", false, true)
 set("n", "N", "Nzz", "", false, true)
@@ -49,15 +45,9 @@ set("n", "#", "#zz", "", false, true)
 set("n", "g*", "g*zz", "", false, true)
 set("n", "g#", "g#zz", "", false, true)
 
--- Select all
-set("n", "<C-a>", "ggVG")
-
 -- Shifts
 set("x", "<", "<gv")
 set("x", ">", ">gv")
-
--- Suspend
-set({ "i", "n", "v" }, "<C-s>", "<Cmd>suspend<CR>")
 
 -- System clipboard
 set_lead({ "n", "x" }, "y", '"+y', "Copy to system clipboard")
@@ -65,17 +55,17 @@ set_lead("n", "p", '"+p', "Paste from system clipboard")
 set_lead("x", "p", '"+P', "Paste from system clipboard")
 
 -- Toggle
-set_locallead("n", "b", function()
+set_locallead("n", "tb", function()
   if vim.o.background == "dark" then
     vim.opt.background = "light"
   else
     vim.opt.background = "dark"
   end
 end, "Background")
-set_locallead("n", "d", "<Cmd>set diff! <Bar> set diff?<CR>", "Diff")
+set_locallead("n", "td", "<Cmd>set diff! <Bar> set diff?<CR>", "Diff")
 set_locallead(
   "n",
-  "s",
+  "ts",
   "<Cmd>set scrollbind! <Bar> set scrollbind?<CR>",
   "Scroll binding"
 )
