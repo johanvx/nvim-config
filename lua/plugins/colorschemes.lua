@@ -6,11 +6,13 @@ return {
     opts = {
       flavour = "mocha",
       integrations = {
+        blink_cmp = {},
         colorful_winsep = {
           enabled = true,
           color = "sky",
         },
         cmp = true,
+        fzf = true,
         gitsigns = true,
         mini = {
           enabled = true,
@@ -155,15 +157,8 @@ return {
             PmenuKindSel = { fg = p.surface0, bg = p.text },
             PmenuExtraSel = { fg = p.surface0, bg = p.text },
 
-            -- Cmp, used to highlight blink.cmp
-            CmpItemAbbr = { fg = p.text },
-            CmpItemAbbrDefault = { fg = p.text },
-            CmpItemAbbrDeprecated = { fg = p.red },
-            CmpItemAbbrDeprecatedDefault = { fg = p.red },
-            CmpItemAbbrMatch = { fg = p.cyan },
-            CmpItemAbbrMatchDefault = { fg = p.cyan },
-            CmpItemAbbrMatchFuzzy = { fg = p.cyan },
-            CmpItemAbbrMatchFuzzyDefault = { fg = p.cyan },
+            -- blink.cmp
+            BlinkCmpMenuSelection = { link = "PmenuSel" },
 
             -- LSP
             LspInlayHint = { fg = p.overlay0 }, -- Same as Ignore
@@ -197,6 +192,8 @@ return {
             ["@keyword.function"] = { link = "Keyword" },
             ["@keyword.operator"] = { link = "Operator" },
             ["@keyword.return"] = { link = "Operator" },
+            ["@keyword.import.c"] = { link = "Include" },
+            ["@keyword.import.cpp"] = { link = "Include" },
             ["@label"] = { link = "Label" },
             ["@label.json"] = { link = "Label" },
             ["@markup.link.url"] = { link = "Underlined" },
@@ -260,8 +257,6 @@ return {
     lazy = false, -- load at start
     priority = 1000, -- load first
     config = function()
-      vim.cmd("colorscheme gruvbox-dark-hard")
-      vim.o.background = "dark"
       -- Make comments more prominent -- they are important.
       local bools = vim.api.nvim_get_hl(0, { name = "Boolean" })
       vim.api.nvim_set_hl(0, "Comment", bools)
