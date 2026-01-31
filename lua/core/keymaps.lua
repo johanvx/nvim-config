@@ -55,20 +55,13 @@ set_lead("n", "p", '"+p', "Paste from system clipboard")
 set_lead("x", "p", '"+P', "Paste from system clipboard")
 
 -- Toggle
-set_locallead("n", "tb", function()
+set_locallead("n", "b", function()
   if vim.o.background == "dark" then
     vim.opt.background = "light"
   else
     vim.opt.background = "dark"
   end
-end, "Background")
-set_locallead("n", "td", "<Cmd>set diff! <Bar> set diff?<CR>", "Diff")
-set_locallead(
-  "n",
-  "ts",
-  "<Cmd>set scrollbind! <Bar> set scrollbind?<CR>",
-  "Scroll binding"
-)
+end, "Toggle Background")
 
 -- Inspect highlight
 set_locallead("n", "<LocalLeader>", "<Cmd>Inspect<CR>", "Inspect highlight")
