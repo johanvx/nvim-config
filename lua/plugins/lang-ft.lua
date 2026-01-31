@@ -4,6 +4,7 @@ return {
   -- For Markdown
   {
     "iamcco/markdown-preview.nvim",
+    enabled = false,
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     ft = { "markdown" },
     build = function()
@@ -34,7 +35,7 @@ return {
     ft = { "markdown" },
     keys = {
       {
-        "<LocalLeader><Leader>m",
+        "<LocalLeader>m",
         "<Cmd>RenderMarkdown toggle<CR>",
         desc = "Toggle markdown render (render-markdown.nvim)",
       },

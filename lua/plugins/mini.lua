@@ -37,9 +37,6 @@ return {
         clues = {
           {
             { mode = "n", keys = "<Leader><Leader>", desc = "+Toggle" },
-            { mode = "n", keys = "<LocalLeader><Leader>", desc = "+Language" },
-            { mode = "n", keys = "<LocalLeader>l", desc = "+LSP" },
-            { mode = "n", keys = "<LocalLeader>t", desc = "+Toggle" },
           },
           clue.gen_clues.builtin_completion(),
           clue.gen_clues.g(),

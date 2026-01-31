@@ -43,14 +43,14 @@ return {
         desc = "Signature (LSP)",
       },
       {
-        "<LocalLeader>ld",
+        "<LocalLeader>d",
         "<Cmd>lua vim.diagnostic.open_float()<CR>",
-        desc = "Diagnostics",
+        desc = "Diagnostics (LSP)",
       },
       {
-        "<LocalLeader>lq",
-        "<Cmd>lua vim.diagnostic.setqflist()<CR>",
-        desc = "Set quickfix list",
+        "<LocalLeader>q",
+        "<Cmd>lua vim.diagnostic.setloclist()<CR>",
+        desc = "Set diagnostics to location list",
       },
       {
         "<Leader><Leader>d",
