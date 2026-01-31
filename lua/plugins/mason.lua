@@ -18,7 +18,6 @@ return {
     },
     opts = {
       ensure_installed = {
-        "biome",
         "clang-format",
         "codelldb",
         "codespell",

@@ -69,8 +69,6 @@ return {
         ast_grep = {},
         -- `bash-language-server` for Bash
         bashls = {},
-        -- -- `biome` for frontend
-        -- biome = { single_file_support = true },
         -- `clangd` for C/C++
         clangd = {
           capabilities = {
