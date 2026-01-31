@@ -21,6 +21,7 @@ return {
         "clang-format",
         "codelldb",
         "codespell",
+        "copilot",
         "gersemi",
         "neocmakelsp",
         "ruff",
