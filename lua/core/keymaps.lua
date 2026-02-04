@@ -51,8 +51,8 @@ set("x", ">", ">gv")
 
 -- System clipboard
 set_lead({ "n", "x" }, "y", '"+y', "Copy to system clipboard")
-set_lead("n", "p", '"+p', "Paste from system clipboard")
-set_lead("x", "p", '"+P', "Paste from system clipboard")
+set_lead({ "n", "x" }, "p", '"+p', "Paste from system clipboard")
+set_lead({ "n", "x" }, "P", '"+P', "Paste from system clipboard")
 
 -- Toggle
 set_locallead("n", "b", function()
