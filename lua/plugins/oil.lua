@@ -3,7 +3,7 @@ return {
     "stevearc/oil.nvim",
     lazy = false,
     keys = {
-      { "-", "<Cmd>Oil<CR>", desc = "Open parent directory" },
+      { "-", "<Cmd>Oil<CR>", desc = "Browse (Oil)" },
     },
     opts = {
       columns = { "permissions", "size", "mtime" },
