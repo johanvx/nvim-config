@@ -106,6 +106,11 @@ return {
     "nvim-mini/mini.diff",
     event = "VeryLazy",
     opts = {
+      mappings = {
+        apply = "<LocalLeader>h",
+        reset = "<LocalLeader>H",
+        textobject = "gh",
+      },
       view = {
         style = "sign",
       },
