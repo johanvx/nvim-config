@@ -23,7 +23,6 @@ return {
       signature = { enabled = true },
       sources = {
         default = {
-          "lazydev",
           "copilot",
           "lsp",
           "path",
@@ -37,11 +36,6 @@ return {
             module = "blink-copilot",
             score_offset = 100,
             async = true,
-          },
-          lazydev = {
-            name = "LazyDev",
-            module = "lazydev.integrations.blink",
-            score_offset = 100,
           },
           markdown = {
             name = "RenderMarkdown",
