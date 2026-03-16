@@ -24,75 +24,75 @@ return {
         -- Use colors from Lettepa
         mocha = {
           -- Main colors
-          text = "#bdc0ba", -- Shironezumi
-          subtext1 = "#91989F", -- Ginnezumi
-          subtext0 = "#91989F", -- Ginnezumi
-          overlay2 = "#656765", -- Nibi
-          overlay1 = "#656765", -- Nibi
-          overlay0 = "#656765", -- Nibi
-          surface2 = "#0F2540", -- Kon
-          surface1 = "#0F2540", -- Kon
-          surface0 = "#0F2540", -- Kon
-          base = "#08192D", -- Kachi
-          mantle = "#08192D", -- Kachi
-          crust = "#08192D", -- Kachi
+          text = "#bdc0ba", -- Zhenzhuhui
+          subtext1 = "#C4CBCF", -- Dalishihui
+          subtext0 = "#C4CBCF", -- Dalishihui
+          overlay2 = "#5E616D", -- Yuweihui
+          overlay1 = "#5E616D", -- Yuweihui
+          overlay0 = "#5E616D", -- Yuweihui
+          surface2 = "#2B333E", -- Qinghui
+          surface1 = "#2B333E", -- Qinghui
+          surface0 = "#2B333E", -- Qinghui
+          base = "#101F30", -- Anlan
+          mantle = "#101F30", -- Anlan
+          crust = "#101F30", -- Anlan
           -- Accent colors
           -- Red
-          red = "#DB4D6D", -- Nakabeni
-          rosewater = "#DB4D6D", -- Nakabeni
+          red = "#F03752", -- Haitanghong
+          rosewater = "#F03752", -- Haitanghong
           -- Green
-          green = "#66BAB7", -- Mizuasagi
-          teal = "#66BAB7", -- Mizuasagi
+          green = "#57C3C2", -- Shilü
+          teal = "#57C3C2", -- Shilü
           -- Blue
-          blue = "#2EA9DF", -- Tsuyukusa
-          mauve = "#2EA9DF", -- Tsuyukusa
-          lavender = "#2EA9DF", -- Tsuyukusa
+          blue = "#66A9C9", -- Jianshilan
+          mauve = "#66A9C9", -- Jianshilan
+          lavender = "#66A9C9", -- Jianshilan
           -- Cyan
-          sky = "#7DB9DE", -- Wasurenagusa
-          sapphire = "#7DB9DE", -- Wasurenagusa
+          sky = "#51C4D3", -- Pubulan
+          sapphire = "#51C4D3", -- Pubulan
           -- Magenta (Pink)
-          pink = "#F596AA", -- Mono
-          flamingo = "#F596AA", -- Mono
+          pink = "#EA7293", -- Mono
+          flamingo = "#EA7293", -- Mono
           -- Yellow
-          yellow = "#F7C242", -- Hanaba
-          maroon = "#F7C242", -- Hanaba
-          peach = "#F7C242", -- Hanaba
+          yellow = "#FBB957", -- Mihuang
+          maroon = "#FBB957", -- Mihuang
+          peach = "#FBB957", -- Mihuang
         },
         latte = {
           -- Main colors
-          text = "#0F2540", -- Kon
-          subtext1 = "#434343", -- Keshizumi
-          subtext0 = "#434343", -- Keshizumi
-          overlay2 = "#828282", -- Hai
-          overlay1 = "#828282", -- Hai
-          overlay0 = "#828282", -- Hai
-          surface2 = "#BDC0BA", -- Shironezumi
-          surface1 = "#BDC0BA", -- Shironezumi
-          surface0 = "#BDC0BA", -- Shironezumi
-          base = "#FCFAF2", -- Shironeri
-          mantle = "#FCFAF2", -- Shironeri
-          crust = "#FCFAF2", -- Shironeri
+          text = "#2B333E", -- Qinghui
+          subtext1 = "#47484C", -- Waguanhui
+          subtext0 = "#47484C", -- Waguanhui
+          overlay2 = "#B2BBBE", -- Xinghui
+          overlay1 = "#B2BBBE", -- Xinghui
+          overlay0 = "#B2BBBE", -- Xinghui
+          surface2 = "#E4DFD7", -- Zhenzhuhui
+          surface1 = "#E4DFD7", -- Zhenzhuhui
+          surface0 = "#E4DFD7", -- Zhenzhuhui
+          base = "#F8F4ED", -- Hanbaiyu
+          mantle = "#F8F4ED", -- Hanbaiyu
+          crust = "#F8F4ED", -- Hanbaiyu
           -- Accent colors
           -- Red
-          red = "#CB1B45", -- Kurenai
-          rosewater = "#CB1B45", -- Kurenai
+          red = "#C21F30", -- Fengyehong
+          rosewater = "#C21F30", -- Fengyehong
           -- Green
-          green = "#268785", -- Seiheki
-          teal = "#268785", -- Seiheki
+          green = "#12AA9C", -- Meidielü
+          teal = "#12AA9C", -- Meidielü
           -- Blue
-          blue = "#005CAF", -- Ruri
-          mauve = "#005CAF", -- Ruri
-          lavender = "#005CAF", -- Ruri
+          blue = "#1661AB", -- Dianqing
+          mauve = "#1661AB", -- Dianqing
+          lavender = "#1661AB", -- Dianqing
           -- Cyan
-          sky = "#3A8FB7", -- Chigusa
-          sapphire = "#3A8FB7", -- Chigusa
+          sky = "#1E9EB3", -- Cuilan
+          sapphire = "#1E9EB3", -- Cuilan
           -- Magenta (Pink)
-          pink = "#E03C8A", -- Tsutsuji
-          flamingo = "#E03C8A", -- Tsutsuji
+          pink = "#EE2C79", -- Zijinghong
+          flamingo = "#EE2C79", -- Zijinghong
           -- Yellow
-          yellow = "#96632E", -- Chojicha
-          maroon = "#96632E", -- Chojicha
-          peach = "#96632E", -- Chojicha
+          yellow = "#806332", -- Canghuang
+          maroon = "#806332", -- Canghuang
+          peach = "#806332", -- Canghuang
         },
       },
       highlight_overrides = {
