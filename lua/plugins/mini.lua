@@ -109,7 +109,7 @@ return {
       mappings = {
         apply = "<LocalLeader>h",
         reset = "<LocalLeader>H",
-        textobject = "gH",
+        textobject = "gh",
       },
       view = {
         style = "sign",
