@@ -14,16 +14,6 @@ return {
       "ray-x/lsp_signature.nvim",
       -- Neovim package manager
       "williamboman/mason-lspconfig.nvim",
-      -- Fast LuaLS setup for Neovim
-      {
-        "folke/lazydev.nvim",
-        ft = "lua",
-        opts = {
-          library = {
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-          },
-        },
-      },
     },
     keys = {
       {
@@ -110,8 +100,12 @@ return {
               diagnostics = {
                 globals = { "vim", "User" },
               },
-              hint = {
-                enable = true,
+              hint = { enable = true },
+              workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+              },
+              telemetry = {
+                enable = false,
               },
             },
           },
