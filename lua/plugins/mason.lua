@@ -16,25 +16,7 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
     },
-    opts = {
-      ensure_installed = {
-        "clang-format",
-        "codelldb",
-        "codespell",
-        "copilot",
-        "gersemi",
-        "neocmakelsp",
-        "ruff",
-        "selene",
-        "shellcheck",
-        "shfmt",
-        "stylua",
-        "taplo",
-        "typos",
-        "yamlfmt",
-        "yamllint",
-      },
-    },
+    opts = {},
   },
 }
 
