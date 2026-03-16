@@ -14,12 +14,14 @@ return {
         nerd_font_variant = "mono",
       },
       completion = {
+        documentation = { auto_show = true },
         menu = {
           draw = {
             columns = { { "label", "label_description" }, { "kind" } },
           },
         },
       },
+      cmdline = { completion = { menu = { auto_show = true } } },
       signature = { enabled = true },
       sources = {
         default = {
