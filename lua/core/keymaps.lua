@@ -23,8 +23,10 @@ end
 -- Cursor movements
 set("", "j", "gj")
 set("", "k", "gk")
-set("", "gh", "^", "", true)
-set("", "gl", "$", "", true)
+set("", "gH", "H")
+set("", "gL", "L")
+set("", "H", "^", "", true)
+set("", "L", "$", "", true)
 -- Some Emacs stuff (or similar)
 set("!", "<C-n>", "<Down>")
 set("!", "<C-p>", "<Up>")
