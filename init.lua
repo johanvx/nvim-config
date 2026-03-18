@@ -23,6 +23,7 @@ require("plugins.formatter")
 require("plugins.linter")
 require("plugins.treesitter")
 require("plugins.diff")
+require("plugins.img-clip")
 
 -- Language specific
 require("plugins.lang.markdown")

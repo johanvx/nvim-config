@@ -33,6 +33,10 @@
       "rev": "6e41ba7505f35a6f054ca682b043aa0cea36c2ef",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
+    "img-clip.nvim": {
+      "rev": "b6ddfb97b5600d99afe3452d707444afda658aca",
+      "src": "https://github.com/HakonHarnes/img-clip.nvim"
+    },
     "mason.nvim": {
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/mason-org/mason.nvim"
