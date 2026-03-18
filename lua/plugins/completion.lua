@@ -1,14 +1,17 @@
-return {
+vim.pack.add({
   {
-    "saghen/blink.cmp",
-    version = "1.*",
-    dependencies = {
-      -- Snippet source, but I DON'T USE ANY SNIPPETS FOR NOW
-      -- "rafamadriz/friendly-snippets",
-      -- Copilot
-      "fang2hou/blink-copilot",
-    },
-    opts = {
+    src = "https://github.com/saghen/blink.cmp",
+    version = vim.version.range("1.*"),
+  },
+  -- Copilot provider
+  { src = "https://github.com/fang2hou/blink-copilot" },
+})
+
+vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
+  group = vim.api.nvim_create_augroup("SetupCompletion", { clear = true }),
+  once = true,
+  callback = function()
+    require("blink.cmp").setup({
       keymap = { preset = "default" },
       appearance = {
         nerd_font_variant = "mono",
@@ -30,7 +33,6 @@ return {
           "path",
           "snippets",
           "buffer",
-          "markdown",
         },
         providers = {
           copilot = {
@@ -39,15 +41,10 @@ return {
             score_offset = 100,
             async = true,
           },
-          markdown = {
-            name = "RenderMarkdown",
-            module = "render-markdown.integ.blink",
-            fallbacks = { "lsp" },
-          },
         },
       },
-    },
-  },
-}
+    })
+  end,
+})
 
 -- vim:sw=2:ts=2:sts=2:et:tw=80:cc=+1:norl:

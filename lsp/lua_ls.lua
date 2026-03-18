@@ -1,3 +1,4 @@
+-- `lua-language-server` for Lua
 return {
   settings = {
     Lua = {
