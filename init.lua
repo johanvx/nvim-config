@@ -22,6 +22,7 @@ require("plugins.completion")
 require("plugins.formatter")
 require("plugins.linter")
 require("plugins.treesitter")
+require("plugins.diff")
 
 -- Language specific
 require("plugins.lang.markdown")
