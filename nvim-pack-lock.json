@@ -17,6 +17,10 @@
       "rev": "384f304c8b04664c9e0091fbfb3923c5f97c1bcf",
       "src": "https://github.com/catppuccin/nvim"
     },
+    "codediff.nvim": {
+      "rev": "93cd80c56f71af4671388c568a37d4c84c3ddefa",
+      "src": "https://github.com/esmuellert/codediff.nvim"
+    },
     "colorful-winsep.nvim": {
       "rev": "84432d9966fafaa08dd9040c98b0011045d8e964",
       "src": "https://github.com/nvim-zh/colorful-winsep.nvim"
