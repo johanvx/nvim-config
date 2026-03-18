@@ -1,9 +1,21 @@
--- LSPs {{{
--- Lua, `lua-language-server`
-vim.lsp.enable("lua_ls")
--- }}}
+vim.pack.add({
+  { src = "https://github.com/neovim/nvim-lspconfig" },
+  { src = "https://github.com/mason-org/mason.nvim" },
+})
 
--- Auto-commands {{{
+require("mason").setup({
+  ui = {
+    icons = {
+      package_installed = "o",
+      package_pending = "~",
+      package_uninstalled = "x",
+    },
+  },
+})
+
+vim.lsp.enable("copilot")
+vim.lsp.enable("clangd")
+
 -- LSP-local configuration
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
@@ -74,9 +86,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     )
   end,
 })
--- }}}
 
--- Commands {{{
+-- Commands
+
 vim.api.nvim_create_user_command("DiagnosticsToggle", function()
   local is_enabled = vim.diagnostic.is_enabled()
   local status = not is_enabled
@@ -94,4 +106,3 @@ vim.api.nvim_create_user_command("InlayHintToggle", function()
 end, {
   desc = "Toggle inlay-hint",
 })
--- }}}

@@ -1,7 +1,32 @@
 _G.User = {}
 
-require("core")
+-- Core configuration
+require("core.options")
+require("core.keymaps")
+require("core.autocmds")
+require("core.lsp")
+
+-- UI specific
 require("neovide")
+
+-- Common plugins
+require("plugins.colorschemes")
+require("plugins.winsep")
+require("plugins.oil")
+require("plugins.blame")
+require("plugins.numb")
+require("plugins.silicon")
+require("plugins.sk")
+require("plugins.mini")
+require("plugins.completion")
+require("plugins.formatter")
+require("plugins.linter")
+require("plugins.treesitter")
+
+-- Language specific
+require("plugins.lang.markdown")
+require("plugins.lang.rust")
+require("plugins.lang.typst")
 
 vim.cmd("colorscheme catppuccin")
 
@@ -33,11 +58,15 @@ if User.g.is_macos then
 
   -- Optionally, auto-sync on colorscheme change
   vim.api.nvim_create_autocmd("ColorScheme", {
+    group = vim.api.nvim_create_augroup(
+      "SetupBackgroundSyncWithOS",
+      { clear = true }
+    ),
     pattern = "*",
     callback = sync_with_os,
   })
 
-  sync_with_os(false)
+  sync_with_os(true)
 end
 
 -- vim:sw=2:ts=2:sts=2:et:tw=80:cc=+1:norl:

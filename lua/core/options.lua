@@ -1,4 +1,4 @@
--- UI
+-- UI {{{
 vim.opt.background = "dark"
 vim.opt.cmdheight = 1
 vim.opt.cmdwinheight = 5
@@ -46,12 +46,9 @@ vim.opt.synmaxcol = 2000 -- 3000 by default
 vim.opt.termguicolors = true
 vim.opt.visualbell = true
 vim.opt.wrap = false
+-- }}}
 
--- GUI
-vim.opt.guifont = "Departure Mono:h16"
-vim.opt.guifontwide = "Unifont:h16"
-
--- Edit
+-- Edit {{{
 vim.opt.autowrite = true
 vim.opt.backspace = { "indent", "eol", "start" }
 vim.opt.breakindent = true
@@ -84,22 +81,25 @@ vim.opt.whichwrap = "h,l,<,>,[,],~"
 vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.wildoptions = "pum"
 vim.opt.wildmode = "list:longest"
+-- }}}
 
--- Misc.
+-- Misc. {{{
+local globals = require("core.globals")
 -- Backup
 vim.opt.backup = true
-vim.opt.backupdir = User.g.backup_dir
+vim.opt.backupdir = globals.backup_dir
 -- Swap
 vim.opt.swapfile = false
-vim.opt.directory = User.g.swap_dir
+vim.opt.directory = globals.swap_dir
 -- Undo
 vim.opt.undofile = true
-vim.opt.undodir = User.g.undo_dir
+vim.opt.undodir = globals.undo_dir
 -- View
-vim.opt.viewdir = User.g.view_dir
+vim.opt.viewdir = globals.view_dir
 vim.opt.viewoptions = { "folds", "options", "cursor", "unix", "slash" }
 -- Grep
 vim.opt.grepformat = "%f:%l:%c:%m"
 vim.opt.grepprg = "rg --hidden --vimgrep --smart-case --"
+-- }}}
 
 -- vim:sw=2:ts=2:sts=2:et:tw=80:cc=+1:norl:

@@ -1,82 +1,31 @@
-return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    dependencies = {
-      {
-        "nvim-treesitter/nvim-treesitter-context",
-        enabled = false,
-        opts = {},
-      },
-    },
-    opts = {
+vim.pack.add({
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = vim.api.nvim_create_augroup("SetupTreesitter", { clear = true }),
+  once = true,
+  callback = function()
+    -- -- Prefer Git
+    -- require("nvim-treesitter.install").prefer_git = true
+    --
+    -- -- Use SSH
+    -- for _, config in
+    --   pairs(require("nvim-treesitter.parsers").get_parser_configs())
+    -- do
+    --   config.install_info.url =
+    --     config.install_info.url:gsub("https://github.com/", "git@github.com:")
+    -- end
+    require("nvim-treesitter").setup({
       auto_install = false,
       sync_install = false,
-      ensure_installed = {
-        "bash",
-        "bibtex",
-        "c",
-        "comment",
-        "cpp",
-        "css",
-        "dockerfile",
-        "fish",
-        "gitignore",
-        "haskell",
-        "html",
-        "javascript",
-        "json",
-        "latex",
-        "lua",
-        "make",
-        "markdown",
-        "markdown_inline",
-        "python",
-        "query",
-        "regex",
-        "rust",
-        "svelte",
-        "swift",
-        "tera",
-        "toml",
-        "tsx",
-        "typescript",
-        "typst",
-        "vim",
-        "vimdoc",
-        "yaml",
-      },
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
       },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "ss",
-          node_incremental = "sn",
-          scope_incremental = "ss",
-          node_decremental = "sp",
-        },
-      },
       indent = { enable = true },
-    },
-    config = function(_, opts)
-      -- Prefer Git
-      require("nvim-treesitter.install").prefer_git = true
-
-      -- Use SSH
-      for _, config in
-        pairs(require("nvim-treesitter.parsers").get_parser_configs())
-      do
-        config.install_info.url =
-          config.install_info.url:gsub("https://github.com/", "git@github.com:")
-      end
-
-      require("nvim-treesitter.configs").setup(opts)
-    end,
-  },
-}
+    })
+  end,
+})
 
 -- vim:sw=2:ts=2:sts=2:et:tw=80:cc=+1:norl:
