@@ -5,9 +5,7 @@
       "vim.api.nvim_create_autocmd(${1:events}, {",
       "  group = vim.api.nvim_create_augroup(${2:group}, { clear = true }),",
       "  pattern = '*',",
-      "  callback = function()",
-      "    ${3:body}",
-      "  end",
+      "  callback = function() ${0} end",
       "})"
     ]
   },
@@ -18,9 +16,7 @@
       "  group = vim.api.nvim_create_augroup(${2:group}, { clear = true }),",
       "  once = true,",
       "  pattern = '*',",
-      "  callback = function()",
-      "    ${3:body}",
-      "  end",
+      "  callback = function() ${0} end",
       "})"
     ]
   }

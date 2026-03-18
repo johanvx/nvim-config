@@ -57,6 +57,10 @@
       "rev": "dc2f86d2b66a6e01a98c37cdadd3be3e90f8ab9a",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
+    "nvim-scissors": {
+      "rev": "855ce6ba0c0bf3b03428d6352f61940cdcf332f3",
+      "src": "https://github.com/chrisgrieser/nvim-scissors"
+    },
     "nvim-silicon": {
       "rev": "7f66bda8f60c97a5bf4b37e5b8acb0e829ae3c32",
       "src": "https://github.com/michaelrommel/nvim-silicon"

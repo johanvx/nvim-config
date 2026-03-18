@@ -24,6 +24,7 @@ require("plugins.linter")
 require("plugins.treesitter")
 require("plugins.diff")
 require("plugins.img-clip")
+require("plugins.snippets")
 
 -- Language specific
 require("plugins.lang.markdown")
